@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProMakler Digital | Digitale Rendite-Immobilien für Makler</title>
+    <meta name="description" content="Wir entwickeln Ihre digitale Rendite-Immobilie. Professionelle Websites für Immobilienmakler mit onOffice & FlowFact Integration.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #1a2744;
+            --navy-dark: #0f1829;
+            --anthrazit: #2d3436;
+            --anthrazit-light: #3d4446;
+            --gold: #c9a962;
+            --gold-light: #dbc78a;
+            --gold-dark: #a68a4a;
+            --cream: #f8f6f1;
+            --cream-dark: #e8e4db;
+            --white: #ffffff;
+            --blueprint: #1e3a5f;
+            --blueprint-line: rgba(255, 255, 255, 0.08);
+
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--navy-dark);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Blueprint Grid Background */
+        .blueprint-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+            background-image:
+                linear-gradient(var(--blueprint-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px),
+                linear-gradient(var(--blueprint-line) 0.5px, transparent 0.5px),
+                linear-gradient(90deg, var(--blueprint-line) 0.5px, transparent 0.5px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            background-position: -1px -1px, -1px -1px, -0.5px -0.5px, -0.5px -0.5px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(15, 24, 41, 0.95) 0%, rgba(15, 24, 41, 0) 100%);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .nav.scrolled {
+            background: rgba(15, 24, 41, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--cream);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            position: relative;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.4s var(--ease-out-expo);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--navy-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 98, 0.3);
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-blueprint {
+            background: var(--blueprint);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-blueprint::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .blueprint-drawing {
+            width: 90%;
+            max-width: 500px;
+            opacity: 0;
+            animation: fadeInUp 1s var(--ease-out-expo) 0.3s forwards;
+        }
+
+        .blueprint-drawing svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .blueprint-label {
+            position: absolute;
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(30, 58, 95, 0.9);
+            padding: 0.3rem 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .blueprint-label.top-left {
+            top: 15%;
+            left: 10%;
+        }
+
+        .blueprint-label.bottom-right {
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .hero-content {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.5s forwards;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.7s forwards;
+        }
+
+        .hero h1 .highlight {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(248, 246, 241, 0.75);
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 0.9s forwards;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 1.1s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2rem;
+            background: var(--gold);
+            color: var(--navy-dark);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold-light);
+            transform: translateX(-100%);
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 98, 0.35);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateX(0);
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2rem;
+            background: transparent;
+            color: var(--cream);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            border: 1px solid rgba(248, 246, 241, 0.3);
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cream);
+            background: rgba(248, 246, 241, 0.05);
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(248, 246, 241, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.8s var(--ease-out-expo) 1.3s forwards;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(248, 246, 241, 0.7);
+        }
+
+        .trust-badge svg {
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        /* Section Base */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-light {
+            background: var(--cream);
+            color: var(--navy-dark);
+        }
+
+        .section-dark {
+            background: var(--navy);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-tag::before,
+        .section-tag::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-light .section-tag {
+            color: var(--gold-dark);
+        }
+
+        .section-light .section-tag::before,
+        .section-light .section-tag::after {
+            background: var(--gold-dark);
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3.5vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-light h2 {
+            color: var(--navy);
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 8rem 0;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .problem-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .problem-card, .solution-card {
+            padding: 2rem;
+            border-radius: 2px;
+            position: relative;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .problem-card {
+            background: var(--white);
+            border-left: 3px solid #c0392b;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .solution-card {
+            background: var(--navy);
+            color: var(--cream);
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 4px 30px rgba(26, 39, 68, 0.15);
+        }
+
+        .problem-card:hover, .solution-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .problem-card .card-icon {
+            background: rgba(192, 57, 43, 0.1);
+            color: #c0392b;
+        }
+
+        .solution-card .card-icon {
+            background: rgba(201, 169, 98, 0.15);
+            color: var(--gold);
+        }
+
+        .card-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card .card-label {
+            color: #c0392b;
+        }
+
+        .solution-card .card-label {
+            color: var(--gold);
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card .card-title {
+            color: var(--navy);
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .arrow-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+        }
+
+        .arrow-connector svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Angebot Section */
+        .angebot-section {
+            padding: 8rem 0;
+            background: var(--navy);
+            position: relative;
+        }
+
+        .angebot-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--gold));
+        }
+
+        .angebot-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .angebot-visual {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .building-illustration {
+            position: sticky;
+            top: 120px;
+        }
+
+        .building-svg {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .modules-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .module-base {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--anthrazit) 100%);
+            padding: 2.5rem;
+            border: 1px solid rgba(201, 169, 98, 0.3);
+            position: relative;
+        }
+
+        .module-base::before {
+            content: 'GEMEINSCHAFTSEIGENTUM';
+            position: absolute;
+            top: -12px;
+            left: 2rem;
+            background: var(--navy);
+            padding: 0 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
+
+        .module-base h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--cream);
+        }
+
+        .module-base p {
+            color: rgba(248, 246, 241, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .base-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .base-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--cream);
+        }
+
+        .base-feature svg {
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .modules-addons h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .modules-addons h4::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 169, 98, 0.3);
+        }
+
+        .addon-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .addon-card {
+            background: rgba(248, 246, 241, 0.03);
+            border: 1px solid rgba(248, 246, 241, 0.1);
+            padding: 1.75rem;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .addon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .addon-card:hover {
+            background: rgba(248, 246, 241, 0.06);
+            border-color: rgba(201, 169, 98, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .addon-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .addon-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .addon-card h5 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .addon-card p {
+            font-size: 0.9rem;
+            color: rgba(248, 246, 241, 0.6);
+            line-height: 1.6;
+        }
+
+        .angebot-benefit {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(201, 169, 98, 0.08);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+        }
+
+        .angebot-benefit p {
+            font-size: 1.1rem;
+            color: var(--cream);
+        }
+
+        .angebot-benefit strong {
+            color: var(--gold);
+        }
+
+        /* ROI Section */
+        .roi-section {
+            padding: 8rem 0;
+            background: var(--cream);
+        }
+
+        .roi-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .roi-text h2 {
+            color: var(--navy);
+        }
+
+        .roi-text .section-intro {
+            color: var(--anthrazit);
+            margin-bottom: 2rem;
+        }
+
+        .roi-calculator {
+            background: var(--navy);
+            padding: 3rem;
+            position: relative;
+        }
+
+        .roi-calculator::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            left: -10px;
+            border: 1px solid var(--gold);
+            pointer-events: none;
+        }
+
+        .calc-header {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(248, 246, 241, 0.1);
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(248, 246, 241, 0.05);
+        }
+
+        .calc-label {
+            font-size: 0.95rem;
+            color: rgba(248, 246, 241, 0.7);
+        }
+
+        .calc-value {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .calc-highlight {
+            background: rgba(201, 169, 98, 0.1);
+            margin: 1.5rem -1.5rem -1.5rem;
+            padding: 1.5rem;
+        }
+
+        .calc-highlight .calc-label {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .calc-highlight .calc-value {
+            font-size: 1.75rem;
+            color: var(--gold);
+        }
+
+        .roi-bonus {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(201, 169, 98, 0.05);
+            border-left: 3px solid var(--gold);
+        }
+
+        .roi-bonus p {
+            font-size: 0.95rem;
+            color: var(--anthrazit);
+            line-height: 1.7;
+        }
+
+        .roi-bonus strong {
+            color: var(--navy);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0v60M0 30h60' stroke='%23c9a962' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-frame {
+            position: relative;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(201, 169, 98, 0.1) 0%, transparent 100%);
+        }
+
+        .about-image-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 60%;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+
+        .about-image-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            border-bottom: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+
+        .about-image-inner {
+            aspect-ratio: 4/5;
+            background: linear-gradient(180deg, var(--anthrazit) 0%, var(--navy-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-inner svg {
+            width: 120px;
+            height: 120px;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .about-credentials {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: var(--gold);
+            color: var(--navy-dark);
+            padding: 1.25rem 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .about-text h2 {
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
+        .about-text h2 .highlight {
+            color: var(--gold);
+        }
+
+        .about-quote {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .about-body {
+            color: rgba(248, 246, 241, 0.75);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-principles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .principle {
+            padding: 1.25rem;
+            background: rgba(248, 246, 241, 0.03);
+            border: 1px solid rgba(248, 246, 241, 0.08);
+        }
+
+        .principle h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .principle p {
+            font-size: 0.85rem;
+            color: rgba(248, 246, 241, 0.6);
+            line-height: 1.6;
+        }
+
+        /* Phygital Section */
+        .phygital-section {
+            padding: 6rem 0;
+            background: var(--cream-dark);
+        }
+
+        .phygital-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .phygital-text h2 {
+            color: var(--navy);
+        }
+
+        .phygital-text p {
+            color: var(--anthrazit);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .phygital-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .flow-step-number {
+            width: 36px;
+            height: 36px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .flow-step p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .phygital-visual {
+            position: relative;
+        }
+
+        .envelope-illustration {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 8rem 0;
+            background: var(--navy);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: rgba(248, 246, 241, 0.02);
+            border: 1px solid rgba(248, 246, 241, 0.08);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out-expo);
+        }
+
+        .process-step:hover {
+            background: rgba(248, 246, 241, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-step:hover::before {
+            transform: scaleX(1);
+        }
+
+        .step-number {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--gold);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-subtitle {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: rgba(248, 246, 241, 0.65);
+            line-height: 1.7;
+        }
+
+        .process-connector {
+            display: none;
+        }
+
+        /* Final CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--anthrazit) 0%, var(--navy-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            border: 1px solid rgba(201, 169, 98, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            font-size: 1.15rem;
+            color: rgba(248, 246, 241, 0.75);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: rgba(248, 246, 241, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(248, 246, 241, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(248, 246, 241, 0.6);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(248, 246, 241, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(248, 246, 241, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(248, 246, 241, 0.4);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-legal a {
+            color: rgba(248, 246, 241, 0.4);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes drawLine {
+            from {
+                stroke-dashoffset: 1000;
+            }
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-blueprint {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .problem-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .arrow-connector {
+                transform: rotate(90deg);
+                padding: 0.5rem;
+            }
+
+            .angebot-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .building-illustration {
+                display: none;
+            }
+
+            .addon-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .about-principles {
+                grid-template-columns: 1fr;
+            }
+
+            .phygital-content {
+                grid-template-columns: 1fr;
+            }
+
+            .phygital-visual {
+                order: -1;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 24, 41, 0.98);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-content {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .base-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-legal {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blueprint-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="40" height="40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+                    <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+                    <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+                    <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.2"/>
+                </svg>
+            </div>
+            <span class="logo-text">Pro<span>Makler</span></span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#problem">Analyse</a></li>
+            <li><a href="#angebot">Leistungen</a></li>
+            <li><a href="#roi">Rendite</a></li>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#prozess">Prozess</a></li>
+        </ul>
+
+        <a href="#kontakt" class="nav-cta">Exposé anfordern</a>
+
+        <button class="nav-toggle" aria-label="Menü öffnen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-blueprint">
+            <div class="blueprint-drawing">
+                <svg viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Main Building Outline -->
+                    <rect x="50" y="80" width="300" height="220" stroke="white" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
+
+                    <!-- Rooms -->
+                    <rect x="50" y="80" width="150" height="110" stroke="white" stroke-width="0.75" fill="none"/>
+                    <rect x="200" y="80" width="150" height="110" stroke="white" stroke-width="0.75" fill="none"/>
+                    <rect x="50" y="190" width="100" height="110" stroke="white" stroke-width="0.75" fill="none"/>
+                    <rect x="150" y="190" width="100" height="110" stroke="white" stroke-width="0.75" fill="none"/>
+                    <rect x="250" y="190" width="100" height="110" stroke="white" stroke-width="0.75" fill="none"/>
+
+                    <!-- Doors -->
+                    <path d="M120 190 L120 210 A20 20 0 0 1 140 190" stroke="#c9a962" stroke-width="1" fill="none"/>
+                    <path d="M220 190 L220 210 A20 20 0 0 0 200 190" stroke="#c9a962" stroke-width="1" fill="none"/>
+                    <path d="M300 190 L300 210 A20 20 0 0 1 320 190" stroke="#c9a962" stroke-width="1" fill="none"/>
+
+                    <!-- Windows -->
+                    <line x1="75" y1="80" x2="75" y2="65" stroke="#c9a962" stroke-width="1"/>
+                    <line x1="65" y1="65" x2="85" y2="65" stroke="#c9a962" stroke-width="1"/>
+                    <line x1="175" y1="80" x2="175" y2="65" stroke="#c9a962" stroke-width="1"/>
+                    <line x1="165" y1="65" x2="185" y2="65" stroke="#c9a962" stroke-width="1"/>
+                    <line x1="275" y1="80" x2="275" y2="65" stroke="#c9a962" stroke-width="1"/>
+                    <line x1="265" y1="65" x2="285" y2="65" stroke="#c9a962" stroke-width="1"/>
+
+                    <!-- Dimension Lines -->
+                    <line x1="50" y1="320" x2="350" y2="320" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                    <line x1="50" y1="315" x2="50" y2="325" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                    <line x1="350" y1="315" x2="350" y2="325" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                    <text x="200" y="335" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle" font-family="DM Sans">12.500 mm</text>
+
+                    <line x1="30" y1="80" x2="30" y2="300" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                    <line x1="25" y1="80" x2="35" y2="80" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+                    <line x1="25" y1="300" x2="35" y2="300" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+
+                    <!-- Labels -->
+                    <text x="125" y="140" fill="rgba(255,255,255,0.6)" font-size="9" text-anchor="middle" font-family="DM Sans">HERO</text>
+                    <text x="275" y="140" fill="rgba(255,255,255,0.6)" font-size="9" text-anchor="middle" font-family="DM Sans">ABOUT</text>
+                    <text x="100" y="250" fill="rgba(255,255,255,0.6)" font-size="9" text-anchor="middle" font-family="DM Sans">CTA</text>
+                    <text x="200" y="250" fill="rgba(255,255,255,0.6)" font-size="9" text-anchor="middle" font-family="DM Sans">SERVICES</text>
+                    <text x="300" y="250" fill="rgba(255,255,255,0.6)" font-size="9" text-anchor="middle" font-family="DM Sans">ROI</text>
+
+                    <!-- Corner Markers -->
+                    <circle cx="50" cy="80" r="3" fill="#c9a962"/>
+                    <circle cx="350" cy="80" r="3" fill="#c9a962"/>
+                    <circle cx="50" cy="300" r="3" fill="#c9a962"/>
+                    <circle cx="350" cy="300" r="3" fill="#c9a962"/>
+
+                    <!-- Title Block -->
+                    <rect x="250" y="10" width="140" height="50" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="rgba(30,58,95,0.8)"/>
+                    <text x="320" y="30" fill="white" font-size="8" text-anchor="middle" font-family="DM Sans" font-weight="600">DIGITALER GRUNDRISS</text>
+                    <text x="320" y="45" fill="#c9a962" font-size="7" text-anchor="middle" font-family="DM Sans">PROMAKLER WEBSITE v2.0</text>
+                </svg>
+            </div>
+            <span class="blueprint-label top-left">PLANUNG</span>
+            <span class="blueprint-label bottom-right">M 1:100</span>
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-tag">Projektentwicklung für Makler</span>
+            <h1>Wir entwickeln Ihre <span class="highlight">digitale Rendite-Immobilie.</span><br>Egal ob sanierter Altbau oder Neubau-Erstbezug.</h1>
+            <p class="hero-subtitle">Die meisten Makler-Websites sind wie unsanierte Bestandsbauten: Hohe Betriebskosten, schlechte Energiebilanz und Grundrisse, die nicht mehr funktionieren. Wir agieren wie Projektentwickler: Wir prüfen die Substanz, übernehmen den „Umzug" Ihrer Inhalte und übergeben Ihnen den Schlüssel zu einer Top-Lage bei Google.</p>
+
+            <div class="hero-cta-group">
+                <a href="#kontakt" class="btn-primary">
+                    <span>Kostenloses Exposé anfordern</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#angebot" class="btn-secondary">
+                    <span>Leistungen entdecken</span>
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <div class="trust-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Bezugsfertig in 14 Tagen</span>
+                </div>
+                <div class="trust-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>100% onOffice & FlowFact kompatibel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section section-light" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Bausubstanz-Analyse</span>
+                <h2>Warum digitale „Bruchbuden" Sie den Alleinauftrag kosten</h2>
+                <p class="section-intro">Viele Makler verlieren Mandate nicht im persönlichen Gespräch, sondern davor. Eigentümer prüfen Sie online. Wenn Ihre digitale Fassade bröckelt, rufen sie gar nicht erst an.</p>
+            </div>
+
+            <div class="problem-grid">
+                <!-- Row 1 -->
+                <div class="problem-row fade-in">
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            </svg>
+                        </div>
+                        <span class="card-label">Das Problem</span>
+                        <h3 class="card-title">„Mobile Sackgasse"</h3>
+                        <p class="card-description">Interessenten müssen auf dem Smartphone zoomen. Navigation ist unklar. Der Lead springt ab.</p>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="4" y1="16" x2="24" y2="16" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="18 10 24 16 18 22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                                <line x1="6" y1="1" x2="6" y2="4"></line>
+                                <line x1="10" y1="1" x2="10" y2="4"></line>
+                                <line x1="14" y1="1" x2="14" y2="4"></line>
+                            </svg>
+                        </div>
+                        <span class="card-label">Unsere Lösung</span>
+                        <h3 class="card-title">„Barrierefreier Zugang"</h3>
+                        <p class="card-description">Mobile First Architektur. Daumenfreundliche Navigation und Ladezeiten unter 0,8 Sekunden (Energieeffizienz A+).</p>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="problem-row fade-in">
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <span class="card-label">Das Problem</span>
+                        <h3 class="card-title">„Insel-Lösung"</h3>
+                        <p class="card-description">Website und Software (onOffice) sind getrennt. Sie tippen Daten händisch ab. Zeitverschwendung.</p>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="4" y1="16" x2="24" y2="16" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="18 10 24 16 18 22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </div>
+                        <span class="card-label">Unsere Lösung</span>
+                        <h3 class="card-title">„Der Wanddurchbruch"</h3>
+                        <p class="card-description">Wir verbinden Website & CRM via API. Leads fließen automatisch in Ihre Software. Kein Abtippen, kein Datenverlust.</p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="problem-row fade-in">
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <span class="card-label">Das Problem</span>
+                        <h3 class="card-title">„Design-Ruine"</h3>
+                        <p class="card-description">Veraltete Optik signalisiert Stillstand. Eigentümer fragen sich: „Kann der mein Haus modern vermarkten?"</p>
+                    </div>
+
+                    <div class="arrow-connector">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="4" y1="16" x2="24" y2="16" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="18 10 24 16 18 22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+
+                    <div class="solution-card">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <span class="card-label">Unsere Lösung</span>
+                        <h3 class="card-title">„Penthouse-Standard"</h3>
+                        <p class="card-description">Hochwertiges Design, das Kompetenz ausstrahlt. Vertrauensbildende Elemente (Siegel, Bewertungen) an der richtigen Stelle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Angebot Section -->
+    <section class="angebot-section section-dark" id="angebot">
+        <div class="container">
+            <div class="angebot-intro">
+                <span class="section-tag">Das Digitale Mehrfamilienhaus</span>
+                <h2>Kaufen Sie nicht das ganze Haus, wenn Sie nur eine Wohnung brauchen.</h2>
+                <p class="section-intro">Andere Agenturen verkaufen Ihnen starre Einfamilienhäuser. Wir setzen auf das Prinzip Wohnungseigentum (WEG). Unsere Plattform ist modular.</p>
+            </div>
+
+            <div class="angebot-visual">
+                <div class="building-illustration">
+                    <svg class="building-svg" viewBox="0 0 240 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Building Base -->
+                        <rect x="20" y="50" width="200" height="330" stroke="#c9a962" stroke-width="1" fill="none"/>
+
+                        <!-- Floors -->
+                        <line x1="20" y1="130" x2="220" y2="130" stroke="#c9a962" stroke-width="0.5" stroke-dasharray="4 2"/>
+                        <line x1="20" y1="210" x2="220" y2="210" stroke="#c9a962" stroke-width="0.5" stroke-dasharray="4 2"/>
+                        <line x1="20" y1="290" x2="220" y2="290" stroke="#c9a962" stroke-width="0.5" stroke-dasharray="4 2"/>
+
+                        <!-- Windows Floor 1 (Add-ons) -->
+                        <rect x="40" y="70" width="35" height="40" stroke="rgba(255,255,255,0.5)" stroke-width="0.75" fill="rgba(201,169,98,0.1)"/>
+                        <rect x="102" y="70" width="35" height="40" stroke="rgba(255,255,255,0.5)" stroke-width="0.75" fill="rgba(201,169,98,0.1)"/>
+                        <rect x="165" y="70" width="35" height="40" stroke="rgba(255,255,255,0.5)" stroke-width="0.75" fill="rgba(201,169,98,0.1)"/>
+
+                        <!-- Windows Floor 2 -->
+                        <rect x="40" y="150" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+                        <rect x="102" y="150" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+                        <rect x="165" y="150" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+
+                        <!-- Windows Floor 3 -->
+                        <rect x="40" y="230" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+                        <rect x="102" y="230" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+                        <rect x="165" y="230" width="35" height="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.75" fill="none"/>
+
+                        <!-- Base/Foundation (highlighted) -->
+                        <rect x="20" y="290" width="200" height="90" stroke="#c9a962" stroke-width="2" fill="rgba(201,169,98,0.08)"/>
+                        <rect x="90" y="320" width="60" height="60" stroke="#c9a962" stroke-width="1" fill="none"/>
+                        <line x1="120" y1="320" x2="120" y2="380" stroke="#c9a962" stroke-width="0.5"/>
+
+                        <!-- Roof -->
+                        <polygon points="120,15 20,50 220,50" stroke="#c9a962" stroke-width="1" fill="none"/>
+
+                        <!-- Labels -->
+                        <text x="120" y="100" fill="#c9a962" font-size="8" text-anchor="middle" font-family="DM Sans">ADD-ONS</text>
+                        <text x="120" y="340" fill="#c9a962" font-size="8" text-anchor="middle" font-family="DM Sans">BASIS</text>
+                    </svg>
+                </div>
+
+                <div class="modules-container">
+                    <div class="module-base fade-in">
+                        <h3>Die Basis-Website</h3>
+                        <p>Das Fundament. Stabil, sicher, SEO-optimiert. Hier wohnen Ihre „Möbel" (Ihre Marke & Inhalte), die wir bereits für Sie umgezogen haben.</p>
+                        <div class="base-features">
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Responsive Design</span>
+                            </div>
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>SEO-Grundoptimierung</span>
+                            </div>
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>SSL-Verschlüsselung</span>
+                            </div>
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>CRM-Anbindung</span>
+                            </div>
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>Immobilien-Export</span>
+                            </div>
+                            <div class="base-feature">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <span>DSGVO-konform</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modules-addons fade-in">
+                        <h4>Das Sondereigentum (Add-ons)</h4>
+                        <div class="addon-cards">
+                            <div class="addon-card">
+                                <span class="addon-number">01</span>
+                                <h5>Das Bewertungs-Tool</h5>
+                                <p>Eigentümer-Akquise auf Autopilot. Generieren Sie qualifizierte Leads durch kostenlose Immobilienbewertungen.</p>
+                            </div>
+                            <div class="addon-card">
+                                <span class="addon-number">02</span>
+                                <h5>Der Recruiting-Funnel</h5>
+                                <p>Mitarbeiter-Gewinnung systematisiert. Präsentieren Sie Ihre Karriereseite wie ein A-Objekt.</p>
+                            </div>
+                            <div class="addon-card">
+                                <span class="addon-number">03</span>
+                                <h5>Das Off-Market-Login</h5>
+                                <p>Diskret-Vermarktung für Premium-Kunden. Exklusive Objekte für registrierte Käufer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="angebot-benefit fade-in">
+                        <p><strong>Ihr Vorteil:</strong> Maximale Flexibilität bei voller Kostenkontrolle. Keine Leerstands-Kosten für Tools, die Sie nicht nutzen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section section-light" id="roi">
+        <div class="container">
+            <div class="roi-content">
+                <div class="roi-text fade-in">
+                    <span class="section-tag">Der Ertragswert</span>
+                    <h2>Die Rendite-Rechnung für „Thomas"</h2>
+                    <p class="section-intro">„Was kostet mich das?" ist die falsche Frage. Die richtige Frage eines Kaufmanns lautet: „Wann ist der ROI erreicht?"</p>
+
+                    <div class="roi-bonus">
+                        <p>Dazu kommt die <strong>Zeitersparnis</strong>: Unsere Schnittstellen-Automatisierung spart Ihnen ca. <strong>4 Stunden Admin-Arbeit pro Monat</strong>. Bei Ihrem Stundensatz ist die Website damit quasi „mietfrei".</p>
+                    </div>
+                </div>
+
+                <div class="roi-calculator fade-in">
+                    <div class="calc-header">Beispielrechnung (Markt 2026)</div>
+
+                    <div class="calc-row">
+                        <span class="calc-label">Verkauf Einfamilienhaus</span>
+                        <span class="calc-value">420.000 €</span>
+                    </div>
+
+                    <div class="calc-row">
+                        <span class="calc-label">Ihre Courtage (3,57%)</span>
+                        <span class="calc-value">~15.000 €</span>
+                    </div>
+
+                    <div class="calc-row">
+                        <span class="calc-label">Kompletter Relaunch</span>
+                        <span class="calc-value">&lt; ½ Courtage</span>
+                    </div>
+
+                    <div class="calc-highlight">
+                        <div class="calc-row" style="border: none; padding-bottom: 0;">
+                            <span class="calc-label">Eigenkapitalrendite</span>
+                            <span class="calc-value">&gt; 200%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-dark" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div class="about-image-frame">
+                        <div class="about-image-inner">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <span class="about-credentials">Immobilien&shy;projekt&shy;entwicklung M.Sc.</span>
+                    </div>
+                </div>
+
+                <div class="about-text fade-in">
+                    <span class="section-tag">Der Developer-Pitch</span>
+                    <h2>Warum Ihr Webdesigner den Unterschied zwischen <span class="highlight">„Teilungserklärung"</span> und „Trennwand" kennen sollte.</h2>
+
+                    <blockquote class="about-quote">
+                        „Ich bin kein klassischer Werber. Ich habe Immobilienprojektentwicklung studiert. Wenn Sie von 'Farming', 'Off-Market' oder 'Sondereigentum' sprechen, muss ich nicht googeln."
+                    </blockquote>
+
+                    <p class="about-body">Ich stamme aus einer Familie von Architekten und Entwicklern. Ich bin mit Bebauungsplänen und Baustellen aufgewachsen. Ich verstehe Ihr Geschäft, weil es meine DNA ist. Ich übertrage die Prinzipien der Projektentwicklung auf das Webdesign.</p>
+
+                    <div class="about-principles">
+                        <div class="principle">
+                            <h4>Solide Bausubstanz</h4>
+                            <p>Sauberer Code statt billiger Baukästen.</p>
+                        </div>
+                        <div class="principle">
+                            <h4>Lage, Lage, Lage</h4>
+                            <p>Maximale Sichtbarkeit bei Google.</p>
+                        </div>
+                        <div class="principle">
+                            <h4>Nachhaltigkeit</h4>
+                            <p>Systeme, die mit Ihrem Büro wachsen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phygital Section -->
+    <section class="phygital-section section-light">
+        <div class="container">
+            <div class="phygital-content">
+                <div class="phygital-text fade-in">
+                    <span class="section-tag">Der Hybrid-Brief</span>
+                    <h2>Wir holen Ihre Kunden vom Briefkasten ins Internet.</h2>
+                    <p>In einer Welt voller E-Mails ist Papier der neue Luxus. Wir integrieren auf Wunsch automatisierte Print-Schnittstellen.</p>
+
+                    <div class="phygital-flow">
+                        <div class="flow-step">
+                            <span class="flow-step-number">1</span>
+                            <p>Ein Eigentümer bewertet seine Immobilie auf Ihrer Website</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">2</span>
+                            <p>Unser System sendet ihm automatisch 24h später einen hochwertigen, gedruckten Brief</p>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">3</span>
+                            <p>Sie landen physisch auf dem Küchentisch, während die Konkurrenz im Spam-Ordner landet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="phygital-visual fade-in">
+                    <svg class="envelope-illustration" viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Envelope Back -->
+                        <rect x="30" y="80" width="240" height="150" fill="#f8f6f1" stroke="#1a2744" stroke-width="1.5"/>
+
+                        <!-- Envelope Flap -->
+                        <polygon points="30,80 150,160 270,80" fill="#e8e4db" stroke="#1a2744" stroke-width="1.5"/>
+
+                        <!-- Letter -->
+                        <rect x="60" y="50" width="180" height="120" fill="white" stroke="#c9a962" stroke-width="1"/>
+
+                        <!-- Letter Content Lines -->
+                        <line x1="80" y1="80" x2="220" y2="80" stroke="#1a2744" stroke-width="0.75" opacity="0.3"/>
+                        <line x1="80" y1="95" x2="200" y2="95" stroke="#1a2744" stroke-width="0.75" opacity="0.3"/>
+                        <line x1="80" y1="110" x2="180" y2="110" stroke="#1a2744" stroke-width="0.75" opacity="0.3"/>
+                        <line x1="80" y1="125" x2="160" y2="125" stroke="#1a2744" stroke-width="0.75" opacity="0.3"/>
+
+                        <!-- Gold Seal -->
+                        <circle cx="200" cy="140" r="18" fill="#c9a962"/>
+                        <circle cx="200" cy="140" r="12" fill="none" stroke="#1a2744" stroke-width="0.5"/>
+                        <text x="200" y="144" fill="#1a2744" font-size="8" text-anchor="middle" font-family="Cormorant Garamond" font-weight="600">PM</text>
+
+                        <!-- Decorative Elements -->
+                        <circle cx="45" cy="215" r="3" fill="#c9a962" opacity="0.5"/>
+                        <circle cx="255" cy="215" r="3" fill="#c9a962" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section section-dark" id="prozess">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Die Schlüsselübergabe</span>
+                <h2>Vom Audit bis zum Go-Live</h2>
+                <p class="section-intro">Unser Prozess folgt den bewährten Phasen der Projektentwicklung – nur deutlich schneller.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <span class="step-number">01</span>
+                    <h3 class="step-title">Die Bauvoranfrage</h3>
+                    <span class="step-subtitle">Audit</span>
+                    <p class="step-description">Wir prüfen Ihren Status Quo: Technik, Design, SEO, Schnittstellen. Sie erhalten eine ehrliche Bestandsaufnahme – kostenlos und unverbindlich.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <span class="step-number">02</span>
+                    <h3 class="step-title">Der Entwurf</h3>
+                    <span class="step-subtitle">Risiko-Frei</span>
+                    <p class="step-description">Wir bauen Ihre Startseite basierend auf Ihren echten Daten vor. Sie sehen das fertige „Haus", bevor Sie den Kaufvertrag unterschreiben.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <span class="step-number">03</span>
+                    <h3 class="step-title">Der Notartermin</h3>
+                    <span class="step-subtitle">Go-Live</span>
+                    <p class="step-description">Gefällt Ihnen der Entwurf? Wir ziehen Ihre Inhalte um, richten die Weiterleitungen ein (Erhalt der SEO-Link-Power) und übergeben die Schlüssel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section" id="kontakt">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <span class="section-tag">Jetzt starten</span>
+                <h2>Ist Ihre Website ein Sanierungsfall?</h2>
+                <p>Fordern Sie jetzt Ihren kostenlosen Entwurf an. Wir kümmern uns um den Umzug – Sie behalten den Fokus auf Ihre Kunden.</p>
+
+                <div class="cta-buttons">
+                    <a href="mailto:kontakt@promakler.de" class="btn-primary">
+                        <span>Kostenloses Exposé anfordern</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <a href="tel:+4912345678" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>Direkt anrufen</span>
+                    </a>
+                </div>
+
+                <p class="cta-note">Ideal für Nutzer von onOffice, FlowFact und JustImmo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="40" height="40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+                                <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+                                <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+                                <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Pro<span>Makler</span></span>
+                    </a>
+                    <p>Digitale Projektentwicklung für Immobilienmakler. Wir bauen Websites, die verkaufen.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Leistungen</h4>
+                    <ul>
+                        <li><a href="#angebot">Website-Relaunch</a></li>
+                        <li><a href="#angebot">CRM-Integration</a></li>
+                        <li><a href="#angebot">Bewertungs-Tool</a></li>
+                        <li><a href="#angebot">SEO-Optimierung</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="#about">Über uns</a></li>
+                        <li><a href="#prozess">Prozess</a></li>
+                        <li><a href="#roi">Referenzen</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="mailto:kontakt@promakler.de">kontakt@promakler.de</a></li>
+                        <li><a href="tel:+4912345678">+49 123 456 78</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 ProMakler Digital. Alle Rechte vorbehalten.</span>
+                <div class="footer-legal">
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                    <a href="#">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for cards
+        document.querySelectorAll('.problem-row, .addon-cards, .process-steps').forEach(container => {
+            const children = container.children;
+            Array.from(children).forEach((child, index) => {
+                child.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
