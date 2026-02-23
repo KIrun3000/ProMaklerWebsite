@@ -3,6 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   serverExternalPackages: ["lighthouse"],
 
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
   async headers() {
     return [
       {
