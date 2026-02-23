@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#3a4a3e; padding:48px; display:flex; flex-direction:column; gap:60px; font-family:'DM Sans',sans-serif; }
+
+/* ── AGRAR PALETTE ─────────────────────────────────────── */
+:root {
+  --forest:      #1a3028;
+  --forest-dark: #0f1e18;
+  --gold:        #c9a962;
+  --gold-dark:   #a68a4a;
+  --cream:       #f8f6f1;
+  --cream-dark:  #e8e4db;
+  --text:        #2d3632;
+}
+
+/* ── SHARED ─────────────────────────────────────────────── */
+.post { position:relative; overflow:hidden; flex-shrink:0; display:flex; }
+
+.sb {
+  display:flex; flex-direction:column;
+  position:relative; overflow:hidden; flex-shrink:0;
+  background:linear-gradient(155deg,var(--forest) 0%,var(--forest-dark) 100%);
+}
+/* Agrar blueprint grid – feinere Linien in Grüntönen */
+.sb-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,169,98,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,169,98,0.06) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,0.025) 5px,transparent 5px),
+    linear-gradient(90deg,rgba(255,255,255,0.025) 5px,transparent 5px);
+  background-size:28px 28px, 28px 28px, 140px 140px, 140px 140px;
+}
+.sb-edge { position:absolute; right:0; top:9%; bottom:9%; width:1.5px; background:linear-gradient(180deg,transparent,var(--gold) 25%,var(--gold) 75%,transparent); }
+
+.sb-logo { display:flex; align-items:center; gap:11px; position:relative; z-index:1; }
+.sb-logo-text { font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--cream); letter-spacing:-0.02em; }
+.sb-logo-text em { color:var(--gold); font-style:normal; }
+.sb-rule { height:1px; background:linear-gradient(90deg,var(--gold),transparent); position:relative; z-index:1; }
+.sb-data { position:relative; z-index:1; flex:1; }
+.sb-lbl { font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+.sb-big { font-family:'Cormorant Garamond',serif; font-weight:700; color:var(--gold); line-height:1; }
+.sb-med { font-weight:600; color:var(--cream); line-height:1.2; }
+.sb-sm  { color:rgba(248,246,241,0.75); line-height:1.5; }
+.sb-foot { position:relative; z-index:1; }
+.sb-foot-rule { height:1px; background:linear-gradient(90deg,var(--gold),transparent); }
+.sb-handle { color:rgba(248,246,241,0.45); }
+
+.ct { background:var(--cream); display:flex; flex-direction:column; }
+.ct-type { font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-dark); display:flex; align-items:center; }
+.ct-type-line { background:var(--gold-dark); flex-shrink:0; display:inline-block; }
+.ct-h1 { font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--forest); }
+.ct-sub { font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(26,48,40,0.5); }
+.ct-rule { background:var(--gold); }
+.bullet { display:flex; align-items:flex-start; }
+.bullet-dot { border:1.5px solid var(--gold); transform:rotate(45deg); flex-shrink:0; }
+.cta { background:var(--gold); color:var(--forest-dark); display:inline-flex; align-items:center; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; }
+.num-badge { font-family:'Cormorant Garamond',serif; font-weight:700; background:var(--forest); color:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 1 · Square 1080×1080  (Instagram · LinkedIn · Facebook)
+     Content: Digitale Vermarktungsfläche – Agrar-Serviceübersicht
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="square" style="width:1080px;height:1080px;">
+
+  <!-- SIDEBAR -->
+  <div class="sb" style="width:300px;height:1080px;padding:56px 34px 48px 48px;">
+    <div class="sb-grid"></div>
+    <div class="sb-edge"></div>
+
+    <!-- Katasterplan–Icon oben -->
+    <div style="position:absolute;right:22px;bottom:220px;opacity:0.08;z-index:0;">
+      <svg width="200" height="200" viewBox="0 0 400 350" fill="none">
+        <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="50,195 210,180 220,300 60,310" stroke="#c9a962" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="210,180 360,160 350,280 220,300" stroke="#c9a962" stroke-width="1" fill="none" stroke-dasharray="4 2"/>
+        <circle cx="125" cy="118" r="4" fill="#c9a962"/>
+        <circle cx="285" cy="105" r="4" fill="#c9a962"/>
+        <circle cx="135" cy="245" r="4" fill="#c9a962"/>
+        <circle cx="285" cy="230" r="4" fill="#c9a962"/>
+      </svg>
+    </div>
+
+    <div class="sb-logo" style="margin-bottom:34px;">
+      <svg width="40" height="40" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div>
+        <div class="sb-logo-text" style="font-size:20px;">Pro<em>Makler</em></div>
+        <div style="font-size:12px;color:rgba(248,246,241,0.5);letter-spacing:0.08em;text-transform:uppercase;">Agrar</div>
+      </div>
+    </div>
+
+    <div class="sb-rule" style="margin-bottom:34px;"></div>
+
+    <div class="sb-data" style="display:flex;flex-direction:column;gap:28px;">
+      <div>
+        <div class="sb-lbl" style="font-size:10px;margin-bottom:6px;">Mehr Mandate</div>
+        <div class="sb-big" style="font-size:56px;">+47%</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:10px;margin-bottom:6px;">Einsatzbereit in</div>
+        <div class="sb-med" style="font-size:26px;">14 Werk-<br>tagen</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:10px;margin-bottom:8px;">Spezialisiert für</div>
+        <div class="sb-sm" style="font-size:15px;">Ackerland<br>Forstimmobilien<br>Landgüter<br>Hofstellen</div>
+      </div>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-rule" style="margin-bottom:14px;"></div>
+      <div class="sb-handle" style="font-size:13px;">promakler.de/agrar</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="ct" style="flex:1;height:1080px;padding:56px 50px;">
+    <div class="ct-type" style="font-size:11px;gap:12px;margin-bottom:14px;">
+      <span class="ct-type-line" style="width:24px;height:1px;"></span>
+      Digitale Fläche. Messbarer Ertrag.
+    </div>
+
+    <div class="ct-h1" style="font-size:64px;line-height:1.08;margin-bottom:8px;">
+      Ihre digitale<br>Vermarktungs-<br>fläche
+    </div>
+
+    <div class="ct-sub" style="font-size:21px;margin-bottom:30px;">
+      für Agrar-, Forst- und Landgutmakler
+    </div>
+
+    <div class="ct-rule" style="width:56px;height:3px;margin-bottom:32px;"></div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px;">
+      <div class="bullet" style="gap:16px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:12px;height:12px;margin-top:5px;"></div>
+        <div style="font-size:19px;color:#2d3632;line-height:1.4;">Website spezialisiert auf Bodenmarkt & Agrar-SEO</div>
+      </div>
+      <div class="bullet" style="gap:16px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:12px;height:12px;margin-top:5px;"></div>
+        <div style="font-size:19px;color:#2d3632;line-height:1.4;">Flächenbewertungs-Tool & Lead-Funnel</div>
+      </div>
+      <div class="bullet" style="gap:16px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:12px;height:12px;margin-top:5px;"></div>
+        <div style="font-size:19px;color:#2d3632;line-height:1.4;">CRM-Anbindung: onOffice & Agrar-CRMs</div>
+      </div>
+      <div class="bullet" style="gap:16px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:12px;height:12px;margin-top:5px;"></div>
+        <div style="font-size:19px;color:#2d3632;line-height:1.4;">Kostenlose Flurstück-Analyse inklusive</div>
+      </div>
+    </div>
+
+    <div class="cta" style="margin-top:36px;padding:18px 28px;font-size:13px;gap:14px;align-self:flex-start;">
+      Kostenlose Flächenanalyse anfordern
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 2 · Landscape 1200×628  (LinkedIn · Facebook · X)
+     Content: 3 Gründe warum Agrarmakler digital scheitern
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="landscape" style="width:1200px;height:628px;">
+
+  <!-- SIDEBAR -->
+  <div class="sb" style="width:280px;height:628px;padding:44px 30px 40px 44px;">
+    <div class="sb-grid"></div>
+    <div class="sb-edge"></div>
+
+    <!-- Kataster-Flurstücke als dekoratives Element -->
+    <div style="position:absolute;bottom:60px;right:10px;opacity:0.1;z-index:0;">
+      <svg width="140" height="120" viewBox="0 0 400 350" fill="none">
+        <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+        <circle cx="125" cy="118" r="6" fill="#c9a962"/>
+        <circle cx="285" cy="105" r="6" fill="#c9a962"/>
+      </svg>
+    </div>
+
+    <div class="sb-logo" style="margin-bottom:28px;">
+      <svg width="34" height="34" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div>
+        <div class="sb-logo-text" style="font-size:18px;">Pro<em>Makler</em></div>
+        <div style="font-size:10px;color:rgba(248,246,241,0.5);letter-spacing:0.08em;text-transform:uppercase;">Agrar</div>
+      </div>
+    </div>
+
+    <div class="sb-rule" style="margin-bottom:28px;"></div>
+
+    <div class="sb-data" style="display:flex;flex-direction:column;gap:0;">
+      <div style="margin-bottom:20px;">
+        <div class="sb-lbl" style="font-size:9px;margin-bottom:4px;">Bodenmarkt-Thema</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#f8f6f1;line-height:1.3;">Warum Agrar-<br>Websites keine<br>Mandate bringen</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:9px;margin-bottom:4px;">Ergebnis mit uns</div>
+        <div class="sb-big" style="font-size:46px;">+47%</div>
+        <div style="font-size:13px;color:rgba(248,246,241,0.65);">mehr Agrar-Mandate</div>
+      </div>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-rule" style="margin-bottom:12px;"></div>
+      <div class="sb-handle" style="font-size:11px;">promakler.de/agrar</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="ct" style="flex:1;height:628px;padding:44px 48px;">
+    <div class="ct-type" style="font-size:10px;gap:10px;margin-bottom:12px;">
+      <span class="ct-type-line" style="width:20px;height:1px;"></span>
+      Von Agrarmakler. Für Agrarmakler.
+    </div>
+
+    <div class="ct-h1" style="font-size:42px;line-height:1.1;margin-bottom:6px;">
+      3 Gründe, warum Agrar-Mandate<br>online verloren gehen
+    </div>
+
+    <div class="ct-rule" style="width:48px;height:2px;margin-bottom:22px;"></div>
+
+    <div style="display:flex;flex-direction:column;gap:15px;flex:1;">
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div class="num-badge" style="width:36px;height:36px;font-size:20px;">1</div>
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#1a3028;margin-bottom:2px;">Kein Agrar-SEO</div>
+          <div style="font-size:15px;color:#2d3632;line-height:1.4;">„Ackerland kaufen Bayern" – Ihre Seite erscheint nicht. Der Eigentümer ruft die Konkurrenz an.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div class="num-badge" style="width:36px;height:36px;font-size:20px;">2</div>
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#1a3028;margin-bottom:2px;">Kein Bodenmarkt-Signal</div>
+          <div style="font-size:15px;color:#2d3632;line-height:1.4;">Generisches Makler-Design zeigt: kein Agrar-Spezialist. Hofbesitzer wählen, wer ihre Sprache spricht.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:20px;align-items:flex-start;">
+        <div class="num-badge" style="width:36px;height:36px;font-size:20px;">3</div>
+        <div>
+          <div style="font-size:17px;font-weight:600;color:#1a3028;margin-bottom:2px;">Kein automatisierter Funnel</div>
+          <div style="font-size:15px;color:#2d3632;line-height:1.4;">Flächenanfragen gehen per Mail ein, werden manuell qualifiziert. Leads gehen verloren.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid #e8e4db;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:rgba(26,48,40,0.6);">Wir lösen alle drei. In 14 Tagen.</div>
+      <div class="cta" style="padding:12px 22px;font-size:12px;gap:10px;">
+        Flächenanalyse anfordern
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 3 · Story 1080×1920  (Instagram · Facebook Stories)
+     Content: Katasterentwurf in 14 Tagen – Agrar Campaign
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="story" style="width:1080px;height:1920px;">
+
+  <!-- SIDEBAR -->
+  <div class="sb" style="width:300px;height:1920px;padding:72px 34px 60px 50px;">
+    <div class="sb-grid"></div>
+    <div class="sb-edge"></div>
+
+    <!-- Großes Kataster-Flurstück Deko -->
+    <div style="position:absolute;bottom:140px;right:5px;opacity:0.12;z-index:0;">
+      <svg width="220" height="220" viewBox="0 0 400 350" fill="none">
+        <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="50,195 210,180 220,300 60,310" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+        <polygon points="210,180 360,160 350,280 220,300" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+        <circle cx="125" cy="118" r="5" fill="#c9a962"/>
+        <circle cx="285" cy="105" r="5" fill="#c9a962"/>
+        <circle cx="135" cy="245" r="5" fill="#c9a962"/>
+        <circle cx="285" cy="230" r="5" fill="#c9a962"/>
+      </svg>
+    </div>
+
+    <div class="sb-logo" style="margin-bottom:40px;">
+      <svg width="42" height="42" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div>
+        <div class="sb-logo-text" style="font-size:21px;">Pro<em>Makler</em></div>
+        <div style="font-size:12px;color:rgba(248,246,241,0.5);letter-spacing:0.08em;text-transform:uppercase;">Agrar</div>
+      </div>
+    </div>
+
+    <div class="sb-rule" style="margin-bottom:40px;"></div>
+
+    <div class="sb-data" style="display:flex;flex-direction:column;gap:32px;">
+      <div>
+        <div class="sb-lbl" style="font-size:11px;margin-bottom:8px;">Mehr Mandate</div>
+        <div class="sb-big" style="font-size:58px;">+47%</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:11px;margin-bottom:8px;">Einsatzbereit in</div>
+        <div class="sb-med" style="font-size:26px;">14<br>Tage</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:11px;margin-bottom:8px;">Investition</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:#f8f6f1;line-height:1.1;">ab<br>4.280 €</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:11px;margin-bottom:8px;">Spezialisiert auf</div>
+        <div class="sb-sm" style="font-size:14px;">Ackerland<br>Forstimmo.<br>Landgüter<br>Hofstellen</div>
+      </div>
+      <div>
+        <div class="sb-lbl" style="font-size:11px;margin-bottom:8px;">ROI-Faktor</div>
+        <div class="sb-med" style="font-size:22px;">× 10</div>
+        <div class="sb-sm" style="font-size:13px;">1 Agrar-Mandat<br>deckt Investition</div>
+      </div>
+    </div>
+
+    <div class="sb-foot">
+      <div class="sb-foot-rule" style="margin-bottom:16px;"></div>
+      <div class="sb-handle" style="font-size:13px;">promakler.de/agrar</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="ct" style="flex:1;height:1920px;padding:72px 52px 60px 52px;">
+    <div class="ct-type" style="font-size:12px;gap:12px;margin-bottom:18px;">
+      <span class="ct-type-line" style="width:24px;height:1px;"></span>
+      Digitale Fläche · Messbarer Ertrag
+    </div>
+
+    <div class="ct-h1" style="font-size:78px;line-height:1.05;margin-bottom:10px;">
+      Kataster-<br>entwurf<br>in 14<br>Tagen
+    </div>
+
+    <div class="ct-sub" style="font-size:24px;margin-bottom:36px;">
+      Ihre digitale Vermarktungsfläche
+    </div>
+
+    <div class="ct-rule" style="width:64px;height:3px;margin-bottom:40px;"></div>
+
+    <div style="font-size:19px;color:#2d3632;line-height:1.7;margin-bottom:40px;">
+      Wir bauen spezialisierte Websites für Agrar-, Forst- und Landgutmakler – mit Flächenbewertungs-Tool, Agrar-SEO und vollständiger CRM-Anbindung.
+    </div>
+
+    <!-- Feature list -->
+    <div style="display:flex;flex-direction:column;gap:18px;margin-bottom:40px;">
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:21px;color:#2d3632;line-height:1.4;font-weight:500;">Agrar-SEO: Top-Positionen für „Ackerland kaufen [Bundesland]"</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:21px;color:#2d3632;line-height:1.4;font-weight:500;">Flächenbewertungs-Tool → qualifizierte Eigentümer-Leads</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:21px;color:#2d3632;line-height:1.4;font-weight:500;">Off-Market Portfolio-Login für Käufer</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bullet-dot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:21px;color:#2d3632;line-height:1.4;font-weight:500;">Phygital: Brief automatisch nach Flächen-Anfrage</div>
+      </div>
+    </div>
+
+    <!-- Beispielrechnung-Highlight -->
+    <div style="border-left:4px solid #c9a962;background:rgba(201,169,98,0.08);padding:24px 28px;margin-bottom:40px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a68a4a;margin-bottom:8px;">Bodenmarkt-Rechnung 2026</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#2d3632;line-height:1.6;">
+        50 ha Ackerfläche · 750.000 € · 3% Courtage =<br>
+        <strong style="color:#1a3028;">22.500 € Ihr Ertrag.</strong><br>
+        <span style="font-style:italic;color:rgba(26,48,40,0.6);">1 Mandat = Faktor × 10 auf Ihre Investition.</span>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:44px;">
+      <div style="background:#1a3028;padding:20px;text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#c9a962;line-height:1;">+47%</div>
+        <div style="font-size:13px;color:rgba(248,246,241,0.7);margin-top:4px;">mehr Mandate</div>
+      </div>
+      <div style="background:#1a3028;padding:20px;text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#c9a962;line-height:1;">&gt;300%</div>
+        <div style="font-size:13px;color:rgba(248,246,241,0.7);margin-top:4px;">Eigenkapitalrendite</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta" style="padding:22px 32px;font-size:16px;gap:16px;width:100%;justify-content:center;">
+      Kostenlose Flächenanalyse anfordern
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </div>
+
+    <div style="margin-top:auto;padding-top:32px;border-top:1px solid #e8e4db;display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-size:16px;color:rgba(26,48,40,0.4);">promakler.de/agrar</div>
+      <div style="font-size:16px;color:rgba(26,48,40,0.4);">@promakler</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

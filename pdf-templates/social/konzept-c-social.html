@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#333; padding:48px; display:flex; flex-direction:column; gap:60px; font-family:'DM Sans',sans-serif; }
+
+.post { position:relative; overflow:hidden; flex-shrink:0; }
+
+/* Full navy background with blueprint grid */
+.navy-bg {
+  background:linear-gradient(140deg,#1a2744 0%,#0f1829 100%);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+}
+.navy-bg::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.z1 { position:relative; z-index:1; }
+
+/* Typography */
+.logo-text { font-family:'Cormorant Garamond',serif; font-weight:600; color:#f8f6f1; letter-spacing:-0.02em; }
+.logo-text em { color:#c9a962; font-style:normal; }
+
+.tag { font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#c9a962; }
+.h1  { font-family:'Cormorant Garamond',serif; font-weight:600; color:#f8f6f1; line-height:1.08; }
+.h-sub { font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(248,246,241,0.55); }
+
+/* Gold ornament line */
+.orn { display:flex; align-items:center; gap:10px; }
+.orn-line-l { flex:1; height:1px; background:linear-gradient(90deg,transparent,#c9a962); }
+.orn-line-r { flex:1; height:1px; background:linear-gradient(90deg,#c9a962,transparent); }
+.orn-dot { width:5px; height:5px; border-radius:50%; background:#c9a962; }
+
+/* Gold divider */
+.gdiv { background:linear-gradient(90deg,transparent,#c9a962,transparent); height:1px; }
+.gdiv-solid { background:#c9a962; }
+
+/* Stats */
+.stat-num { font-family:'Cormorant Garamond',serif; font-weight:700; color:#c9a962; line-height:1; }
+.stat-lbl { color:rgba(248,246,241,0.65); }
+
+/* Bullet */
+.bullet { display:flex; align-items:flex-start; }
+.bdot { border:1.5px solid #c9a962; transform:rotate(45deg); flex-shrink:0; }
+
+/* Badge */
+.gold-badge { border:1px solid rgba(201,169,98,0.55); background:rgba(201,169,98,0.12); color:#c9a962; }
+
+/* CTA */
+.cta { background:#c9a962; color:#0f1829; display:inline-flex; align-items:center; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; }
+.cta-outline { border:1.5px solid #c9a962; color:#c9a962; display:inline-flex; align-items:center; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; }
+
+/* Cream accent elements */
+.cream-card { background:rgba(248,246,241,0.06); border:1px solid rgba(248,246,241,0.1); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 1 · Square 1080×1080  (Instagram · LinkedIn · Facebook)
+     Content: "+47% mehr Anfragen" – Social Proof / Impact
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="square" style="width:1080px;height:1080px;">
+<div class="navy-bg" style="width:1080px;height:1080px;flex-direction:column;align-items:center;justify-content:center;padding:64px;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+
+  <!-- Logo top-left -->
+  <div class="z1" style="position:absolute;top:36px;left:48px;display:flex;align-items:center;gap:11px;">
+    <svg width="38" height="38" viewBox="0 0 44 44" fill="none">
+      <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+      <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+      <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+      <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+    </svg>
+    <div class="logo-text" style="font-size:20px;">Pro<em>Makler</em></div>
+  </div>
+
+  <!-- Handle top-right -->
+  <div class="z1" style="position:absolute;top:44px;right:48px;font-size:13px;color:rgba(248,246,241,0.4);">promakler.de</div>
+
+  <!-- Center content -->
+  <div class="z1" style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:860px;">
+
+    <div class="tag" style="font-size:12px;margin-bottom:18px;">Digitale Rendite-Immobilien</div>
+
+    <div class="orn" style="width:200px;margin-bottom:20px;">
+      <div class="orn-line-l"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-line-r"></div>
+    </div>
+
+    <!-- Big stat -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:140px;font-weight:700;color:#c9a962;line-height:1;margin-bottom:4px;">+47%</div>
+
+    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:#f8f6f1;margin-bottom:6px;">mehr Online-Anfragen</div>
+    <div class="h-sub" style="font-size:20px;margin-bottom:32px;">durchschnittlich in den ersten 90 Tagen</div>
+
+    <div class="gdiv-solid" style="width:60px;height:2px;margin-bottom:32px;"></div>
+
+    <!-- 3 stats in a row -->
+    <div style="display:flex;gap:0;width:100%;margin-bottom:36px;">
+      <div style="flex:1;text-align:center;padding:0 20px;border-right:1px solid rgba(248,246,241,0.1);">
+        <div class="stat-num" style="font-size:52px;">14</div>
+        <div class="stat-lbl" style="font-size:14px;margin-top:4px;">Tage bis<br>Schlüsselübergabe</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:0 20px;border-right:1px solid rgba(248,246,241,0.1);">
+        <div class="stat-num" style="font-size:52px;">100%</div>
+        <div class="stat-lbl" style="font-size:14px;margin-top:4px;">onOffice<br>kompatibel</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:0 20px;">
+        <div class="stat-num" style="font-size:52px;">3</div>
+        <div class="stat-lbl" style="font-size:14px;margin-top:4px;">Revisionen<br>inklusive</div>
+      </div>
+    </div>
+
+    <div class="cta" style="padding:18px 36px;font-size:14px;gap:14px;">
+      Jetzt kostenlos beraten lassen
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 2 · Landscape 1200×628  (LinkedIn · Facebook · X)
+     Content: "Digitale Rendite-Immobilie" – Brand Announcement
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="landscape" style="width:1200px;height:628px;">
+<div class="navy-bg" style="width:1200px;height:628px;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+  <!-- Vertical center divider -->
+  <div style="position:absolute;top:10%;bottom:10%;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(201,169,98,0.3) 30%,rgba(201,169,98,0.3) 70%,transparent);"></div>
+
+  <!-- LEFT HALF -->
+  <div class="z1" style="width:50%;height:628px;display:flex;flex-direction:column;padding:52px 48px 48px 56px;">
+    <!-- Logo -->
+    <div style="display:flex;align-items:center;gap:11px;margin-bottom:36px;">
+      <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="logo-text" style="font-size:20px;">Pro<em>Makler</em></div>
+    </div>
+
+    <div class="tag" style="font-size:11px;margin-bottom:12px;">Digitale Projektentwicklung</div>
+
+    <div class="h1" style="font-size:52px;margin-bottom:8px;">
+      Ihre digitale<br>Rendite-<br>Immobilie
+    </div>
+
+    <div class="h-sub" style="font-size:18px;margin-bottom:24px;">Website-Entwicklung für Immobilienmakler</div>
+
+    <div style="flex:1;"></div>
+
+    <div class="cta" style="padding:14px 24px;font-size:12px;gap:10px;align-self:flex-start;">
+      Jetzt beraten lassen
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <div style="margin-top:24px;font-size:12px;color:rgba(248,246,241,0.35);">promakler.de · kontakt@promakler.de</div>
+  </div>
+
+  <!-- RIGHT HALF: Stats -->
+  <div class="z1" style="width:50%;height:628px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 44px 44px 56px;gap:0;">
+
+    <div style="text-align:center;margin-bottom:24px;">
+      <div class="stat-num" style="font-size:100px;">+47%</div>
+      <div class="stat-lbl" style="font-size:15px;margin-top:4px;">mehr Online-Anfragen</div>
+    </div>
+
+    <div class="gdiv" style="width:100%;margin-bottom:24px;"></div>
+
+    <div style="display:flex;gap:32px;text-align:center;">
+      <div>
+        <div class="stat-num" style="font-size:60px;">14</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">Tage bezugsfertig</div>
+      </div>
+      <div style="width:1px;background:rgba(201,169,98,0.25);"></div>
+      <div>
+        <div class="stat-num" style="font-size:60px;">100%</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">onOffice ready</div>
+      </div>
+    </div>
+
+    <div class="gdiv" style="width:100%;margin-top:24px;"></div>
+
+    <div style="margin-top:20px;display:flex;gap:16px;">
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Next.js</div>
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">onOffice API</div>
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Local SEO</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 3 · Story 1080×1920  (Instagram · Facebook Stories)
+     Content: "Wir entwickeln Ihre..." – Brand Story / Campaign
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="story" style="width:1080px;height:1920px;">
+<div class="navy-bg" style="width:1080px;height:1920px;flex-direction:column;align-items:center;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+
+  <!-- TOP: Logo -->
+  <div class="z1" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:48px 60px 0;">
+    <div style="display:flex;align-items:center;gap:13px;">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="logo-text" style="font-size:24px;">Pro<em>Makler</em></div>
+    </div>
+    <div class="gold-badge" style="padding:8px 18px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Für Makler</div>
+  </div>
+
+  <!-- CENTER: Main content -->
+  <div class="z1" style="flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 60px;">
+
+    <div class="tag" style="font-size:13px;margin-bottom:24px;">Digitale Projektentwicklung</div>
+
+    <div class="orn" style="width:260px;margin-bottom:28px;">
+      <div class="orn-line-l"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-line-r"></div>
+    </div>
+
+    <!-- Large center icon -->
+    <svg style="width:80px;height:80px;margin-bottom:28px;opacity:0.85;" viewBox="0 0 44 44" fill="none">
+      <rect x="2" y="2" width="40" height="40" stroke="rgba(248,246,241,0.2)" stroke-width="0.8" fill="none"/>
+      <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1.5" fill="none"/>
+      <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="1"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="1"/>
+      <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.2"/>
+    </svg>
+
+    <div class="h1" style="font-size:88px;margin-bottom:12px;">
+      Wir ent-<br>wickeln<br>Ihre<br>Rendite
+    </div>
+
+    <div class="h-sub" style="font-size:28px;margin-bottom:36px;">
+      digitale Rendite-Immobilien<br>für Immobilienmakler
+    </div>
+
+    <div class="gdiv-solid" style="width:80px;height:3px;margin-bottom:48px;"></div>
+
+    <!-- 3 stats in column -->
+    <div style="display:flex;gap:0;width:100%;margin-bottom:48px;">
+      <div style="flex:1;text-align:center;padding:28px 16px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:72px;">+47%</div>
+        <div class="stat-lbl" style="font-size:16px;margin-top:6px;">mehr Anfragen</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:28px 16px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:72px;">14</div>
+        <div class="stat-lbl" style="font-size:16px;margin-top:6px;">Tage Laufzeit</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:28px 16px;">
+        <div class="stat-num" style="font-size:72px;">100%</div>
+        <div class="stat-lbl" style="font-size:16px;margin-top:6px;">onOffice ready</div>
+      </div>
+    </div>
+
+    <!-- Feature bullets -->
+    <div style="width:100%;display:flex;flex-direction:column;gap:18px;margin-bottom:52px;text-align:left;">
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:24px;color:rgba(248,246,241,0.85);line-height:1.4;">Next.js Website · onOffice Integration</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:24px;color:rgba(248,246,241,0.85);line-height:1.4;">SEO · Hosting · 12 Monate Wartung</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:24px;color:rgba(248,246,241,0.85);line-height:1.4;">Kostenloses Erstgespräch · Kein Risiko</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta" style="width:100%;justify-content:center;padding:28px 36px;font-size:18px;gap:18px;">
+      Jetzt kostenlos beraten lassen
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Handle -->
+  <div class="z1" style="width:100%;display:flex;justify-content:space-between;padding:32px 60px 52px;">
+    <div style="font-size:17px;color:rgba(248,246,241,0.4);">promakler.de</div>
+    <div style="font-size:17px;color:rgba(248,246,241,0.4);">@promakler</div>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>

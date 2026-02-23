@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:       #1a2744;
+  --navy-dark:  #0f1829;
+  --gold:       #c9a962;
+  --gold-light: #dbc78a;
+  --gold-dark:  #a68a4a;
+  --cream:      #f8f6f1;
+  --cream-dark: #e8e4db;
+  --anthrazit:  #2d3436;
+  --white:      #ffffff;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── PAGE ─────────────────────────────────────── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+  background: var(--white);
+}
+
+/* ── HEADER BAR ───────────────────────────────── */
+.ph {
+  background: var(--navy);
+  padding: 7mm 15mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ph-logo { display: flex; align-items: center; gap: 3mm; }
+.ph-logo svg { width: 8.5mm; height: 8.5mm; }
+.ph-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.5mm;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.ph-logo-text span { color: var(--gold); }
+.ph-logo-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2mm;
+  font-weight: 400;
+  color: rgba(248,246,241,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+.ph-meta { text-align: right; }
+.ph-meta-tag {
+  font-size: 2.2mm;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8mm;
+}
+.ph-meta-nr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5mm;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+/* Gold stripe */
+.gold-stripe {
+  height: 0.9mm;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+  flex-shrink: 0;
+}
+
+/* ── BODY ─────────────────────────────────────── */
+.pb {
+  flex: 1;
+  padding: 9mm 15mm;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Sender micro line */
+.sender-micro {
+  font-size: 2.2mm;
+  color: var(--anthrazit);
+  opacity: 0.45;
+  padding-bottom: 1.5mm;
+  border-bottom: 0.2mm solid var(--cream-dark);
+  margin-bottom: 3mm;
+}
+
+/* Address */
+.addr-name { font-size: 4mm; font-weight: 600; color: var(--navy); margin-bottom: 0.5mm; }
+.addr-line { font-size: 3mm; color: var(--anthrazit); line-height: 1.6; margin-bottom: 5mm; }
+
+/* Meta info bar */
+.meta-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4mm;
+  background: var(--cream);
+  padding: 3.5mm 4.5mm;
+  border-left: 0.8mm solid var(--gold);
+  margin-bottom: 7mm;
+}
+.mb-label { font-size: 2mm; text-transform: uppercase; letter-spacing: 0.09em; font-weight: 600; color: var(--gold-dark); margin-bottom: 0.8mm; }
+.mb-val   { font-size: 3mm; color: var(--navy); font-weight: 500; }
+
+/* Doc title */
+.doc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7.5mm;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.8mm;
+}
+.doc-subject {
+  font-size: 3.4mm;
+  color: var(--gold-dark);
+  font-weight: 500;
+  margin-bottom: 5.5mm;
+}
+
+/* Body text */
+.body-txt {
+  font-size: 3.1mm;
+  color: var(--anthrazit);
+  line-height: 1.75;
+  margin-bottom: 4.5mm;
+}
+
+/* Section heading */
+.sec-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.5mm;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3mm;
+}
+
+/* Table */
+.tbl { width: 100%; border-collapse: collapse; font-size: 2.9mm; }
+.tbl th {
+  background: var(--navy); color: var(--cream);
+  padding: 2.8mm 3.5mm; text-align: left;
+  font-weight: 600; font-size: 2.7mm; letter-spacing: 0.03em;
+}
+.tbl td { padding: 2.8mm 3.5mm; border-bottom: 0.2mm solid var(--cream-dark); color: var(--anthrazit); vertical-align: top; }
+.tbl tr:nth-child(even) td { background: var(--cream); }
+.tbl .sub td  { border-top: 0.4mm solid var(--cream-dark); font-weight: 500; background: transparent !important; }
+.tbl .gold-r td { background: rgba(201,169,98,0.1) !important; font-weight: 600; color: var(--navy); }
+.tbl .tot td  { background: var(--navy) !important; color: var(--cream); font-weight: 600; border: none; }
+
+/* Note */
+.note {
+  background: var(--cream);
+  border-left: 0.8mm solid var(--gold);
+  padding: 2.8mm 4mm;
+  font-size: 2.9mm;
+  color: var(--anthrazit);
+  line-height: 1.6;
+  margin: 3.5mm 0;
+}
+
+/* Payment grid */
+.pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 5mm; margin: 3mm 0; }
+.pay-label { font-size: 2.2mm; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-dark); font-weight: 600; margin-bottom: 0.8mm; }
+.pay-val   { font-size: 2.95mm; color: var(--anthrazit); line-height: 1.5; }
+
+/* Steps */
+.steps { display: flex; flex-direction: column; gap: 2.5mm; margin-bottom: 4mm; }
+.step { display: flex; align-items: center; gap: 3.5mm; }
+.step-num {
+  width: 6.5mm; height: 6.5mm; flex-shrink: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8mm; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.step-num.f { background: var(--navy); color: var(--cream); }
+.step-num.g { background: var(--gold); color: var(--navy-dark); }
+.step-num.o { border: 0.4mm solid var(--navy); color: var(--navy); }
+.step-txt { font-size: 2.95mm; color: var(--anthrazit); line-height: 1.45; }
+.step-txt strong { color: var(--navy); font-weight: 600; }
+
+/* Signature */
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-top: 7mm; }
+.sig-line-el { border-top: 0.25mm solid var(--anthrazit); padding-top: 1.5mm; padding-bottom: 11mm; }
+.sig-cap { font-size: 2.4mm; color: var(--anthrazit); opacity: 0.5; }
+
+/* HR */
+.hr { width: 100%; height: 0.2mm; background: var(--cream-dark); margin: 4mm 0; }
+
+/* Footer */
+.pf {
+  margin-top: auto;
+  padding: 3mm 15mm;
+  background: var(--cream);
+  border-top: 0.2mm solid var(--cream-dark);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+  flex-shrink: 0;
+}
+.pf-col { font-size: 2.2mm; color: var(--anthrazit); opacity: 0.6; line-height: 1.65; }
+.pf-col strong { display: block; font-weight: 600; color: var(--navy); opacity: 1; margin-bottom: 0.5mm; }
+.pf-pg { text-align: right; font-size: 2.2mm; color: var(--gold-dark); font-weight: 500; opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 1 · Anschreiben & Leistungstabelle
+     ═══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="ph-logo-text">
+        Pro<span>Makler</span>
+        <span class="ph-logo-sub">Digital</span>
+      </div>
+    </div>
+    <div class="ph-meta">
+      <div class="ph-meta-tag">Angebot</div>
+      <div class="ph-meta-nr">ANG-2026-018</div>
+    </div>
+  </div>
+  <div class="gold-stripe"></div>
+
+  <div class="pb">
+    <div class="sender-micro">ProMakler Digital · Musterstraße 1 · 10115 Berlin · kontakt@promakler.de</div>
+
+    <div class="addr-name">Müller Immobilien GmbH</div>
+    <div class="addr-line">
+      z. Hd. Thomas Müller<br>
+      Hauptstraße 42<br>
+      80333 München
+    </div>
+
+    <div class="meta-bar">
+      <div><div class="mb-label">Angebots-Nr.</div><div class="mb-val">ANG-2026-018</div></div>
+      <div><div class="mb-label">Datum</div><div class="mb-val">19.02.2026</div></div>
+      <div><div class="mb-label">Gültig bis</div><div class="mb-val">19.03.2026</div></div>
+      <div><div class="mb-label">Seite</div><div class="mb-val">1 von 2</div></div>
+    </div>
+
+    <div class="doc-title">Angebot: Website-Entwicklung</div>
+    <div class="doc-subject">Ihre digitale Rendite-Immobilie – Individualprojekt</div>
+
+    <div class="body-txt">
+      Sehr geehrter Herr Müller,<br><br>
+      vielen Dank für das aufschlussreiche Gespräch. Wie besprochen, unterbreiten wir Ihnen hiermit unser Angebot für die Entwicklung Ihrer neuen Makler-Website. Unser Ziel: eine digitale Rendite-Immobilie, die messbar mehr Anfragen generiert – bezugsfertig in 14 Werktagen.
+    </div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:5%;">Pos.</th>
+          <th style="width:44%;">Leistungsbeschreibung</th>
+          <th style="width:16%; text-align:right;">Einheit</th>
+          <th style="width:17%; text-align:right;">Einzelpreis</th>
+          <th style="width:18%; text-align:right;">Gesamt netto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Website-Entwicklung</strong><br><span style="font-size:2.4mm;opacity:.65;">Next.js, TypeScript, responsiv, 10 Seiten inkl. Impressum & Datenschutz</span></td>
+          <td style="text-align:right;">1 Psch.</td>
+          <td style="text-align:right;">2.400,00 €</td>
+          <td style="text-align:right;">2.400,00 €</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>onOffice API-Integration</strong><br><span style="font-size:2.4mm;opacity:.65;">Live-Sync Immobilienportal, Filterfunktion, automatische Exposé-Darstellung</span></td>
+          <td style="text-align:right;">1 Psch.</td>
+          <td style="text-align:right;">800,00 €</td>
+          <td style="text-align:right;">800,00 €</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>SEO-Grundoptimierung</strong><br><span style="font-size:2.4mm;opacity:.65;">On-Page SEO, Local SEO, Schema.org, Google Business Profile</span></td>
+          <td style="text-align:right;">1 Psch.</td>
+          <td style="text-align:right;">600,00 €</td>
+          <td style="text-align:right;">600,00 €</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Hosting & Wartung (12 Monate)</strong><br><span style="font-size:2.4mm;opacity:.65;">Vercel Pro, SSL-Zertifikat, tägliche Backups, monatliche Updates</span></td>
+          <td style="text-align:right;">12 Mon.</td>
+          <td style="text-align:right;">40,00 €</td>
+          <td style="text-align:right;">480,00 €</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Schlüsselübergabe-Schulung</strong><br><span style="font-size:2.4mm;opacity:.65;">2 Stunden Online-Schulung, aufgezeichnet, inkl. Bedienungsanleitung</span></td>
+          <td style="text-align:right;">inkl.</td>
+          <td style="text-align:right;">—</td>
+          <td style="text-align:right;">0,00 €</td>
+        </tr>
+        <tr class="gold-r">
+          <td colspan="4" style="text-align:right;">Nettobetrag</td>
+          <td style="text-align:right;">4.280,00 €</td>
+        </tr>
+        <tr class="sub">
+          <td colspan="4" style="text-align:right;">Umsatzsteuer 19 %</td>
+          <td style="text-align:right;">813,20 €</td>
+        </tr>
+        <tr class="tot">
+          <td colspan="4" style="text-align:right; font-size:3mm;">Gesamtbetrag inkl. MwSt.</td>
+          <td style="text-align:right; font-family:'Cormorant Garamond',serif; font-size:4.8mm;">5.093,20 €</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      <strong>Hinweis:</strong> Alle Preise verstehen sich zzgl. der gesetzlichen Mehrwertsteuer. Das Angebot ist freibleibend und gilt für 30 Tage ab Ausstellungsdatum.
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-col"><strong>ProMakler Digital</strong>Musterstraße 1 · 10115 Berlin</div>
+    <div class="pf-col"><strong>Kontakt</strong>kontakt@promakler.de · promakler.de</div>
+    <div class="pf-col"><strong>Bankverbindung</strong>IBAN: DE12 3456 7890 1234 5678 90<div class="pf-pg">1 / 2</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 2 · Zahlungskonditionen, Ablauf & Unterschrift
+     ═══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="ph-logo-text">Pro<span>Makler</span></div>
+    </div>
+    <div class="ph-meta">
+      <div class="ph-meta-tag">Angebot · ANG-2026-018</div>
+      <div class="ph-meta-nr" style="font-size:3mm; opacity:.75;">Zahlungskonditionen & Unterschrift</div>
+    </div>
+  </div>
+  <div class="gold-stripe"></div>
+
+  <div class="pb">
+    <div class="sec-h">Zahlungskonditionen</div>
+    <div class="pay-grid">
+      <div>
+        <div class="pay-label">Zahlungsplan</div>
+        <div class="pay-val">50 % (2.546,60 €) bei Auftragserteilung<br>50 % (2.546,60 €) bei Schlüsselübergabe</div>
+      </div>
+      <div>
+        <div class="pay-label">Zahlungsart</div>
+        <div class="pay-val">Banküberweisung<br>Zahlungsziel 14 Tage netto</div>
+      </div>
+      <div>
+        <div class="pay-label">Bankverbindung</div>
+        <div class="pay-val">ProMakler Digital<br>IBAN: DE12 3456 7890 1234 5678 90<br>BIC: COBADEFFXXX</div>
+      </div>
+      <div>
+        <div class="pay-label">Steuerdaten</div>
+        <div class="pay-val">USt-IdNr.: DE 123 456 789<br>Steuernr.: 12/345/67890</div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sec-h">Projektablauf</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num f">1</div>
+        <div class="step-txt"><strong>Auftragserteilung & Anzahlung</strong> – Start innerhalb 2 Werktagen nach Zahlungseingang</div>
+      </div>
+      <div class="step">
+        <div class="step-num g">2</div>
+        <div class="step-txt"><strong>Kickoff-Call (30 Min.)</strong> – Briefing, CI-Vorgaben, Zielgruppenanalyse, Projekt-Dashboard</div>
+      </div>
+      <div class="step">
+        <div class="step-num o">3</div>
+        <div class="step-txt"><strong>Design-Prototyp (Tag 5)</strong> – Freigabe mit bis zu 3 inkludierten Revisionsrunden</div>
+      </div>
+      <div class="step">
+        <div class="step-num o">4</div>
+        <div class="step-txt"><strong>Schlüsselübergabe (Tag 14)</strong> – Go-Live, Schulung, Übergabe aller Zugänge & Passwörter</div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sec-h">Auftragserteilung</div>
+    <div class="body-txt" style="margin-bottom:2mm;">
+      Mit Ihrer Unterschrift bestätigen Sie die Beauftragung zu den oben genannten Konditionen. Wir freuen uns auf die Zusammenarbeit und die Entwicklung Ihrer digitalen Rendite-Immobilie.
+    </div>
+
+    <div class="sig-grid">
+      <div>
+        <div class="sig-line-el"></div>
+        <div class="sig-cap">Datum, Unterschrift Auftraggeber<br>Müller Immobilien GmbH</div>
+      </div>
+      <div>
+        <div class="sig-line-el"></div>
+        <div class="sig-cap">Datum, Unterschrift Auftragnehmer<br>ProMakler Digital, Luca Ingenbleek</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:5mm; font-size:2.5mm; opacity:.8;">
+      Es gelten unsere AGB in der jeweils aktuellen Fassung, abrufbar unter promakler.de/agb. Gerichtsstand ist Berlin. Erfüllungsort ist der Sitz des Auftragnehmers.
+    </div>
+  </div>
+
+  <div class="pf">
+    <div class="pf-col"><strong>ProMakler Digital</strong>Musterstraße 1 · 10115 Berlin</div>
+    <div class="pf-col"><strong>Kontakt</strong>kontakt@promakler.de · promakler.de</div>
+    <div class="pf-col"><strong>Bankverbindung</strong>IBAN: DE12 3456 7890 1234 5678 90<div class="pf-pg">2 / 2</div></div>
+  </div>
+</div>
+
+</body>
+</html>

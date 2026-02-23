@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:       #1a2744;
+  --navy-dark:  #0f1829;
+  --gold:       #c9a962;
+  --gold-light: #dbc78a;
+  --gold-dark:  #a68a4a;
+  --cream:      #f8f6f1;
+  --cream-dark: #e8e4db;
+  --anthrazit:  #2d3436;
+  --white:      #ffffff;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ══════════════════════════════════════════════
+   COVER PAGE
+   ══════════════════════════════════════════════ */
+.cover {
+  width: 210mm;
+  height: 297mm;
+  background: linear-gradient(140deg, var(--navy) 0%, var(--navy-dark) 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  break-after: page;
+  page-break-after: always;
+}
+
+/* Blueprint grid overlay */
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 10mm 10mm;
+}
+
+/* Top gold line */
+.cover-topbar {
+  height: 1.4mm;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-dark) 15%, var(--gold) 40%, var(--gold-light) 50%, var(--gold) 60%, var(--gold-dark) 85%, transparent 100%);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Cover header */
+.cover-head {
+  padding: 10mm 15mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.c-logo { display: flex; align-items: center; gap: 3mm; }
+.c-logo svg { width: 10mm; height: 10mm; }
+.c-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6mm;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+}
+.c-logo-text span { color: var(--gold); }
+
+.c-badge {
+  border: 0.4mm solid rgba(201,169,98,0.6);
+  background: rgba(201,169,98,0.1);
+  padding: 2mm 4mm;
+  font-size: 2.4mm;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Cover main – vertically centered */
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10mm 20mm;
+  position: relative;
+  z-index: 1;
+}
+
+/* Large center icon */
+.c-icon { width: 24mm; height: 24mm; margin-bottom: 8mm; }
+
+.c-tag {
+  font-size: 2.4mm;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4mm;
+}
+
+/* Ornamental decoration */
+.c-ornament {
+  display: flex;
+  align-items: center;
+  gap: 4mm;
+  width: 100%;
+  max-width: 110mm;
+  margin-bottom: 6mm;
+}
+.c-orn-line { flex: 1; height: 0.3mm; }
+.c-orn-line.l { background: linear-gradient(90deg, transparent, var(--gold)); }
+.c-orn-line.r { background: linear-gradient(90deg, var(--gold), transparent); }
+.c-orn-dot { width: 1.4mm; height: 1.4mm; border-radius: 50%; background: var(--gold); }
+
+.c-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17mm;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.08;
+  margin-bottom: 3.5mm;
+  letter-spacing: -0.02em;
+}
+
+.c-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5.5mm;
+  font-style: italic;
+  color: rgba(248,246,241,0.55);
+  margin-bottom: 10mm;
+}
+
+.c-divider {
+  width: 25mm;
+  height: 0.4mm;
+  background: var(--gold);
+  margin: 0 auto 10mm;
+}
+
+/* Recipient meta */
+.c-meta { display: flex; gap: 0; }
+.c-meta-item { padding: 0 8mm; text-align: center; }
+.c-meta-item:not(:last-child) {
+  border-right: 0.2mm solid rgba(248,246,241,0.15);
+}
+.c-meta-label {
+  font-size: 2.1mm;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5mm;
+}
+.c-meta-val {
+  font-size: 3.4mm;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+/* Cover footer */
+.cover-foot {
+  padding: 7mm 15mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.2mm solid rgba(248,246,241,0.08);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.cover-foot-l { font-size: 2.4mm; color: rgba(248,246,241,0.45); }
+.cover-foot-r { font-size: 2.4mm; color: rgba(248,246,241,0.45); }
+
+.cover-botbar {
+  height: 0.8mm;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-dark) 15%, var(--gold) 50%, var(--gold-dark) 85%, transparent 100%);
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   CONTENT PAGES
+   ══════════════════════════════════════════════ */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+}
+
+/* Compact nav header */
+.ch {
+  background: var(--navy);
+  padding: 4.5mm 14mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ch-logo { display: flex; align-items: center; gap: 2.5mm; }
+.ch-logo svg { width: 6mm; height: 6mm; }
+.ch-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 4mm; font-weight: 600; color: var(--cream); }
+.ch-logo-text span { color: var(--gold); }
+.ch-right { font-size: 2.3mm; color: rgba(248,246,241,0.55); text-align: right; }
+.ch-right strong { display: block; color: var(--gold); font-size: 2mm; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.3mm; }
+
+.gold-stripe {
+  height: 0.8mm;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+  flex-shrink: 0;
+}
+
+/* Content body */
+.cb {
+  flex: 1;
+  padding: 9mm 14mm;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Section tag (centered style) */
+.sec-tag {
+  font-size: 2.2mm;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  margin-bottom: 1.5mm;
+}
+.sec-tag::before, .sec-tag::after { content: ''; width: 6mm; height: 0.3mm; background: var(--gold-dark); }
+
+.sec-tag.left { justify-content: flex-start; }
+.sec-tag.left::before { display: none; }
+
+/* Headings */
+.h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9mm;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.12;
+  margin-bottom: 4mm;
+}
+.h1.center { text-align: center; font-size: 8mm; margin-bottom: 2mm; }
+
+.h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6mm;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3mm;
+}
+
+/* Body text */
+.body-txt {
+  font-size: 3.1mm;
+  color: var(--anthrazit);
+  line-height: 1.75;
+  margin-bottom: 4mm;
+}
+.body-txt.center { text-align: center; }
+
+/* Stats bar */
+.stats {
+  display: flex;
+  background: var(--navy);
+  margin: 3mm 0;
+  flex-shrink: 0;
+}
+.stat {
+  flex: 1;
+  padding: 6mm 4mm;
+  text-align: center;
+  border-right: 0.2mm solid rgba(248,246,241,0.08);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11mm;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 1.5mm;
+}
+.stat-lbl { font-size: 2.4mm; color: rgba(248,246,241,0.65); line-height: 1.4; }
+
+/* 3-col cards */
+.cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 4mm 0; }
+.card {
+  background: var(--white);
+  border: 0.25mm solid var(--cream-dark);
+  padding: 5mm;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0.7mm;
+  background: var(--gold);
+}
+.card-icon {
+  width: 8mm; height: 8mm;
+  background: rgba(201,169,98,0.13);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 3mm;
+}
+.card-title { font-family: 'Cormorant Garamond', serif; font-size: 5mm; font-weight: 600; color: var(--navy); margin-bottom: 1.5mm; }
+.card-txt { font-size: 2.8mm; color: var(--anthrazit); line-height: 1.6; }
+
+/* Checklist */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 2mm; margin: 3mm 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 3mm; font-size: 2.95mm; color: var(--anthrazit); line-height: 1.5; }
+.checklist li::before { content: ''; width: 3mm; height: 3mm; border: 0.35mm solid var(--gold); transform: rotate(45deg); flex-shrink: 0; margin-top: 0.5mm; }
+
+/* Table */
+.tbl { width: 100%; border-collapse: collapse; font-size: 2.9mm; margin: 2.5mm 0; }
+.tbl th { background: var(--navy); color: var(--cream); padding: 2.8mm 3.5mm; text-align: left; font-weight: 600; font-size: 2.7mm; }
+.tbl td { padding: 2.8mm 3.5mm; border-bottom: 0.2mm solid var(--cream-dark); color: var(--anthrazit); }
+.tbl tr:nth-child(even) td { background: var(--white); }
+.tbl .hl td { background: rgba(201,169,98,0.1) !important; font-weight: 600; color: var(--navy); }
+.tbl .tot td { background: var(--navy) !important; color: var(--cream); font-weight: 700; border: none; }
+
+/* Payment highlight */
+.pay-box {
+  background: rgba(201,169,98,0.08);
+  border: 0.4mm solid var(--gold);
+  padding: 4mm 5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3.5mm 0;
+}
+.pay-box-left {}
+.pay-box-tag { font-size: 2.2mm; text-transform: uppercase; letter-spacing: 0.09em; color: var(--gold-dark); font-weight: 600; margin-bottom: 1mm; }
+.pay-box-txt { font-size: 3mm; color: var(--navy); }
+.pay-box-amt { text-align: right; }
+.pay-box-small { font-size: 2.4mm; color: var(--anthrazit); opacity: .65; margin-bottom: 0.5mm; }
+.pay-box-num { font-family: 'Cormorant Garamond', serif; font-size: 6.5mm; font-weight: 700; color: var(--navy); }
+
+/* Sig grid */
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin: 5mm 0; }
+.sig-label { font-size: 2.1mm; text-transform: uppercase; letter-spacing: 0.09em; color: var(--gold-dark); font-weight: 600; margin-bottom: 1.5mm; }
+.sig-line { border-top: 0.25mm solid var(--anthrazit); padding-top: 1.5mm; padding-bottom: 11mm; }
+.sig-cap { font-size: 2.4mm; color: var(--anthrazit); opacity: .5; }
+
+/* CTA block */
+.cta {
+  background: var(--navy);
+  padding: 7mm 10mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5mm;
+  margin-top: auto;
+}
+.cta-left {}
+.cta-tag { font-size: 2.2mm; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 600; margin-bottom: 1.5mm; }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: 7mm; font-weight: 600; color: var(--cream); }
+.cta-btn {
+  background: var(--gold); color: var(--navy-dark);
+  padding: 3mm 7mm; font-size: 2.7mm;
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0;
+}
+
+/* HR */
+.hr { width: 100%; height: 0.2mm; background: var(--cream-dark); margin: 4mm 0; }
+
+/* Content footer */
+.cf {
+  border-top: 0.2mm solid var(--cream-dark);
+  padding: 2.5mm 14mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.cf-txt { font-size: 2.2mm; color: var(--anthrazit); opacity: .4; }
+.cf-pg  { font-size: 2.2mm; color: var(--gold-dark); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 1 · Cover – Full Navy
+     ═══════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-topbar"></div>
+
+  <div class="cover-head">
+    <div class="c-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="c-logo-text">Pro<span>Makler</span></div>
+    </div>
+    <div class="c-badge">Angebot</div>
+  </div>
+
+  <div class="cover-main">
+    <!-- Large center icon -->
+    <svg class="c-icon" viewBox="0 0 44 44" fill="none">
+      <rect x="2" y="2" width="40" height="40" stroke="rgba(248,246,241,0.15)" stroke-width="0.8" fill="none"/>
+      <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1.5" fill="none"/>
+      <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="1"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="1"/>
+      <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.2"/>
+    </svg>
+
+    <div class="c-tag">Digitale Projektentwicklung</div>
+
+    <div class="c-ornament">
+      <div class="c-orn-line l"></div>
+      <div class="c-orn-dot"></div>
+      <div class="c-orn-dot"></div>
+      <div class="c-orn-dot"></div>
+      <div class="c-orn-line r"></div>
+    </div>
+
+    <div class="c-title">Ihre digitale<br>Rendite-<br>Immobilie</div>
+    <div class="c-subtitle">Website-Entwicklung für Immobilienmakler</div>
+
+    <div class="c-divider"></div>
+
+    <div class="c-meta">
+      <div class="c-meta-item">
+        <div class="c-meta-label">Angebot für</div>
+        <div class="c-meta-val">Müller Immobilien GmbH</div>
+      </div>
+      <div class="c-meta-item">
+        <div class="c-meta-label">Angebots-Nr.</div>
+        <div class="c-meta-val">ANG-2026-018</div>
+      </div>
+      <div class="c-meta-item">
+        <div class="c-meta-label">Datum</div>
+        <div class="c-meta-val">19. Februar 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-botbar"></div>
+  <div class="cover-foot">
+    <div class="cover-foot-l">ProMakler Digital · promakler.de · kontakt@promakler.de</div>
+    <div class="cover-foot-r">Gültig bis 19. März 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 2 · Projektübersicht & Features
+     ═══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ch">
+    <div class="ch-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="ch-logo-text">Pro<span>Makler</span></div>
+    </div>
+    <div class="ch-right">
+      <strong>Angebot · ANG-2026-018</strong>
+      Müller Immobilien GmbH · 19.02.2026
+    </div>
+  </div>
+  <div class="gold-stripe"></div>
+
+  <div class="cb">
+    <div class="sec-tag" style="margin-bottom:1mm;">Projektübersicht</div>
+    <div class="h1 center">Ihre Bausubstanz-Analyse</div>
+    <div class="body-txt center" style="margin-bottom:3mm;">
+      Basierend auf unserer Analyse Ihrer aktuellen Internetpräsenz sehen wir erhebliches Renditepotenzial. Hier unser Entwicklungsplan:
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+47%</div>
+        <div class="stat-lbl">mehr Online-<br>Anfragen</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">14</div>
+        <div class="stat-lbl">Werktage bis<br>Schlüsselübergabe</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">onOffice &<br>FlowFact kompatibel</div>
+      </div>
+    </div>
+
+    <div style="margin-top:5mm;">
+      <div class="sec-tag left" style="margin-bottom:2.5mm;">Leistungsumfang</div>
+    </div>
+
+    <div class="cards-3">
+      <div class="card">
+        <div class="card-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <div class="card-title">Website</div>
+        <div class="card-txt">Next.js 15, TypeScript, responsiv, 10 Seiten, CMS-Zugang</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>
+        </div>
+        <div class="card-title">onOffice API</div>
+        <div class="card-txt">Live-Sync, Exposé-Portal, Filterfunktion, CRM-Weiterleitung</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <div class="card-title">SEO & Hosting</div>
+        <div class="card-txt">Local SEO, 10 Keywords, Vercel Pro, SSL, 12 Mon. Wartung</div>
+      </div>
+    </div>
+
+    <div class="hr" style="margin: 4mm 0;"></div>
+
+    <div class="sec-tag left" style="margin-bottom:2.5mm;">Inklusive Leistungen</div>
+    <ul class="checklist">
+      <li>Professionelles responsives Design (Desktop, Tablet, Mobile)</li>
+      <li>Automatisierte Exposé-Darstellung mit Filterfunktion</li>
+      <li>Kontaktformulare mit direkter CRM-Weiterleitung</li>
+      <li>3 Revisionsrunden im Design-Prozess</li>
+      <li>2-stündige Schulung (online, aufgezeichnet)</li>
+      <li>12 Monate Wartung, Updates & technischer Support</li>
+    </ul>
+  </div>
+
+  <div class="cf">
+    <div class="cf-txt">ProMakler Digital · promakler.de</div>
+    <div class="cf-pg">2 / 3</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 3 · Investition & Auftragserteilung
+     ═══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="ch">
+    <div class="ch-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="ch-logo-text">Pro<span>Makler</span></div>
+    </div>
+    <div class="ch-right">
+      <strong>Angebot · ANG-2026-018</strong>
+      Müller Immobilien GmbH · 19.02.2026
+    </div>
+  </div>
+  <div class="gold-stripe"></div>
+
+  <div class="cb">
+    <div class="sec-tag left" style="margin-bottom:1mm;">Investition</div>
+    <div class="h2" style="margin-bottom:3mm;">Rendite-Rechnung</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Leistung</th>
+          <th style="text-align:right; width:30%;">Preis netto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Website-Entwicklung (Next.js, TypeScript, 10 Seiten)</td>
+          <td style="text-align:right;">2.400,00 €</td>
+        </tr>
+        <tr>
+          <td>onOffice API-Integration & Exposé-Portal</td>
+          <td style="text-align:right;">800,00 €</td>
+        </tr>
+        <tr>
+          <td>SEO-Grundoptimierung</td>
+          <td style="text-align:right;">600,00 €</td>
+        </tr>
+        <tr>
+          <td>Hosting & Wartung 12 Monate</td>
+          <td style="text-align:right;">480,00 €</td>
+        </tr>
+        <tr>
+          <td>Schlüsselübergabe-Schulung (2 Std.)</td>
+          <td style="text-align:right;">0,00 €</td>
+        </tr>
+        <tr class="hl">
+          <td>Nettobetrag</td>
+          <td style="text-align:right;">4.280,00 €</td>
+        </tr>
+        <tr>
+          <td>Umsatzsteuer 19 %</td>
+          <td style="text-align:right;">813,20 €</td>
+        </tr>
+        <tr class="tot">
+          <td style="font-size:3mm;">Gesamtinvestition inkl. MwSt.</td>
+          <td style="text-align:right; font-family:'Cormorant Garamond',serif; font-size:6mm;">5.093,20 €</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pay-box">
+      <div class="pay-box-left">
+        <div class="pay-box-tag">Zahlungsplan</div>
+        <div class="pay-box-txt">50 % bei Auftragserteilung · 50 % bei Schlüsselübergabe</div>
+      </div>
+      <div class="pay-box-amt">
+        <div class="pay-box-small">Erste Rate</div>
+        <div class="pay-box-num">2.546,60 €</div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="sig-grid">
+      <div>
+        <div class="sig-label">Auftraggeber</div>
+        <div class="sig-line"></div>
+        <div class="sig-cap">Datum, Unterschrift<br>Müller Immobilien GmbH</div>
+      </div>
+      <div>
+        <div class="sig-label">ProMakler Digital</div>
+        <div class="sig-line"></div>
+        <div class="sig-cap">Datum, Unterschrift<br>Luca Ingenbleek, Geschäftsführer</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="cta-left">
+        <div class="cta-tag">Bereit für Ihre Rendite?</div>
+        <div class="cta-title">In 14 Tagen bezugsfertig</div>
+      </div>
+      <div class="cta-btn">Jetzt beauftragen</div>
+    </div>
+  </div>
+
+  <div class="cf">
+    <div class="cf-txt">ProMakler Digital · promakler.de · kontakt@promakler.de</div>
+    <div class="cf-pg">3 / 3</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#2a3a2e; padding:48px; display:flex; flex-direction:column; gap:60px; font-family:'DM Sans',sans-serif; }
+
+.post { position:relative; overflow:hidden; flex-shrink:0; }
+
+/* Full forest background – mit Katasterplan-Grid */
+.forest-bg {
+  background:linear-gradient(140deg,#1a3028 0%,#0f1e18 100%);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+}
+
+/* Kataster-Grid: Kombination aus Blueprint + Flurstück-Andeutung */
+.forest-bg::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(201,169,98,0.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,169,98,0.055) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,0.02) 5px,transparent 5px),
+    linear-gradient(90deg,rgba(255,255,255,0.02) 5px,transparent 5px);
+  background-size:28px 28px, 28px 28px, 140px 140px, 140px 140px;
+}
+.z1 { position:relative; z-index:1; }
+
+/* Flurstück-Overlay Deko (große Katasterlinien) */
+.katastr-deko {
+  position:absolute; z-index:0;
+  opacity:0.06;
+}
+
+/* Typography */
+.logo-text { font-family:'Cormorant Garamond',serif; font-weight:600; color:#f8f6f1; letter-spacing:-0.02em; }
+.logo-text em { color:#c9a962; font-style:normal; }
+
+.tag { font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#c9a962; }
+.h1  { font-family:'Cormorant Garamond',serif; font-weight:600; color:#f8f6f1; line-height:1.08; }
+.h-sub { font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(248,246,241,0.55); }
+
+/* Gold ornament */
+.orn { display:flex; align-items:center; gap:10px; }
+.orn-line-l { flex:1; height:1px; background:linear-gradient(90deg,transparent,#c9a962); }
+.orn-line-r { flex:1; height:1px; background:linear-gradient(90deg,#c9a962,transparent); }
+.orn-dot { width:5px; height:5px; border-radius:50%; background:#c9a962; }
+
+/* Gold dividers */
+.gdiv  { background:linear-gradient(90deg,transparent,#c9a962,transparent); height:1px; }
+.gdiv-solid { background:#c9a962; }
+
+/* Stats */
+.stat-num { font-family:'Cormorant Garamond',serif; font-weight:700; color:#c9a962; line-height:1; }
+.stat-lbl { color:rgba(248,246,241,0.65); }
+
+/* Bullets */
+.bullet { display:flex; align-items:flex-start; }
+.bdot { border:1.5px solid #c9a962; transform:rotate(45deg); flex-shrink:0; }
+
+/* Badge */
+.gold-badge { border:1px solid rgba(201,169,98,0.55); background:rgba(201,169,98,0.12); color:#c9a962; }
+.forest-badge { border:1px solid rgba(201,169,98,0.3); background:rgba(26,48,40,0.6); color:rgba(248,246,241,0.75); }
+
+/* CTA */
+.cta { background:#c9a962; color:#0f1e18; display:inline-flex; align-items:center; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 1 · Square 1080×1080  (Instagram · LinkedIn · Facebook)
+     Content: ">300% ROI" – Agrar Social Proof / Impact
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="square" style="width:1080px;height:1080px;">
+<div class="forest-bg" style="width:1080px;height:1080px;flex-direction:column;align-items:center;justify-content:center;padding:64px;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+
+  <!-- Katasterplan Deko links unten -->
+  <div class="katastr-deko" style="left:-40px;bottom:-40px;">
+    <svg width="380" height="320" viewBox="0 0 400 350" fill="none">
+      <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="50,195 210,180 220,300 60,310" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="210,180 360,160 350,280 220,300" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <circle cx="125" cy="118" r="5" fill="#c9a962"/>
+      <circle cx="285" cy="105" r="5" fill="#c9a962"/>
+      <circle cx="135" cy="245" r="5" fill="#c9a962"/>
+      <circle cx="285" cy="230" r="5" fill="#c9a962"/>
+    </svg>
+  </div>
+
+  <!-- Logo top-left -->
+  <div class="z1" style="position:absolute;top:36px;left:48px;display:flex;align-items:center;gap:11px;">
+    <svg width="38" height="38" viewBox="0 0 44 44" fill="none">
+      <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+      <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+      <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+      <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+    </svg>
+    <div>
+      <div class="logo-text" style="font-size:20px;">Pro<em>Makler</em></div>
+      <div style="font-size:11px;color:rgba(248,246,241,0.45);text-transform:uppercase;letter-spacing:0.1em;">Agrar</div>
+    </div>
+  </div>
+
+  <!-- Handle top-right -->
+  <div class="z1" style="position:absolute;top:44px;right:48px;font-size:13px;color:rgba(248,246,241,0.35);">promakler.de/agrar</div>
+
+  <!-- Center content -->
+  <div class="z1" style="display:flex;flex-direction:column;align-items:center;text-align:center;max-width:860px;">
+
+    <div class="tag" style="font-size:12px;margin-bottom:18px;">Ertragswert · Bodenmarkt 2026</div>
+
+    <div class="orn" style="width:200px;margin-bottom:20px;">
+      <div class="orn-line-l"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-line-r"></div>
+    </div>
+
+    <!-- Big stat – ROI statt Anfragen für Agrar -->
+    <div style="font-family:'Cormorant Garamond',serif;font-size:130px;font-weight:700;color:#c9a962;line-height:1;margin-bottom:4px;">&gt;300%</div>
+
+    <div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:#f8f6f1;margin-bottom:6px;">Eigenkapitalrendite</div>
+    <div class="h-sub" style="font-size:20px;margin-bottom:32px;">bereits nach dem ersten Agrar-Mandat amortisiert</div>
+
+    <div class="gdiv-solid" style="width:60px;height:2px;margin-bottom:28px;"></div>
+
+    <!-- Beispielrechnung kompakt -->
+    <div style="background:rgba(248,246,241,0.06);border:1px solid rgba(248,246,241,0.1);padding:20px 36px;margin-bottom:32px;width:100%;">
+      <div class="tag" style="font-size:10px;margin-bottom:10px;">Bodenmarkt-Rechnung 2026</div>
+      <div style="display:flex;justify-content:space-around;gap:24px;">
+        <div style="text-align:center;">
+          <div style="font-size:13px;color:rgba(248,246,241,0.55);margin-bottom:4px;">50 ha Acker</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#f8f6f1;">750.000 €</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:13px;color:rgba(248,246,241,0.55);margin-bottom:4px;">3,0% Courtage</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#c9a962;">22.500 €</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:13px;color:rgba(248,246,241,0.55);margin-bottom:4px;">Investition</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#f8f6f1;">&lt; ¼</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 stats in a row -->
+    <div style="display:flex;gap:0;width:100%;margin-bottom:36px;">
+      <div style="flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:48px;">+47%</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">mehr Mandate</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:48px;">14</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">Tage Go-Live</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:0 16px;">
+        <div class="stat-num" style="font-size:48px;">× 10</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">ROI-Faktor</div>
+      </div>
+    </div>
+
+    <div class="cta" style="padding:18px 36px;font-size:14px;gap:14px;">
+      Kostenlose Flächenanalyse anfordern
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 2 · Landscape 1200×628  (LinkedIn · Facebook · X)
+     Content: "Bodenmarkt gewinnt online" – Brand Announcement
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="landscape" style="width:1200px;height:628px;">
+<div class="forest-bg" style="width:1200px;height:628px;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+  <!-- Vertical divider -->
+  <div style="position:absolute;top:10%;bottom:10%;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(201,169,98,0.3) 30%,rgba(201,169,98,0.3) 70%,transparent);"></div>
+
+  <!-- Kataster-Deko rechts oben -->
+  <div class="katastr-deko" style="right:-60px;top:-60px;">
+    <svg width="300" height="280" viewBox="0 0 400 350" fill="none">
+      <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <circle cx="125" cy="118" r="4" fill="#c9a962"/>
+      <circle cx="285" cy="105" r="4" fill="#c9a962"/>
+    </svg>
+  </div>
+
+  <!-- LEFT HALF -->
+  <div class="z1" style="width:50%;height:628px;display:flex;flex-direction:column;padding:52px 48px 48px 56px;">
+    <!-- Logo -->
+    <div style="display:flex;align-items:center;gap:11px;margin-bottom:36px;">
+      <svg width="36" height="36" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div>
+        <div class="logo-text" style="font-size:20px;">Pro<em>Makler</em></div>
+        <div style="font-size:11px;color:rgba(248,246,241,0.45);text-transform:uppercase;letter-spacing:0.1em;">Agrar</div>
+      </div>
+    </div>
+
+    <div class="tag" style="font-size:11px;margin-bottom:12px;">Digitale Vermarktungsfläche</div>
+
+    <div class="h1" style="font-size:50px;margin-bottom:8px;">
+      Bodenmarkt<br>gewinnt online
+    </div>
+
+    <div class="h-sub" style="font-size:18px;margin-bottom:24px;">Websites für Agrar-, Forst- und Landgutmakler</div>
+
+    <div style="flex:1;"></div>
+
+    <div class="cta" style="padding:14px 24px;font-size:12px;gap:10px;align-self:flex-start;">
+      Flächenanalyse anfordern
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <div style="margin-top:24px;font-size:12px;color:rgba(248,246,241,0.3);">promakler.de/agrar · kontakt@promakler.de</div>
+  </div>
+
+  <!-- RIGHT HALF: Stats -->
+  <div class="z1" style="width:50%;height:628px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 44px 44px 56px;gap:0;">
+
+    <div style="text-align:center;margin-bottom:22px;">
+      <div class="stat-num" style="font-size:88px;">&gt;300%</div>
+      <div class="stat-lbl" style="font-size:14px;margin-top:4px;">Eigenkapitalrendite</div>
+    </div>
+
+    <div class="gdiv" style="width:100%;margin-bottom:22px;"></div>
+
+    <div style="display:flex;gap:32px;text-align:center;margin-bottom:22px;">
+      <div>
+        <div class="stat-num" style="font-size:56px;">+47%</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">mehr Mandate</div>
+      </div>
+      <div style="width:1px;background:rgba(201,169,98,0.25);"></div>
+      <div>
+        <div class="stat-num" style="font-size:56px;">× 10</div>
+        <div class="stat-lbl" style="font-size:13px;margin-top:4px;">ROI-Faktor</div>
+      </div>
+    </div>
+
+    <div class="gdiv" style="width:100%;margin-bottom:20px;"></div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Ackerland</div>
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Forst</div>
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Landgut</div>
+      <div class="gold-badge" style="padding:6px 14px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Hofstelle</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     FORMAT 3 · Story 1080×1920  (Instagram · Facebook Stories)
+     Content: "Wir entwickeln Ihre Vermarktungsfläche" – Brand Story
+     ══════════════════════════════════════════════════════════ -->
+<div class="post" data-format="story" style="width:1080px;height:1920px;">
+<div class="forest-bg" style="width:1080px;height:1920px;flex-direction:column;align-items:center;">
+
+  <!-- Top gold bar -->
+  <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,#c9a962,#dbc78a,#c9a962,transparent);"></div>
+  <!-- Bottom gold bar -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a962,transparent);"></div>
+
+  <!-- Großes Katasterplan Deko – links unten -->
+  <div class="katastr-deko" style="left:-80px;bottom:60px;">
+    <svg width="500" height="440" viewBox="0 0 400 350" fill="none">
+      <polygon points="40,60 200,50 210,180 50,195" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="210,50 370,60 360,160 210,180" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="50,195 210,180 220,300 60,310" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <polygon points="210,180 360,160 350,280 220,300" stroke="#c9a962" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+      <circle cx="125" cy="118" r="5" fill="#c9a962"/>
+      <circle cx="285" cy="105" r="5" fill="#c9a962"/>
+      <circle cx="135" cy="245" r="5" fill="#c9a962"/>
+      <circle cx="285" cy="230" r="5" fill="#c9a962"/>
+      <text x="125" y="132" fill="#c9a962" font-size="10" text-anchor="middle" font-family="DM Sans, sans-serif">28,4 ha</text>
+      <text x="285" y="116" fill="#c9a962" font-size="10" text-anchor="middle" font-family="DM Sans, sans-serif">31,7 ha</text>
+      <text x="135" y="256" fill="#c9a962" font-size="10" text-anchor="middle" font-family="DM Sans, sans-serif">19,2 ha</text>
+      <text x="285" y="241" fill="#c9a962" font-size="10" text-anchor="middle" font-family="DM Sans, sans-serif">12,8 ha</text>
+    </svg>
+  </div>
+
+  <!-- TOP: Logo -->
+  <div class="z1" style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:48px 60px 0;">
+    <div style="display:flex;align-items:center;gap:13px;">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div>
+        <div class="logo-text" style="font-size:24px;">Pro<em>Makler</em></div>
+        <div style="font-size:13px;color:rgba(248,246,241,0.45);text-transform:uppercase;letter-spacing:0.1em;">Agrar</div>
+      </div>
+    </div>
+    <div class="gold-badge" style="padding:8px 18px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Für Agrarmakler</div>
+  </div>
+
+  <!-- CENTER: Main content -->
+  <div class="z1" style="flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 60px;">
+
+    <div class="tag" style="font-size:13px;margin-bottom:24px;">Digitale Fläche · Messbarer Ertrag</div>
+
+    <div class="orn" style="width:260px;margin-bottom:28px;">
+      <div class="orn-line-l"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-dot"></div>
+      <div class="orn-line-r"></div>
+    </div>
+
+    <!-- Großes Feld/Kataster Icon -->
+    <svg style="width:80px;height:80px;margin-bottom:28px;opacity:0.8;" viewBox="0 0 44 44" fill="none">
+      <rect x="2" y="2" width="40" height="40" stroke="rgba(248,246,241,0.2)" stroke-width="0.8" fill="none"/>
+      <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1.5" fill="none"/>
+      <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="1"/>
+      <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="1"/>
+      <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.2"/>
+    </svg>
+
+    <div class="h1" style="font-size:84px;margin-bottom:12px;">
+      Wir ent-<br>wickeln<br>Ihre Ver-<br>marktungs-<br>fläche
+    </div>
+
+    <div class="h-sub" style="font-size:26px;margin-bottom:36px;">
+      für Agrar-, Forst- und Landgutmakler
+    </div>
+
+    <div class="gdiv-solid" style="width:80px;height:3px;margin-bottom:48px;"></div>
+
+    <!-- Stats in 3 Spalten -->
+    <div style="display:flex;gap:0;width:100%;margin-bottom:48px;">
+      <div style="flex:1;text-align:center;padding:28px 12px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:60px;">&gt;300%</div>
+        <div class="stat-lbl" style="font-size:15px;margin-top:6px;">EK-Rendite</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:28px 12px;border-right:1px solid rgba(248,246,241,0.08);">
+        <div class="stat-num" style="font-size:60px;">+47%</div>
+        <div class="stat-lbl" style="font-size:15px;margin-top:6px;">mehr Mandate</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:28px 12px;">
+        <div class="stat-num" style="font-size:60px;">× 10</div>
+        <div class="stat-lbl" style="font-size:15px;margin-top:6px;">ROI-Faktor</div>
+      </div>
+    </div>
+
+    <!-- Feature bullets -->
+    <div style="width:100%;display:flex;flex-direction:column;gap:18px;margin-bottom:52px;text-align:left;">
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:23px;color:rgba(248,246,241,0.85);line-height:1.4;">Agrar-SEO: „Ackerland kaufen [Bundesland]"</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:23px;color:rgba(248,246,241,0.85);line-height:1.4;">Flächenbewertungs-Tool · qualifizierte Leads</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:23px;color:rgba(248,246,241,0.85);line-height:1.4;">Off-Market Portfolio-Login für Käufer</div>
+      </div>
+      <div class="bullet" style="gap:18px;align-items:flex-start;">
+        <div class="bdot" style="width:14px;height:14px;margin-top:6px;"></div>
+        <div style="font-size:23px;color:rgba(248,246,241,0.85);line-height:1.4;">Phygital Brief-Integration · CRM-Sync</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta" style="width:100%;justify-content:center;padding:28px 36px;font-size:18px;gap:18px;">
+      Kostenlose Flächenanalyse anfordern
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </div>
+
+  <!-- BOTTOM: Handle -->
+  <div class="z1" style="width:100%;display:flex;justify-content:space-between;padding:32px 60px 52px;">
+    <div style="font-size:17px;color:rgba(248,246,241,0.35);">promakler.de/agrar</div>
+    <div style="font-size:17px;color:rgba(248,246,241,0.35);">@promakler</div>
+  </div>
+
+</div>
+</div>
+
+</body>
+</html>
