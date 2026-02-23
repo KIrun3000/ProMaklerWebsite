@@ -1,9 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Disable Tailwind-related PostCSS
-  // Compression enabled by default
-  
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [
+        ...(Array.isArray(config.externals) ? config.externals : []),
+        "lighthouse",
+      ];
+    }
+    return config;
+  },
+
   async headers() {
     return [
       {
