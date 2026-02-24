@@ -73,7 +73,7 @@ export default function ClientBehaviors() {
 
     // Staggered animation for cards
     document
-      .querySelectorAll(".problem-row, .addon-cards, .process-steps")
+      .querySelectorAll(".problem-row, .addon-cards, .process-steps, .crm-benefits-grid, .problem-solution-grid")
       .forEach((container) => {
         const children = container.children;
         Array.from(children).forEach((child, index) => {

@@ -26,10 +26,10 @@ export default function SocialProofTicker() {
     timeoutRef.current = setTimeout(() => {
       setIsVisible(false);
       
-      // Show next message after a pause
+      // Show next message after a longer pause (was 3s → 18s)
       timeoutRef.current = setTimeout(() => {
         setCurrentMessage((prev) => (prev + 1) % tickerMessages.length);
-      }, 3000);
+      }, 18000);
     }, 4000);
   }, []);
 
@@ -43,10 +43,10 @@ export default function SocialProofTicker() {
       return;
     }
 
-    // Initial delay before first message
+    // Initial delay before first message (was 5s → 18s)
     timeoutRef.current = setTimeout(() => {
       showMessage();
-    }, 5000);
+    }, 18000);
 
     return () => {
       if (timeoutRef.current) {

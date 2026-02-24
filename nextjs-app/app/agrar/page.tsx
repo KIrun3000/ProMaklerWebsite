@@ -5,6 +5,8 @@ import PricingSection from "@/components/PricingSection";
 import TeamSection from "@/components/TeamSection";
 import ContactForm from "@/components/ContactForm";
 import CaseStudyCard from "@/components/CaseStudyCard";
+import OfficeSection from "@/components/OfficeSection";
+import BrandedDocsSection from "@/components/BrandedDocsSection";
 import { caseStudiesAgrar } from "@/data/caseStudiesAgrar";
 import Link from "next/link";
 
@@ -1059,6 +1061,12 @@ export default function AgrарPage() {
           </div>
         </div>
       </section>
+
+      {/* Branded Dokumente (Agrar-Variante) */}
+      <BrandedDocsSection variant="agrar" />
+
+      {/* Office / Standort */}
+      <OfficeSection />
 
       {/* Final CTA Section */}
       <section className="cta-section" id="kontakt">

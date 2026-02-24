@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { OFFICE } from "@/data/office";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -249,6 +250,30 @@ export default function ContactForm() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="contact-map-block">
+          <p className="contact-map-address">{OFFICE.fullAddress}</p>
+          <div className="contact-map-embed">
+            <iframe
+              src={OFFICE.mapsEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Karte: ProMakler Büro Berlin"
+            />
+          </div>
+          <a
+            href={OFFICE.mapsLinkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-map-link"
+          >
+            Route in Google Maps öffnen
+          </a>
         </div>
       </div>
     </section>

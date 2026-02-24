@@ -7,9 +7,17 @@ export default function HeroAudit() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
+  const normalizeUrl = (input: string) => {
+    const trimmed = input.trim();
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+
+    const urlToSend = normalizeUrl(url);
 
     try {
       const response = await fetch("/api/audit-request", {
@@ -17,7 +25,7 @@ export default function HeroAudit() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ url, email }),
+        body: JSON.stringify({ url: urlToSend, email }),
       });
 
       if (response.ok) {
@@ -35,16 +43,18 @@ export default function HeroAudit() {
 
   return (
     <section className="hero hero-audit">
-      <div className="container">
-        <div className="hero-content">
-          <span className="hero-tag">Kostenlose Website-Analyse</span>
-          <h1>
-            Website-URL eingeben &amp; innerhalb von 24h einen{" "}
-            <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
-            erhalten
-          </h1>
+      <div className="container hero-audit-container">
+        <div className="hero-audit-grid">
+          <div className="hero-audit-form-col">
+            <div className="hero-content">
+              <span className="hero-tag">Kostenlose Website-Analyse</span>
+              <h1>
+                Website-URL eingeben &amp; innerhalb von 24h einen{" "}
+                <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
+                erhalten
+              </h1>
 
-          <div className="hero-value-prop">
+              <div className="hero-value-prop">
             <div className="value-prop-icon">
               <svg
                 width="32"
@@ -82,8 +92,9 @@ export default function HeroAudit() {
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                 </svg>
                 <input
-                  type="url"
-                  placeholder="Ihre Website-URL (z.B. https://ihre-website.de)"
+                  type="text"
+                  inputMode="url"
+                  placeholder="z.B. www.ihre-website.de oder ihre-website.de"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   required
@@ -198,6 +209,25 @@ export default function HeroAudit() {
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
               <span>Individueller Entwurf für Ihr Business</span>
+            </div>
+          </div>
+            </div>
+          </div>
+
+          <div className="hero-audit-visual-col">
+            <div className="hero-audit-visual">
+              <div className="hero-audit-stat">
+                <span className="hero-audit-stat-value">24h</span>
+                <span className="hero-audit-stat-label">Antwortzeit</span>
+              </div>
+              <div className="hero-audit-stat">
+                <span className="hero-audit-stat-value">100%</span>
+                <span className="hero-audit-stat-label">kostenlos</span>
+              </div>
+              <div className="hero-audit-stat">
+                <span className="hero-audit-stat-value">1</span>
+                <span className="hero-audit-stat-label">Entwurf für Sie</span>
+              </div>
             </div>
           </div>
         </div>

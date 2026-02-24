@@ -6,6 +6,14 @@ import PricingSection from "@/components/PricingSection";
 import TeamSection from "@/components/TeamSection";
 import HeroAudit from "@/components/HeroAudit";
 import ContactForm from "@/components/ContactForm";
+import OfficeSection from "@/components/OfficeSection";
+import BrandedDocsSection from "@/components/BrandedDocsSection";
+import CrmBenefitsCards from "@/components/CrmBenefitsCards";
+import CrmFlowDiagram from "@/components/CrmFlowDiagram";
+import CompatibilityTable from "@/components/CompatibilityTable";
+import ProblemSolutionCards from "@/components/ProblemSolutionCards";
+import BrightDataStatsSection from "@/components/BrightDataStatsSection";
+import DataEcosystemMap from "@/components/DataEcosystemMap";
 import Link from "next/link";
 
 export default function Home() {
@@ -721,6 +729,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CRM + Bright Data: 6 Sektionen */}
+      <CrmBenefitsCards />
+      <CrmFlowDiagram />
+      <CompatibilityTable />
+      <ProblemSolutionCards />
+      <BrightDataStatsSection />
+      <DataEcosystemMap />
+
       {/* Angebot Section */}
       <section className="angebot-section section-dark" id="angebot">
         <div className="container">
@@ -1383,6 +1399,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Branded Dokumente */}
+      <BrandedDocsSection />
+
+      {/* Office / Standort */}
+      <OfficeSection />
 
       {/* Final CTA Section */}
       <section className="cta-section" id="kontakt">

@@ -17,14 +17,18 @@ export async function POST(request: Request) {
       );
     }
 
-    // URL-Format prüfen
+    // URL normalisieren: ohne Protokoll → https:// ergänzen
+    const raw = String(url).trim();
+    const withProtocol =
+      /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+
     let validUrl: string;
     try {
-      const parsedUrl = new URL(url);
+      const parsedUrl = new URL(withProtocol);
       validUrl = parsedUrl.toString();
     } catch {
       return NextResponse.json(
-        { error: "Ungültige URL. Bitte verwenden Sie das Format: https://ihre-website.de" },
+        { error: "Ungültige URL. Bitte z.B. www.ihre-website.de oder https://ihre-website.de eingeben." },
         { status: 400 }
       );
     }
