@@ -1242,26 +1242,24 @@ h2 {
     min-height: 40px;
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
-.crm-benefits-card-logo img {
-    max-width: 120px;
-    max-height: 40px;
-    object-fit: contain;
-    filter: brightness(1.15);
-    transition: filter 0.3s ease;
-}
-.crm-benefits-card:hover .crm-benefits-card-logo img {
-    filter: brightness(1.35);
-}
-.crm-benefits-card-logo span {
-    font-weight: 600;
-    color: var(--cream);
+.crm-name-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    background: rgba(201, 169, 98, 0.12);
+    border: 1px solid rgba(201, 169, 98, 0.35);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    text-transform: uppercase;
 }
 .crm-benefits-card-copy {
     font-size: 0.95rem;
-    color: rgba(248, 246, 241, 0.75);
-    line-height: 1.6;
+    color: rgba(248, 246, 241, 0.85);
+    line-height: 1.65;
     margin: 0;
 }
 .crm-benefits-bar {
@@ -1285,27 +1283,38 @@ h2 {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem 0.5rem;
-    margin-bottom: 2.5rem;
+    gap: 1.25rem 1rem;
+    margin-bottom: 3rem;
+    padding: 2.5rem 1rem;
+    background: rgba(248, 246, 241, 0.03);
+    border: 1px solid rgba(248, 246, 241, 0.07);
+    border-radius: 8px;
 }
 .crm-flow-crms {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem 1.25rem;
+    gap: 0.6rem;
+    padding: 1.25rem 1.5rem;
     background: rgba(248, 246, 241, 0.06);
-    border: 1px solid rgba(248, 246, 241, 0.1);
+    border: 1px solid rgba(248, 246, 241, 0.12);
+    border-radius: 6px;
 }
 .crm-flow-crm-item {
-    font-size: 0.8rem;
-    color: var(--cream);
     display: flex;
     align-items: center;
 }
-.crm-flow-crm-item img {
-    max-width: 80px;
-    max-height: 28px;
-    object-fit: contain;
+.crm-flow-crm-name {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid rgba(201, 169, 98, 0.25);
+    border-radius: 3px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 .crm-flow-arrow {
     display: flex;
@@ -1320,11 +1329,11 @@ h2 {
     align-items: center;
 }
 .crm-flow-arrow-track svg {
-    width: 48px;
-    height: 24px;
+    width: 60px;
+    height: 28px;
 }
 .crm-flow-arrow--small .crm-flow-arrow-track svg {
-    width: 32px;
+    width: 40px;
 }
 .crm-flow-arrow-pulse {
     position: absolute;
@@ -1377,18 +1386,21 @@ h2 {
     flex-shrink: 0;
 }
 .crm-flow-astro {
-    padding: 0.6rem 1rem;
+    padding: 0.65rem 1.25rem;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--navy);
     background: var(--cream);
-    border-radius: 2px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 .crm-flow-website-mock {
-    border: 1px solid rgba(248, 246, 241, 0.2);
-    border-radius: 4px;
+    border: 1px solid rgba(248, 246, 241, 0.22);
+    border-radius: 6px;
     overflow: hidden;
-    min-width: 160px;
+    min-width: 180px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 .crm-flow-website-bar {
     display: flex;
@@ -3015,9 +3027,9 @@ h2 {
 
 .hero-audit-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
 }
 
 .hero-audit-form-col .hero-content {
@@ -3033,8 +3045,9 @@ h2 {
 
 .hero-audit-visual-col {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    flex-direction: column;
 }
 
 /* Process steps visualisation */
@@ -3042,9 +3055,10 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    justify-content: space-between;
+    flex: 1;
     width: 100%;
-    max-width: 320px;
+    min-height: 320px;
 }
 
 .audit-process-glow {
@@ -3097,22 +3111,23 @@ h2 {
 }
 
 .audit-step-content strong {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--cream);
 }
 
 .audit-step-content span {
-    font-size: 0.82rem;
-    color: rgba(248, 246, 241, 0.6);
-    line-height: 1.5;
+    font-size: 0.85rem;
+    color: rgba(248, 246, 241, 0.65);
+    line-height: 1.55;
 }
 
 .audit-step-connector {
     display: flex;
     justify-content: flex-start;
     padding-left: 2.5rem;
-    height: 2rem;
+    flex: 1;
+    min-height: 2.5rem;
     position: relative;
     z-index: 1;
 }
@@ -3269,10 +3284,12 @@ h2 {
 
     .hero-audit-visual-col {
         order: -1;
+        min-height: 280px;
     }
 
     .hero-audit-process {
         max-width: 100%;
+        min-height: 280px;
     }
 
     .hero-value-prop {

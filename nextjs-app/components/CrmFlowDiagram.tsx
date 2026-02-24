@@ -15,19 +15,7 @@ export default function CrmFlowDiagram() {
           <div className="crm-flow-crms">
             {CRMS.map((crm) => (
               <div key={crm.id} className="crm-flow-crm-item">
-                {crm.logoPath ? (
-                  <img
-                    src={crm.logoPath}
-                    alt={crm.name}
-                    width={80}
-                    height={28}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                      (e.target as HTMLImageElement).nextElementSibling?.classList.remove("hidden");
-                    }}
-                  />
-                ) : null}
-                <span className={crm.logoPath ? "hidden" : ""}>{crm.name}</span>
+                <span className="crm-flow-crm-name">{crm.name}</span>
               </div>
             ))}
           </div>

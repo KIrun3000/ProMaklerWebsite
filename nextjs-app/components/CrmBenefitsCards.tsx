@@ -21,19 +21,7 @@ export default function CrmBenefitsCards() {
             <div key={crm.id} className="crm-benefits-card fade-in">
               <div className="crm-benefits-card-inner">
                 <div className="crm-benefits-card-logo">
-                  {crm.logoPath ? (
-                    <img
-                      src={crm.logoPath}
-                      alt={crm.name}
-                      width={120}
-                      height={40}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = "none";
-                        (e.target as HTMLImageElement).nextElementSibling?.classList.remove("hidden");
-                      }}
-                    />
-                  ) : null}
-                  <span className={crm.logoPath ? "hidden" : ""}>{crm.name}</span>
+                  <span className="crm-name-badge">{crm.name}</span>
                 </div>
                 <p className="crm-benefits-card-copy">{crm.copySatz}</p>
               </div>
