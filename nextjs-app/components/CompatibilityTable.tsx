@@ -20,7 +20,7 @@ function Badge({ value }: { value: FeatureValue }) {
 
 export default function CompatibilityTable() {
   return (
-    <section className="compat-section section-light" id="compat">
+    <section className="compat-section compat-section--enhanced section-light" id="compat">
       <div className="container">
         <div className="section-header">
           <span className="section-tag">Kompatibilität</span>
@@ -30,9 +30,9 @@ export default function CompatibilityTable() {
         <div className="compat-wrapper">
           <div className="compat-table-wrap">
             <table className="compat-table">
-              <thead>
+              <thead className="compat-table-head">
                 <tr>
-                  <th scope="col">System</th>
+                  <th scope="col" className="compat-th-system">System</th>
                   {COMPAT_FEATURES.map((f) => (
                     <th key={f.id} scope="col">
                       {f.label}
@@ -41,9 +41,9 @@ export default function CompatibilityTable() {
                 </tr>
               </thead>
               <tbody>
-                {COMPAT_SYSTEMS.map((sys) => (
-                  <tr key={sys.id}>
-                    <th scope="row">{sys.name}</th>
+                {COMPAT_SYSTEMS.map((sys, i) => (
+                  <tr key={sys.id} className={`compat-row${i % 2 === 1 ? " compat-row--alt" : ""}`}>
+                    <th scope="row" className="compat-row-system">{sys.name}</th>
                     {COMPAT_FEATURES.map((f) => (
                       <td key={f.id}>
                         <Badge value={COMPAT_MATRIX[sys.id][f.id]} />
@@ -57,7 +57,7 @@ export default function CompatibilityTable() {
 
           <div className="compat-cards">
             {COMPAT_SYSTEMS.map((sys) => (
-              <div key={sys.id} className="compat-card fade-in">
+              <div key={sys.id} className="compat-card compat-card--glass fade-in">
                 <h4 className="compat-card-title">{sys.name}</h4>
                 <ul className="compat-card-list">
                   {COMPAT_FEATURES.map((f) => (

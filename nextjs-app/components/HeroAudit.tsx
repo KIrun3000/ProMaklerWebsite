@@ -215,18 +215,38 @@ export default function HeroAudit() {
           </div>
 
           <div className="hero-audit-visual-col">
-            <div className="hero-audit-visual">
-              <div className="hero-audit-stat">
-                <span className="hero-audit-stat-value">24h</span>
-                <span className="hero-audit-stat-label">Antwortzeit</span>
+            <div className="hero-audit-process">
+              <div className="audit-process-glow" aria-hidden />
+              <div className="audit-step" style={{ animationDelay: "0.1s" }}>
+                <div className="audit-step-num">01</div>
+                <div className="audit-step-content">
+                  <strong>URL eingeben</strong>
+                  <span>Ihre Website-Adresse in das Formular eintragen</span>
+                </div>
               </div>
-              <div className="hero-audit-stat">
-                <span className="hero-audit-stat-value">100%</span>
-                <span className="hero-audit-stat-label">kostenlos</span>
+              <div className="audit-step-connector" aria-hidden>
+                <div className="audit-step-connector-line">
+                  <div className="audit-connector-dot" />
+                </div>
               </div>
-              <div className="hero-audit-stat">
-                <span className="hero-audit-stat-value">1</span>
-                <span className="hero-audit-stat-label">Entwurf für Sie</span>
+              <div className="audit-step" style={{ animationDelay: "0.25s" }}>
+                <div className="audit-step-num">02</div>
+                <div className="audit-step-content">
+                  <strong>KI-Analyse</strong>
+                  <span>Technik, Design &amp; Conversion – geprüft in 24h</span>
+                </div>
+              </div>
+              <div className="audit-step-connector" aria-hidden>
+                <div className="audit-step-connector-line">
+                  <div className="audit-connector-dot" style={{ animationDelay: "0.6s" }} />
+                </div>
+              </div>
+              <div className="audit-step" style={{ animationDelay: "0.4s" }}>
+                <div className="audit-step-num">03</div>
+                <div className="audit-step-content">
+                  <strong>Entwurf erhalten</strong>
+                  <span>Ihr persönlicher Relaunch-Entwurf kommt per E-Mail</span>
+                </div>
               </div>
             </div>
           </div>

@@ -33,14 +33,18 @@ export default function CrmFlowDiagram() {
           </div>
 
           <div className="crm-flow-arrow">
-            <svg viewBox="0 0 48 24" fill="none" aria-hidden>
-              <line x1="4" y1="12" x2="38" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              <path d="M34 6l8 6-8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            <div className="crm-flow-arrow-track" aria-hidden>
+              <svg viewBox="0 0 48 24" fill="none">
+                <line x1="4" y1="12" x2="38" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M34 6l8 6-8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              <div className="crm-flow-arrow-pulse" />
+            </div>
             <span className="crm-flow-arrow-label">{FLOW_LABELS.apiLabel}</span>
           </div>
 
           <div className="crm-flow-sync">
+            <div className="crm-flow-sync-ping" aria-hidden />
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
@@ -49,19 +53,25 @@ export default function CrmFlowDiagram() {
           </div>
 
           <div className="crm-flow-arrow crm-flow-arrow--small">
-            <svg viewBox="0 0 32 24" fill="none" aria-hidden>
-              <line x1="4" y1="12" x2="24" y2="12" stroke="currentColor" strokeWidth="2" />
-              <path d="M20 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            <div className="crm-flow-arrow-track" aria-hidden>
+              <svg viewBox="0 0 32 24" fill="none">
+                <line x1="4" y1="12" x2="24" y2="12" stroke="currentColor" strokeWidth="2" />
+                <path d="M20 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              <div className="crm-flow-arrow-pulse" style={{ animationDelay: "0.4s" }} />
+            </div>
           </div>
 
           <div className="crm-flow-astro">Astro</div>
 
           <div className="crm-flow-arrow crm-flow-arrow--small">
-            <svg viewBox="0 0 32 24" fill="none" aria-hidden>
-              <line x1="4" y1="12" x2="24" y2="12" stroke="currentColor" strokeWidth="2" />
-              <path d="M20 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            <div className="crm-flow-arrow-track" aria-hidden>
+              <svg viewBox="0 0 32 24" fill="none">
+                <line x1="4" y1="12" x2="24" y2="12" stroke="currentColor" strokeWidth="2" />
+                <path d="M20 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              </svg>
+              <div className="crm-flow-arrow-pulse" style={{ animationDelay: "0.8s" }} />
+            </div>
           </div>
 
           <div className="crm-flow-website">
@@ -73,7 +83,9 @@ export default function CrmFlowDiagram() {
                 <span className="crm-flow-website-url">ihre-website.de</span>
               </div>
               <div className="crm-flow-website-content">
-                <div className="crm-flow-website-placeholder">Live-Website</div>
+                <div className="crm-flow-skeleton-line" style={{ width: "70%", animationDelay: "0s" }} />
+                <div className="crm-flow-skeleton-line" style={{ width: "90%", animationDelay: "0.15s" }} />
+                <div className="crm-flow-skeleton-line" style={{ width: "55%", animationDelay: "0.3s" }} />
               </div>
             </div>
           </div>
