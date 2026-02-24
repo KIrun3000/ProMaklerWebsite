@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 landscape; margin: 0; }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest:      #1a3028;
+  --forest-dark: #0f1e18;
+  --gold:        #c9a962;
+  --gold-dark:   #a68a4a;
+  --cream:       #f8f6f1;
+  --cream-dark:  #e8e4db;
+  --ink:         #2d3632;
+  --muted:       rgba(45,54,50,0.6);
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background: var(--cream);
+}
+
+.page {
+  width: 297mm;
+  height: 210mm;
+  padding: 10mm 12mm 10mm 12mm;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10mm;
+  margin-bottom: 6mm;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 3mm;
+}
+.brand-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8.5mm;
+  font-weight: 700;
+  color: var(--forest);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.brand-title em { color: var(--gold-dark); font-style: normal; }
+.brand-sub {
+  font-size: 2.6mm;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,48,40,0.55);
+  margin-top: 1mm;
+}
+
+.h-title {
+  font-size: 5.2mm;
+  font-weight: 600;
+  color: var(--ink);
+}
+.h-meta {
+  font-size: 2.8mm;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.rule {
+  height: 0.5mm;
+  background: linear-gradient(90deg, var(--gold), var(--cream-dark));
+  margin-bottom: 7mm;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10mm;
+}
+
+.panel {
+  background: white;
+  border: 0.25mm solid var(--cream-dark);
+  border-radius: 3mm;
+  padding: 7mm;
+}
+
+.panel h2 {
+  font-size: 4.2mm;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 1.8mm;
+}
+.panel .url {
+  font-size: 2.8mm;
+  color: var(--muted);
+  margin-bottom: 5mm;
+}
+
+.devices {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5mm;
+  align-items: start;
+}
+
+.dev-label {
+  margin-top: 2mm;
+  font-size: 2.6mm;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* clean vector device frames */
+.device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+svg { display: block; }
+
+.footer {
+  display: grid;
+  grid-template-columns: 28mm 1fr 1fr;
+  gap: 8mm;
+  align-items: center;
+  margin-top: 7mm;
+}
+
+.qr-box {
+  width: 28mm;
+  height: 28mm;
+  border: 0.25mm solid var(--cream-dark);
+  border-radius: 2mm;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.qr-box img { width: 100%; height: 100%; object-fit: cover; }
+
+.foot-text {
+  font-size: 2.8mm;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.note {
+  font-size: 2.6mm;
+  color: rgba(45,54,50,0.5);
+  text-align: right;
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="brand">
+        <div>
+          <div class="brand-title">Pro<em>Makler</em></div>
+          <div class="brand-sub">Agrar</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="h-title">Mockup – Aktuelle Website vs. Neuer Entwurf</div>
+      <div class="h-meta">{{PROJECT_ID}} · {{DATUM}}</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="grid">
+    <!-- LEFT: current -->
+    <div class="panel">
+      <h2>Aktuelle Website</h2>
+      <div class="url">{{CURRENT_URL}}</div>
+
+      <div class="devices">
+        <!-- Laptop/Desktop -->
+        <div class="device">
+          <svg width="86mm" height="60mm" viewBox="0 0 860 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-laptop-current"><rect x="84" y="62" width="692" height="416" rx="18"/></clipPath>
+            </defs>
+            <rect x="60" y="40" width="740" height="460" rx="28" fill="#111"/>
+            <rect x="72" y="52" width="716" height="436" rx="22" fill="#1f1f1f"/>
+            <image href="{{IMG_CURRENT_DESKTOP}}" x="84" y="62" width="692" height="416" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-laptop-current)"/>
+            <rect x="270" y="515" width="320" height="26" rx="10" fill="#111"/>
+            <rect x="210" y="540" width="440" height="40" rx="18" fill="#222"/>
+          </svg>
+          <div class="dev-label">Desktop</div>
+        </div>
+
+        <!-- Tablet -->
+        <div class="device">
+          <svg width="60mm" height="60mm" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-tablet-current"><rect x="120" y="70" width="360" height="460" rx="20"/></clipPath>
+            </defs>
+            <rect x="96" y="40" width="408" height="520" rx="42" fill="#111"/>
+            <rect x="110" y="56" width="380" height="488" rx="34" fill="#1f1f1f"/>
+            <image href="{{IMG_CURRENT_TABLET}}" x="120" y="70" width="360" height="460" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-tablet-current)"/>
+            <circle cx="300" cy="528" r="10" fill="#333"/>
+          </svg>
+          <div class="dev-label">Tablet</div>
+        </div>
+
+        <!-- Phone -->
+        <div class="device">
+          <svg width="45mm" height="60mm" viewBox="0 0 450 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-phone-current"><rect x="132" y="84" width="186" height="396" rx="22"/></clipPath>
+            </defs>
+            <rect x="100" y="48" width="250" height="520" rx="50" fill="#111"/>
+            <rect x="116" y="66" width="218" height="484" rx="40" fill="#1f1f1f"/>
+            <rect x="196" y="72" width="60" height="10" rx="5" fill="#333"/>
+            <image href="{{IMG_CURRENT_MOBILE}}" x="132" y="84" width="186" height="396" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-phone-current)"/>
+            <circle cx="225" cy="520" r="12" fill="#333"/>
+          </svg>
+          <div class="dev-label">Mobile</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: new -->
+    <div class="panel">
+      <h2>Neuer Entwurf</h2>
+      <div class="url">{{NEW_URL}}</div>
+
+      <div class="devices">
+        <div class="device">
+          <svg width="86mm" height="60mm" viewBox="0 0 860 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-laptop-new"><rect x="84" y="62" width="692" height="416" rx="18"/></clipPath>
+            </defs>
+            <rect x="60" y="40" width="740" height="460" rx="28" fill="#111"/>
+            <rect x="72" y="52" width="716" height="436" rx="22" fill="#1f1f1f"/>
+            <image href="{{IMG_NEW_DESKTOP}}" x="84" y="62" width="692" height="416" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-laptop-new)"/>
+            <rect x="270" y="515" width="320" height="26" rx="10" fill="#111"/>
+            <rect x="210" y="540" width="440" height="40" rx="18" fill="#222"/>
+          </svg>
+          <div class="dev-label">Desktop</div>
+        </div>
+
+        <div class="device">
+          <svg width="60mm" height="60mm" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-tablet-new"><rect x="120" y="70" width="360" height="460" rx="20"/></clipPath>
+            </defs>
+            <rect x="96" y="40" width="408" height="520" rx="42" fill="#111"/>
+            <rect x="110" y="56" width="380" height="488" rx="34" fill="#1f1f1f"/>
+            <image href="{{IMG_NEW_TABLET}}" x="120" y="70" width="360" height="460" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-tablet-new)"/>
+            <circle cx="300" cy="528" r="10" fill="#333"/>
+          </svg>
+          <div class="dev-label">Tablet</div>
+        </div>
+
+        <div class="device">
+          <svg width="45mm" height="60mm" viewBox="0 0 450 600" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="clip-phone-new"><rect x="132" y="84" width="186" height="396" rx="22"/></clipPath>
+            </defs>
+            <rect x="100" y="48" width="250" height="520" rx="50" fill="#111"/>
+            <rect x="116" y="66" width="218" height="484" rx="40" fill="#1f1f1f"/>
+            <rect x="196" y="72" width="60" height="10" rx="5" fill="#333"/>
+            <image href="{{IMG_NEW_MOBILE}}" x="132" y="84" width="186" height="396" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-phone-new)"/>
+            <circle cx="225" cy="520" r="12" fill="#333"/>
+          </svg>
+          <div class="dev-label">Mobile</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="qr-box">
+      <img src="{{QR_IMAGE}}" alt="QR" />
+    </div>
+    <div class="foot-text">
+      Domain: <strong>{{DOMAIN}}</strong><br>
+      Kurzlink: <strong>{{QR_SHORTLINK}}</strong>
+    </div>
+    <div class="note">
+      Hinweis: Screenshots sind Momentaufnahmen · {{DATUM}}
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Agrar palette (source of truth: pdf-templates/social/konzept-a-agrar.html) */
+  --forest:      #1a3028;
+  --forest-dark: #0f1e18;
+  --gold:        #c9a962;
+  --gold-light:  #dbc78a;
+  --gold-dark:   #a68a4a;
+  --cream:       #f8f6f1;
+  --cream-dark:  #e8e4db;
+  --anthrazit:   #2d3436;
+  --white:       #ffffff;
+
+  /* Alias for existing Konzept-A tokens */
+  --navy:      var(--forest);
+  --navy-dark: var(--forest-dark);
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  display: flex;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+}
+
+.sb {
+  width: 58mm;
+  height: 297mm;
+  background: linear-gradient(155deg, var(--navy) 0%, var(--navy-dark) 100%);
+  padding: 11mm 8mm 10mm 10mm;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Agrar blueprint grid – gold + subtle white */
+.sb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,169,98,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,169,98,0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.025) 5px, transparent 5px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 5px, transparent 5px);
+  background-size: 7.5mm 7.5mm, 7.5mm 7.5mm, 37.5mm 37.5mm, 37.5mm 37.5mm;
+}
+
+.sb::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 12mm;
+  bottom: 12mm;
+  width: 0.4mm;
+  background: linear-gradient(180deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+}
+
+.sb > * { position: relative; z-index: 1; }
+
+.sb-logo {
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  margin-bottom: 2.8mm;
+}
+.sb-logo svg { width: 8mm; height: 8mm; }
+.sb-logo-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 5mm;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.sb-logo-text em { color: var(--gold); font-style: normal; }
+.sb-logo-sub {
+  margin-left: 10.5mm;
+  font-size: 2.2mm;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248,246,241,0.55);
+  margin-bottom: 6.2mm;
+}
+
+.sb-rule {
+  width: 100%;
+  height: 0.3mm;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 3.5mm 0;
+}
+
+.sb-block { margin-bottom: 5mm; }
+.sb-label {
+  font-size: 2.1mm;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5mm;
+}
+.sb-val {
+  font-size: 2.9mm;
+  color: var(--cream);
+  line-height: 1.55;
+  opacity: 0.88;
+}
+.sb-val strong { display: block; font-weight: 600; opacity: 1; }
+
+.sb-bottom { margin-top: auto; }
+.sb-contact {
+  font-size: 2.7mm;
+  color: var(--cream);
+  opacity: 0.65;
+  line-height: 1.9;
+}
+
+.ct {
+  flex: 1;
+  height: 297mm;
+  background: var(--cream);
+  padding: 11mm 12mm 9mm 12mm;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ct-type {
+  font-size: 2.4mm;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+  margin-bottom: 1.5mm;
+}
+.ct-type::before { content: ''; width: 5mm; height: 0.3mm; background: var(--gold-dark); }
+
+.ct-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 9.5mm;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.12;
+  margin-bottom: 1mm;
+}
+.ct-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 4.5mm;
+  font-style: italic;
+  color: var(--navy);
+  opacity: 0.55;
+  margin-bottom: 5.5mm;
+}
+
+.hr { width: 100%; height: 0.25mm; background: var(--cream-dark); margin: 3.5mm 0; }
+.hr-gold { height: 0.4mm; background: linear-gradient(90deg, var(--gold), var(--cream-dark)); }
+
+.to-label { font-size: 2.1mm; color: var(--anthrazit); opacity: 0.5; font-weight: 500; margin-bottom: 1.5mm; }
+.to-name  { font-size: 4mm; font-weight: 600; color: var(--navy); margin-bottom: 0.5mm; }
+.to-addr  { font-size: 3mm; color: var(--anthrazit); line-height: 1.6; }
+
+.h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 6mm;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 4mm;
+  margin-bottom: 2.5mm;
+}
+
+.body-text {
+  font-size: 3.1mm;
+  color: var(--anthrazit);
+  line-height: 1.75;
+  margin-bottom: 4mm;
+}
+
+.feat-list { list-style: none; display: flex; flex-direction: column; gap: 1.8mm; margin-bottom: 3.5mm; }
+.feat-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 3mm;
+  font-size: 2.95mm;
+  color: var(--anthrazit);
+  line-height: 1.5;
+}
+.feat-list li::before {
+  content: '';
+  width: 2.8mm; height: 2.8mm;
+  border: 0.35mm solid var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  margin-top: 0.6mm;
+}
+
+.hl-box {
+  border-left: 0.9mm solid var(--gold);
+  background: rgba(201,169,98,0.07);
+  padding: 3mm 4mm;
+  margin: 2.5mm 0;
+}
+.hl-box p { font-size: 3mm; color: var(--anthrazit); line-height: 1.65; font-style: italic; }
+
+.ct-foot {
+  margin-top: auto;
+  padding-top: 3.5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.2mm solid var(--cream-dark);
+}
+.ct-foot-txt { font-size: 2.4mm; color: var(--anthrazit); opacity: 0.45; }
+.ct-foot-pg  { font-size: 2.4mm; color: var(--gold-dark); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     DRUCK · ANSCHREIBEN (Konzept A Agrar · clean)
+     ═══════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="sb">
+    <div class="sb-logo">
+      <svg viewBox="0 0 44 44" fill="none">
+        <rect x="2" y="2" width="40" height="40" stroke="#f8f6f1" stroke-width="1.5" fill="none"/>
+        <rect x="8" y="8" width="28" height="28" stroke="#c9a962" stroke-width="1" fill="none"/>
+        <line x1="22" y1="8" x2="22" y2="36" stroke="#c9a962" stroke-width="0.75"/>
+        <line x1="8" y1="22" x2="36" y2="22" stroke="#c9a962" stroke-width="0.75"/>
+        <rect x="14" y="14" width="16" height="16" fill="#c9a962" fill-opacity="0.25"/>
+      </svg>
+      <div class="sb-logo-text">Pro<em>Makler</em></div>
+    </div>
+    <div class="sb-logo-sub">AGRAR</div>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-block"><div class="sb-label">Datum</div><div class="sb-val">{{DATUM}}</div></div>
+    <div class="sb-block"><div class="sb-label">Projekt</div><div class="sb-val"><strong>Website-Entwurf</strong>Agrar / Forst</div></div>
+
+    <div class="sb-rule"></div>
+
+    <div class="sb-block">
+      <div class="sb-label">Kontakt</div>
+      <div class="sb-val">promakler.de/agrar<br>kontakt@promakler.de</div>
+    </div>
+
+    <div class="sb-bottom">
+      <div class="sb-rule"></div>
+      <div class="sb-contact">Hinweis: Beilage enthält QR & Screens<br>„Aktuelle Website“ vs „Neuer Entwurf“</div>
+    </div>
+  </div>
+
+  <div class="ct">
+    <div class="ct-type">Anschreiben</div>
+    <div class="ct-title">Neuer Website-Entwurf<br>für Agrarmakler</div>
+    <div class="ct-subtitle">clean · druckfertig · Konzept A (Agrar)</div>
+    <div class="hr hr-gold" style="margin-bottom:5.5mm;"></div>
+
+    <div class="to-label">An</div>
+    <div class="to-name">{{EMPFAENGER_FIRMA}}</div>
+    <div class="to-addr">z. Hd. {{EMPFAENGER_NAME}}<br>{{EMPFAENGER_ADRESSE}}</div>
+
+    <div class="hr" style="margin: 5.5mm 0;"></div>
+
+    <div class="body-text">
+      {{ANREDE}} {{EMPFAENGER_NAME}},<br><br>
+      wir haben für Ihr Unternehmen einen <strong>neuen Website-Entwurf</strong> vorbereitet – moderner, mobil optimiert und klar strukturiert.
+      Damit Sie den Unterschied sofort sehen, liegt eine Beilage bei: <strong>„Aktuelle Website / Neuer Entwurf“</strong> – jeweils als Desktop, Tablet und Smartphone.
+      <br><br>
+      <strong>So sehen Sie den Entwurf:</strong><br>
+      QR-Code auf der Beilage scannen oder Kurzlink öffnen.
+      <br><br>
+      Wenn der Entwurf passt, setzen wir das Paket zum Festpreis um (Details in den beigefügten Unterlagen). Änderungswünsche (Text/Reihenfolge/Kontaktbereich) genügen als Stichpunkte.
+      <br><br>
+      Mit freundlichen Grüßen<br>
+      <strong>ProMakler Agrar</strong>
+    </div>
+
+    <div class="ct-foot">
+      <div class="ct-foot-txt">ProMakler Agrar · promakler.de/agrar</div>
+      <div class="ct-foot-pg">1 / 1</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

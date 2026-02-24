@@ -8,6 +8,8 @@ const path = require('path');
 
 const TEMPLATES = [
   { file: 'konzept-a.html', out: 'konzept-a.pdf', name: 'Konzept A – Split Sidebar (Architektur)' },
+  { file: 'konzept-a-agrar-print.html', out: 'konzept-a-agrar-print.pdf', name: 'Konzept A – AGRAR Print (Forest/Gold)' },
+  { file: 'beilage-aktuell-vs-neu-agrar.html', out: 'beilage-aktuell-vs-neu-agrar.pdf', name: 'Beilage – Aktuelle Website vs Neuer Entwurf (Device Mockups)' },
   { file: 'konzept-b.html', out: 'konzept-b.pdf', name: 'Konzept B – Brief Modern (Klassisch)'    },
   { file: 'konzept-c.html', out: 'konzept-c.pdf', name: 'Konzept C – Premium Cover (Full Navy)'   },
 ];
