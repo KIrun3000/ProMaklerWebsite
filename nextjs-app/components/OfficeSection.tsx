@@ -1,3 +1,5 @@
+"use client";
+
 import { OFFICE } from "@/data/office";
 
 export default function OfficeSection() {
