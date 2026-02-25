@@ -4,18 +4,15 @@ export default function DataInfrastructureSection() {
   return (
     <>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
-
-        .section-data {
+        .data-infrastructure-section {
           position: relative;
-          max-width: 1600px;
-          margin: 0 auto;
-          padding: 100px 40px;
-          background: #0D1117;
-          color: #E6EDF3;
+          padding: 8rem 0;
+          background: var(--navy);
+          color: var(--cream);
+          overflow: hidden;
         }
 
-        .section-data::before {
+        .data-infrastructure-section::before {
           content: '';
           position: absolute;
           top: 0;
@@ -23,592 +20,473 @@ export default function DataInfrastructureSection() {
           right: 0;
           bottom: 0;
           background-image: 
-            linear-gradient(to right, rgba(0, 255, 179, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0, 255, 179, 0.03) 1px, transparent 1px);
+            linear-gradient(to right, rgba(201, 169, 98, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(201, 169, 98, 0.05) 1px, transparent 1px);
           background-size: 60px 60px;
           pointer-events: none;
           z-index: 0;
-          animation: gridPulse 4s ease-in-out infinite;
+          opacity: 0.6;
         }
 
-        @keyframes gridPulse {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
-        }
-
-        .data-particles {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          overflow: hidden;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        .particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background: #00FFB3;
-          border-radius: 50%;
-          animation: float 15s linear infinite;
-          opacity: 0.3;
-        }
-
-        .particle:nth-child(2) { left: 20%; animation-delay: -5s; background: #00D9FF; }
-        .particle:nth-child(3) { left: 40%; animation-delay: -10s; background: #B388FF; }
-        .particle:nth-child(4) { left: 60%; animation-delay: -2s; }
-        .particle:nth-child(5) { left: 80%; animation-delay: -8s; background: #00D9FF; }
-
-        @keyframes float {
-          0% { 
-            transform: translateY(100vh) translateX(0); 
-            opacity: 0;
-          }
-          10% { opacity: 0.3; }
-          90% { opacity: 0.3; }
-          100% { 
-            transform: translateY(-100px) translateX(100px); 
-            opacity: 0;
-          }
-        }
-
-        .section-data > * {
+        .data-infrastructure-section > * {
           position: relative;
           z-index: 1;
         }
 
-        .data-header {
+        .data-infrastructure-header {
           max-width: 900px;
-          margin: 0 auto 80px;
+          margin: 0 auto 5rem;
           text-align: center;
         }
 
-        .status-badge {
+        .data-infrastructure-header .section-tag {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          font-size: 11px;
-          letter-spacing: 1px;
+          gap: 0.75rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: #00FFB3;
-          background: rgba(0, 255, 179, 0.1);
-          border: 1px solid rgba(0, 255, 179, 0.3);
-          padding: 8px 16px;
-          border-radius: 20px;
-          margin-bottom: 32px;
+          color: var(--gold);
+          margin-bottom: 1.5rem;
+        }
+
+        .data-infrastructure-header .section-tag::before,
+        .data-infrastructure-header .section-tag::after {
+          content: '';
+          width: 30px;
+          height: 1px;
+          background: var(--gold);
+        }
+
+        .data-infrastructure-title {
+          font-family: var(--font-display);
+          font-size: clamp(2rem, 3.5vw, 2.75rem);
+          line-height: 1.2;
+          color: var(--cream);
+          margin-bottom: 1.5rem;
           font-weight: 600;
-          font-family: 'JetBrains Mono', monospace;
         }
 
-        .status-indicator {
-          width: 8px;
-          height: 8px;
-          background: #00FFB3;
-          border-radius: 50%;
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% { 
-            box-shadow: 0 0 0 0 rgba(0, 255, 179, 0.7);
-          }
-          50% { 
-            box-shadow: 0 0 0 10px rgba(0, 255, 179, 0);
-          }
-        }
-
-        .data-title {
-          font-family: 'Playfair Display', serif;
-          font-size: 64px;
-          line-height: 1.1;
-          color: #E6EDF3;
-          margin-bottom: 24px;
-          font-weight: 600;
-          font-style: italic;
-          background: linear-gradient(135deg, #00FFB3, #00D9FF);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .data-intro {
-          font-size: 15px;
-          color: #8B949E;
+        .data-infrastructure-intro {
+          font-size: 1.1rem;
+          color: rgba(248, 246, 241, 0.75);
           line-height: 1.8;
+          opacity: 0.8;
           max-width: 720px;
           margin: 0 auto;
-          font-family: 'JetBrains Mono', monospace;
         }
 
-        .data-grid {
+        .data-infrastructure-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
-          margin: 80px 0;
+          gap: 2rem;
+          margin: 0 auto 4rem;
+          max-width: 1280px;
+          padding: 0 2rem;
         }
 
-        .data-card {
-          background: #1C2128;
-          border: 1px solid #30363D;
-          border-radius: 16px;
-          padding: 40px 32px;
+        .data-infrastructure-card {
+          background: rgba(248, 246, 241, 0.03);
+          border: 1px solid rgba(201, 169, 98, 0.2);
+          padding: 2.5rem 2rem;
           position: relative;
           overflow: hidden;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.4s var(--ease-out-expo);
         }
 
-        .data-card::before {
+        .data-infrastructure-card::before {
           content: '';
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           height: 3px;
-          background: linear-gradient(90deg, transparent, #00FFB3, transparent);
-          transform: translateX(-100%);
-          transition: transform 0.6s ease;
+          background: var(--gold);
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.4s var(--ease-out-expo);
         }
 
-        .data-card:hover::before {
-          transform: translateX(100%);
+        .data-infrastructure-card:hover::before {
+          transform: scaleX(1);
         }
 
-        .data-card:hover {
-          border-color: #00FFB3;
+        .data-infrastructure-card:hover {
+          border-color: var(--gold);
           transform: translateY(-8px);
-          box-shadow: 
-            0 0 0 1px rgba(0, 255, 179, 0.1),
-            0 20px 60px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+          background: rgba(248, 246, 241, 0.05);
         }
 
-        .card-icon {
+        .data-card-icon {
           width: 48px;
           height: 48px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(0, 255, 179, 0.1);
-          border: 1px solid rgba(0, 255, 179, 0.3);
-          border-radius: 12px;
+          background: rgba(201, 169, 98, 0.15);
+          border: 1px solid rgba(201, 169, 98, 0.3);
           font-size: 24px;
-          margin-bottom: 24px;
+          margin-bottom: 1.5rem;
         }
 
-        .data-card:nth-child(2) .card-icon {
-          background: rgba(0, 217, 255, 0.1);
-          border-color: rgba(0, 217, 255, 0.3);
-        }
-
-        .data-card:nth-child(3) .card-icon {
-          background: rgba(179, 136, 255, 0.1);
-          border-color: rgba(179, 136, 255, 0.3);
-        }
-
-        .card-headline {
-          font-family: 'Playfair Display', serif;
-          font-size: 22px;
+        .data-card-headline {
+          font-family: var(--font-display);
+          font-size: 1.35rem;
           line-height: 1.3;
-          color: #E6EDF3;
-          margin-bottom: 16px;
+          color: var(--cream);
+          margin-bottom: 1rem;
           font-weight: 600;
         }
 
-        .card-text {
-          font-size: 14px;
-          color: #8B949E;
+        .data-card-text {
+          font-size: 0.95rem;
+          color: rgba(248, 246, 241, 0.7);
           line-height: 1.7;
-          margin-bottom: 28px;
-          font-family: 'JetBrains Mono', monospace;
+          margin-bottom: 1.5rem;
         }
 
-        .card-metrics {
+        .data-card-metrics {
           list-style: none;
-          margin-top: 24px;
+          margin-top: 1.5rem;
         }
 
-        .card-metrics li {
-          font-size: 13px;
-          color: #8B949E;
-          padding: 12px 0;
-          border-bottom: 1px solid #30363D;
+        .data-card-metrics li {
+          font-size: 0.9rem;
+          color: rgba(248, 246, 241, 0.7);
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(201, 169, 98, 0.15);
           display: flex;
           align-items: center;
-          gap: 12px;
-          font-family: 'JetBrains Mono', monospace;
+          gap: 0.75rem;
         }
 
-        .card-metrics li:last-child {
+        .data-card-metrics li:last-child {
           border-bottom: none;
         }
 
-        .metric-icon {
+        .data-metric-icon {
           width: 6px;
           height: 6px;
-          background: #00FFB3;
+          background: var(--gold);
           border-radius: 50%;
           flex-shrink: 0;
         }
 
-        .card-metrics li strong {
-          color: #E6EDF3;
+        .data-card-metrics li strong {
+          color: var(--cream);
           font-weight: 600;
         }
 
-        .data-sources {
+        .data-sources-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 16px;
-          margin-top: 24px;
+          gap: 1rem;
+          margin-top: 1.5rem;
         }
 
-        .source-badge {
-          background: #161B22;
-          border: 1px solid #30363D;
-          border-radius: 8px;
-          padding: 12px 16px;
-          font-size: 12px;
+        .data-source-badge {
+          background: rgba(248, 246, 241, 0.05);
+          border: 1px solid rgba(201, 169, 98, 0.2);
+          padding: 0.75rem 1rem;
+          font-size: 0.85rem;
           display: flex;
           align-items: center;
           justify-content: space-between;
           transition: all 0.3s ease;
-          font-family: 'JetBrains Mono', monospace;
         }
 
-        .source-badge:hover {
-          border-color: #00FFB3;
-          background: rgba(0, 255, 179, 0.05);
+        .data-source-badge:hover {
+          border-color: var(--gold);
+          background: rgba(201, 169, 98, 0.08);
         }
 
-        .source-name {
-          color: #E6EDF3;
+        .data-source-name {
+          color: var(--cream);
           font-weight: 500;
         }
 
-        .source-frequency {
-          font-size: 9px;
-          letter-spacing: 0.5px;
+        .data-source-frequency {
+          font-size: 0.7rem;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
-          padding: 3px 8px;
-          border-radius: 4px;
+          padding: 0.2rem 0.6rem;
           font-weight: 600;
         }
 
-        .freq-live {
-          background: rgba(63, 185, 80, 0.2);
-          color: #3FB950;
+        .data-freq-live {
+          background: rgba(201, 169, 98, 0.2);
+          color: var(--gold);
         }
 
-        .freq-daily {
-          background: rgba(88, 166, 255, 0.2);
-          color: #58A6FF;
+        .data-freq-daily {
+          background: rgba(201, 169, 98, 0.15);
+          color: var(--gold-light);
         }
 
-        .freq-historical {
-          background: rgba(139, 148, 158, 0.2);
-          color: #8B949E;
+        .data-freq-historical {
+          background: rgba(248, 246, 241, 0.1);
+          color: rgba(248, 246, 241, 0.6);
         }
 
-        .code-example {
-          background: #161B22;
-          border: 1px solid #30363D;
-          border-radius: 12px;
-          padding: 32px;
-          margin-top: 60px;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .code-example::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, #00D9FF, transparent);
-        }
-
-        .code-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 24px;
-        }
-
-        .code-title {
-          font-size: 13px;
-          color: #8B949E;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-family: 'JetBrains Mono', monospace;
-        }
-
-        .code-lang {
-          font-size: 11px;
-          color: #00D9FF;
-          background: rgba(0, 217, 255, 0.1);
-          padding: 4px 10px;
-          border-radius: 4px;
-          font-family: 'JetBrains Mono', monospace;
-        }
-
-        .code-block {
-          font-family: 'JetBrains Mono', monospace;
-          font-size: 13px;
-          line-height: 1.8;
-          color: #8B949E;
-          overflow-x: auto;
-        }
-
-        .code-block .key {
-          color: #00D9FF;
-        }
-
-        .code-block .string {
-          color: #00FFB3;
-        }
-
-        .code-block .number {
-          color: #B388FF;
-        }
-
-        .code-block .bracket {
-          color: #E6EDF3;
-        }
-
-        .use-cases {
+        .data-use-cases {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-          margin-top: 24px;
+          gap: 1rem;
+          margin-top: 1.5rem;
         }
 
-        .use-case {
-          background: #161B22;
-          border: 1px solid #30363D;
-          border-radius: 8px;
-          padding: 20px 24px;
-          font-size: 13px;
-          color: #8B949E;
+        .data-use-case {
+          background: rgba(248, 246, 241, 0.05);
+          border: 1px solid rgba(201, 169, 98, 0.15);
+          padding: 1.25rem;
+          font-size: 0.9rem;
+          color: rgba(248, 246, 241, 0.7);
           transition: all 0.3s ease;
           display: flex;
           align-items: flex-start;
-          gap: 12px;
-          font-family: 'JetBrains Mono', monospace;
+          gap: 0.75rem;
         }
 
-        .use-case:hover {
-          border-color: #B388FF;
-          background: rgba(179, 136, 255, 0.05);
+        .data-use-case:hover {
+          border-color: var(--gold);
+          background: rgba(201, 169, 98, 0.08);
         }
 
-        .use-case-icon {
+        .data-use-case-icon {
           width: 32px;
           height: 32px;
           flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(179, 136, 255, 0.1);
-          border-radius: 6px;
+          background: rgba(201, 169, 98, 0.15);
           font-size: 16px;
         }
 
-        @media (max-width: 1200px) {
-          .data-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-          }
+        .data-code-example {
+          background: rgba(248, 246, 241, 0.03);
+          border: 1px solid rgba(201, 169, 98, 0.2);
+          padding: 2rem;
+          margin: 0 auto;
+          max-width: 1280px;
+          margin-left: 2rem;
+          margin-right: 2rem;
+          position: relative;
+          overflow: hidden;
+        }
 
-          .data-title {
-            font-size: 48px;
+        .data-code-example::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .data-code-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 1.5rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+        }
+
+        .data-code-title {
+          font-size: 0.85rem;
+          color: rgba(248, 246, 241, 0.6);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .data-code-lang {
+          font-size: 0.75rem;
+          color: var(--gold);
+          background: rgba(201, 169, 98, 0.15);
+          padding: 0.25rem 0.75rem;
+        }
+
+        .data-code-block {
+          font-family: ui-monospace, monospace;
+          font-size: 0.9rem;
+          line-height: 1.7;
+          color: rgba(248, 246, 241, 0.7);
+          overflow-x: auto;
+        }
+
+        .data-code-block .key {
+          color: var(--gold-light);
+        }
+
+        .data-code-block .string {
+          color: var(--gold);
+        }
+
+        .data-code-block .number {
+          color: var(--cream);
+        }
+
+        .data-code-block .bracket {
+          color: var(--cream);
+        }
+
+        @media (max-width: 1200px) {
+          .data-infrastructure-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
           }
         }
 
         @media (max-width: 768px) {
-          .section-data {
-            padding: 80px 24px;
+          .data-infrastructure-section {
+            padding: 5rem 0;
           }
 
-          .data-title {
-            font-size: 36px;
+          .data-infrastructure-card {
+            padding: 2rem 1.5rem;
           }
 
-          .data-card {
-            padding: 32px 24px;
-          }
-
-          .use-cases {
+          .data-use-cases {
             grid-template-columns: 1fr;
           }
 
-          .code-example {
-            padding: 24px 20px;
+          .data-code-example {
+            padding: 1.5rem;
           }
 
-          .code-block {
-            font-size: 12px;
-          }
-        }
-
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          .data-code-block {
+            font-size: 0.8rem;
           }
         }
 
-        .data-card {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+        .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
         }
 
-        .data-card:nth-child(1) {
-          animation-delay: 0.1s;
-        }
-
-        .data-card:nth-child(2) {
-          animation-delay: 0.2s;
-        }
-
-        .data-card:nth-child(3) {
-          animation-delay: 0.3s;
-        }
-
-        .code-example {
-          animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) backwards;
-          animation-delay: 0.4s;
+        .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
         }
       `}</style>
 
-      <section className="section-data">
-        <div className="data-particles">
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-          <div className="particle"></div>
-        </div>
-
-        <div className="data-header">
-          <span className="status-badge">
-            <span className="status-indicator"></span>
-            Enterprise-Infrastruktur
-          </span>
-          <h2 className="data-title">Ihre Marktdaten-Engine im Hintergrund</h2>
-          <p className="data-intro">
-            Im Hintergrund läuft eine skalierbare Enterprise-Infrastruktur mit geprüften IPs, weltweiter Länderabdeckung und millionenfach genutzten Datensätzen. Damit beziehen Sie Marktdaten, Preis-Trends und Verfügbarkeiten in Echtzeit oder regelmäßigen Intervallen – ohne manuelle Exporte, DSGVO-konform, ohne Captcha-Probleme und ohne Blockierung durch Portale.
-          </p>
-        </div>
-
-        <div className="data-grid">
-          <div className="data-card">
-            <div className="card-icon">⚡</div>
-            <h3 className="card-headline">Enterprise-Power für Ihr Maklerbüro</h3>
-            <p className="card-text">
-              Die Daten-Infrastruktur, die Ihre Website mit Live-Marktdaten versorgt, läuft auf derselben Enterprise-Basis wie bei 20.000+ Kunden weltweit. Stabil, skalierbar und für Immobilienmärkte optimiert – von lokalen bis internationalen Projekten.
+      <section className="data-infrastructure-section">
+        <div className="container">
+          <div className="data-infrastructure-header fade-in">
+            <span className="section-tag">Daten-Infrastruktur</span>
+            <h2 className="data-infrastructure-title">Ihre Marktdaten-Engine im Hintergrund</h2>
+            <p className="data-infrastructure-intro">
+              Im Hintergrund läuft eine skalierbare Enterprise-Infrastruktur mit geprüften IPs, weltweiter Länderabdeckung und millionenfach genutzten Datensätzen. Damit beziehen Sie Marktdaten, Preis-Trends und Verfügbarkeiten in Echtzeit oder regelmäßigen Intervallen – ohne manuelle Exporte, DSGVO-konform, ohne Captcha-Probleme und ohne Blockierung durch Portale.
             </p>
-            <ul className="card-metrics">
-              <li>
-                <span className="metric-icon"></span>
-                <span><strong>150M+ IPs</strong> für geo-genaue Datenzugriffe</span>
-              </li>
-              <li>
-                <span className="metric-icon"></span>
-                <span><strong>195+ Länder</strong> Abdeckung für internationale Märkte</span>
-              </li>
-              <li>
-                <span className="metric-icon"></span>
-                <span><strong>Enterprise-Infra</strong> wie bei 20.000+ Kunden im Einsatz</span>
-              </li>
-            </ul>
           </div>
 
-          <div className="data-card">
-            <div className="card-icon">🔄</div>
-            <h3 className="card-headline">Alle relevanten Quellen, ein sauberes System</h3>
-            <p className="card-text">
-              Portale wie ImmobilienScout24, Immowelt und regionale Plattformen, kombiniert mit historischen Marktdaten, Standort-Intelligence und Preis-Trends – alles orchestriert in einem sauberen Daten-Ökosystem, das Ihre Website kontinuierlich mit aktuellen Kennzahlen versorgt.
-            </p>
-            <div className="data-sources">
-              <div className="source-badge">
-                <span className="source-name">ImmobilienScout24</span>
-                <span className="source-frequency freq-live">Live</span>
+          <div className="data-infrastructure-grid">
+            <div className="data-infrastructure-card fade-in">
+              <div className="data-card-icon">⚡</div>
+              <h3 className="data-card-headline">Enterprise-Power für Ihr Maklerbüro</h3>
+              <p className="data-card-text">
+                Die Daten-Infrastruktur, die Ihre Website mit Live-Marktdaten versorgt, läuft auf derselben Enterprise-Basis wie bei 20.000+ Kunden weltweit. Stabil, skalierbar und für Immobilienmärkte optimiert – von lokalen bis internationalen Projekten.
+              </p>
+              <ul className="data-card-metrics">
+                <li>
+                  <span className="data-metric-icon"></span>
+                  <span><strong>150M+ IPs</strong> für geo-genaue Datenzugriffe</span>
+                </li>
+                <li>
+                  <span className="data-metric-icon"></span>
+                  <span><strong>195+ Länder</strong> Abdeckung für internationale Märkte</span>
+                </li>
+                <li>
+                  <span className="data-metric-icon"></span>
+                  <span><strong>Enterprise-Infra</strong> wie bei 20.000+ Kunden im Einsatz</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="data-infrastructure-card fade-in">
+              <div className="data-card-icon">🔄</div>
+              <h3 className="data-card-headline">Alle relevanten Quellen, ein sauberes System</h3>
+              <p className="data-card-text">
+                Portale wie ImmobilienScout24, Immowelt und regionale Plattformen, kombiniert mit historischen Marktdaten, Standort-Intelligence und Preis-Trends – alles orchestriert in einem sauberen Daten-Ökosystem, das Ihre Website kontinuierlich mit aktuellen Kennzahlen versorgt.
+              </p>
+              <div className="data-sources-grid">
+                <div className="data-source-badge">
+                  <span className="data-source-name">ImmobilienScout24</span>
+                  <span className="data-source-frequency data-freq-live">Live</span>
+                </div>
+                <div className="data-source-badge">
+                  <span className="data-source-name">Immowelt</span>
+                  <span className="data-source-frequency data-freq-live">Live</span>
+                </div>
+                <div className="data-source-badge">
+                  <span className="data-source-name">Regionale Portale</span>
+                  <span className="data-source-frequency data-freq-daily">Täglich</span>
+                </div>
+                <div className="data-source-badge">
+                  <span className="data-source-name">Marktdaten</span>
+                  <span className="data-source-frequency data-freq-historical">Historisch</span>
+                </div>
+                <div className="data-source-badge">
+                  <span className="data-source-name">Standort-Intelligence</span>
+                  <span className="data-source-frequency data-freq-live">Live</span>
+                </div>
+                <div className="data-source-badge">
+                  <span className="data-source-name">Preis-Trends</span>
+                  <span className="data-source-frequency data-freq-daily">Täglich</span>
+                </div>
               </div>
-              <div className="source-badge">
-                <span className="source-name">Immowelt</span>
-                <span className="source-frequency freq-live">Live</span>
-              </div>
-              <div className="source-badge">
-                <span className="source-name">Regionale Portale</span>
-                <span className="source-frequency freq-daily">Täglich</span>
-              </div>
-              <div className="source-badge">
-                <span className="source-name">Marktdaten</span>
-                <span className="source-frequency freq-historical">Historisch</span>
-              </div>
-              <div className="source-badge">
-                <span className="source-name">Standort-Intelligence</span>
-                <span className="source-frequency freq-live">Live</span>
-              </div>
-              <div className="source-badge">
-                <span className="source-name">Preis-Trends</span>
-                <span className="source-frequency freq-daily">Täglich</span>
+            </div>
+
+            <div className="data-infrastructure-card fade-in">
+              <div className="data-card-icon">📊</div>
+              <h3 className="data-card-headline">Ihre Website wird zum Markt-Dashboard</h3>
+              <p className="data-card-text">
+                Diese Infrastruktur und das Ökosystem machen Ihre Website zu einem echten Markt-Dashboard: Marktberichte, Preis-Spannen nach Stadtteil, Angebots-/Nachfrage-Heatmaps und automatisch aktualisierte Kennzahlen. Perfekt für Eigentümer-Ansprache und fundierte Beratungsgespräche.
+              </p>
+              <div className="data-use-cases">
+                <div className="data-use-case">
+                  <div className="data-use-case-icon">📈</div>
+                  <div>
+                    <strong>Marktberichte</strong><br />
+                    Aktuelle Zahlen statt Bauchgefühl
+                  </div>
+                </div>
+                <div className="data-use-case">
+                  <div className="data-use-case-icon">🎯</div>
+                  <div>
+                    <strong>Preis-Spannen</strong><br />
+                    Stadtteil-genau, live aktualisiert
+                  </div>
+                </div>
+                <div className="data-use-case">
+                  <div className="data-use-case-icon">🗺️</div>
+                  <div>
+                    <strong>Heatmaps</strong><br />
+                    Angebot/Nachfrage visualisiert
+                  </div>
+                </div>
+                <div className="data-use-case">
+                  <div className="data-use-case-icon">💼</div>
+                  <div>
+                    <strong>Akquise-Tool</strong><br />
+                    Bessere Argumentation im Gespräch
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="data-card">
-            <div className="card-icon">📊</div>
-            <h3 className="card-headline">Ihre Website wird zum Markt-Dashboard</h3>
-            <p className="card-text">
-              Diese Infrastruktur und das Ökosystem machen Ihre Website zu einem echten Markt-Dashboard: Marktberichte, Preis-Spannen nach Stadtteil, Angebots-/Nachfrage-Heatmaps und automatisch aktualisierte Kennzahlen. Perfekt für Eigentümer-Ansprache und fundierte Beratungsgespräche.
-            </p>
-            <div className="use-cases">
-              <div className="use-case">
-                <div className="use-case-icon">📈</div>
-                <div>
-                  <strong>Marktberichte</strong><br />
-                  Aktuelle Zahlen statt Bauchgefühl
-                </div>
-              </div>
-              <div className="use-case">
-                <div className="use-case-icon">🎯</div>
-                <div>
-                  <strong>Preis-Spannen</strong><br />
-                  Stadtteil-genau, live aktualisiert
-                </div>
-              </div>
-              <div className="use-case">
-                <div className="use-case-icon">🗺️</div>
-                <div>
-                  <strong>Heatmaps</strong><br />
-                  Angebot/Nachfrage visualisiert
-                </div>
-              </div>
-              <div className="use-case">
-                <div className="use-case-icon">💼</div>
-                <div>
-                  <strong>Akquise-Tool</strong><br />
-                  Bessere Argumentation im Gespräch
-                </div>
-              </div>
+          <div className="data-code-example fade-in">
+            <div className="data-code-header">
+              <span className="data-code-title">Live-Datenstruktur Beispiel</span>
+              <span className="data-code-lang">JSON</span>
             </div>
-          </div>
-        </div>
-
-        <div className="code-example">
-          <div className="code-header">
-            <span className="code-title">Live-Datenstruktur Beispiel</span>
-            <span className="code-lang">JSON</span>
-          </div>
-          <pre className="code-block"><span className="bracket">{'{'}</span>
+            <pre className="data-code-block"><span className="bracket">{'{'}</span>
   <span className="key">&quot;objectId&quot;</span>: <span className="string">&quot;12345678&quot;</span>,
   <span className="key">&quot;preis&quot;</span>: <span className="number">450000</span>,
   <span className="key">&quot;flaeche&quot;</span>: <span className="number">85</span>,
@@ -616,6 +494,7 @@ export default function DataInfrastructureSection() {
   <span className="key">&quot;marktpreis_durchschnitt&quot;</span>: <span className="number">5294</span>,
   <span className="key">&quot;lastUpdated&quot;</span>: <span className="string">&quot;2026-02-25T14:32:00Z&quot;</span>
 <span className="bracket">{'}'}</span></pre>
+          </div>
         </div>
       </section>
     </>
