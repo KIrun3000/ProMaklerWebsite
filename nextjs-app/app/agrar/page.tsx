@@ -10,7 +10,7 @@ import BrandedDocsSection from "@/components/BrandedDocsSection";
 import { caseStudiesAgrar } from "@/data/caseStudiesAgrar";
 import Link from "next/link";
 
-export default function AgrарPage() {
+export default function AgrarPage() {
   return (
     <>
       <ClientBehaviors />

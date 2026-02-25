@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Navigation */}
       <nav className="nav" id="nav">
-        <Link href="#" className="logo">
+        <Link href="/" className="logo">
           <div className="logo-icon">
             <svg
               viewBox="0 0 44 44"

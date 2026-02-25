@@ -3,7 +3,7 @@
  * Google Maps Embed-URL aus Google Maps: Ort suchen → Teilen → Karte einbetten
  */
 export const OFFICE = {
-  name: "ProMakler",
+  name: "ProMakler Digital",
   address: "Rosa-Luxemburg-Straße 17",
   city: "10178 Berlin",
   fullAddress: "Rosa-Luxemburg-Straße 17, 10178 Berlin",
