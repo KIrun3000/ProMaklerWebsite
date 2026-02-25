@@ -117,7 +117,7 @@ export const pricingTiers: PricingTier[] = [
         items: [
           "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
           "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile „Makler Offer Stack" (/ops)",
+          "Ops-Tile \"Makler Offer Stack\" (/ops)",
         ],
       },
     ],
@@ -175,7 +175,7 @@ export const pricingTiers: PricingTier[] = [
         items: [
           "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
           "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile „Makler Offer Stack" (/ops)",
+          "Ops-Tile \"Makler Offer Stack\" (/ops)",
           "6 Monate Priority-Support",
         ],
       },
