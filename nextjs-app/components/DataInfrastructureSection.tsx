@@ -81,7 +81,7 @@ export default function DataInfrastructureSection() {
 
         .data-infrastructure-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 2rem;
           margin: 0 auto 4rem;
           max-width: 1280px;
@@ -95,6 +95,10 @@ export default function DataInfrastructureSection() {
           position: relative;
           overflow: hidden;
           transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .data-infrastructure-card.full-width {
+          grid-column: 1 / -1;
         }
 
         .data-infrastructure-card::before {
@@ -189,7 +193,7 @@ export default function DataInfrastructureSection() {
 
         .data-sources-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(2, 1fr);
           gap: 1rem;
           margin-top: 1.5rem;
         }
@@ -240,7 +244,7 @@ export default function DataInfrastructureSection() {
 
         .data-use-cases {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
           gap: 1rem;
           margin-top: 1.5rem;
         }
@@ -347,6 +351,10 @@ export default function DataInfrastructureSection() {
             grid-template-columns: 1fr;
             gap: 1.5rem;
           }
+
+          .data-infrastructure-card.full-width {
+            grid-column: 1;
+          }
         }
 
         @media (max-width: 768px) {
@@ -359,6 +367,10 @@ export default function DataInfrastructureSection() {
           }
 
           .data-use-cases {
+            grid-template-columns: 1fr;
+          }
+
+          .data-sources-grid {
             grid-template-columns: 1fr;
           }
 
@@ -436,16 +448,8 @@ export default function DataInfrastructureSection() {
                   <span className="data-source-frequency data-freq-live">Live</span>
                 </div>
                 <div className="data-source-badge">
-                  <span className="data-source-name">Regionale Portale</span>
-                  <span className="data-source-frequency data-freq-daily">Täglich</span>
-                </div>
-                <div className="data-source-badge">
                   <span className="data-source-name">Marktdaten</span>
                   <span className="data-source-frequency data-freq-historical">Historisch</span>
-                </div>
-                <div className="data-source-badge">
-                  <span className="data-source-name">Standort-Intelligence</span>
-                  <span className="data-source-frequency data-freq-live">Live</span>
                 </div>
                 <div className="data-source-badge">
                   <span className="data-source-name">Preis-Trends</span>
@@ -454,7 +458,7 @@ export default function DataInfrastructureSection() {
               </div>
             </div>
 
-            <div className="data-infrastructure-card fade-in">
+            <div className="data-infrastructure-card fade-in full-width">
               <div className="data-card-icon">
                 <BarChart3 />
               </div>
