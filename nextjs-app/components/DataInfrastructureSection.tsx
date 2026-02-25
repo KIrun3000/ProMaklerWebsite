@@ -1,5 +1,7 @@
 "use client";
 
+import { Server, Database, BarChart3 } from 'lucide-react';
+
 export default function DataInfrastructureSection() {
   return (
     <>
@@ -127,8 +129,14 @@ export default function DataInfrastructureSection() {
           justify-content: center;
           background: rgba(201, 169, 98, 0.15);
           border: 1px solid rgba(201, 169, 98, 0.3);
-          font-size: 24px;
           margin-bottom: 1.5rem;
+        }
+
+        .data-card-icon svg {
+          width: 24px;
+          height: 24px;
+          color: var(--gold);
+          stroke-width: 1.5;
         }
 
         .data-card-headline {
@@ -387,7 +395,9 @@ export default function DataInfrastructureSection() {
 
           <div className="data-infrastructure-grid">
             <div className="data-infrastructure-card fade-in">
-              <div className="data-card-icon">⚡</div>
+              <div className="data-card-icon">
+                <Server />
+              </div>
               <h3 className="data-card-headline">Enterprise-Power für Ihr Maklerbüro</h3>
               <p className="data-card-text">
                 Die Daten-Infrastruktur, die Ihre Website mit Live-Marktdaten versorgt, läuft auf derselben Enterprise-Basis wie bei 20.000+ Kunden weltweit. Stabil, skalierbar und für Immobilienmärkte optimiert – von lokalen bis internationalen Projekten.
@@ -409,7 +419,9 @@ export default function DataInfrastructureSection() {
             </div>
 
             <div className="data-infrastructure-card fade-in">
-              <div className="data-card-icon">🔄</div>
+              <div className="data-card-icon">
+                <Database />
+              </div>
               <h3 className="data-card-headline">Alle relevanten Quellen, ein sauberes System</h3>
               <p className="data-card-text">
                 Portale wie ImmobilienScout24, Immowelt und regionale Plattformen, kombiniert mit historischen Marktdaten, Standort-Intelligence und Preis-Trends – alles orchestriert in einem sauberen Daten-Ökosystem, das Ihre Website kontinuierlich mit aktuellen Kennzahlen versorgt.
@@ -443,7 +455,9 @@ export default function DataInfrastructureSection() {
             </div>
 
             <div className="data-infrastructure-card fade-in">
-              <div className="data-card-icon">📊</div>
+              <div className="data-card-icon">
+                <BarChart3 />
+              </div>
               <h3 className="data-card-headline">Ihre Website wird zum Markt-Dashboard</h3>
               <p className="data-card-text">
                 Diese Infrastruktur und das Ökosystem machen Ihre Website zu einem echten Markt-Dashboard: Marktberichte, Preis-Spannen nach Stadtteil, Angebots-/Nachfrage-Heatmaps und automatisch aktualisierte Kennzahlen. Perfekt für Eigentümer-Ansprache und fundierte Beratungsgespräche.
