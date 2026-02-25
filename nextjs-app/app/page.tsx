@@ -8,12 +8,8 @@ import HeroAudit from "@/components/HeroAudit";
 import ContactForm from "@/components/ContactForm";
 import OfficeSection from "@/components/OfficeSection";
 import BrandedDocsSection from "@/components/BrandedDocsSection";
-import CrmBenefitsCards from "@/components/CrmBenefitsCards";
-import CrmFlowDiagram from "@/components/CrmFlowDiagram";
-import CompatibilityTable from "@/components/CompatibilityTable";
-import ProblemSolutionCards from "@/components/ProblemSolutionCards";
-import BrightDataStatsSection from "@/components/BrightDataStatsSection";
-import DataEcosystemMap from "@/components/DataEcosystemMap";
+import CrmIntegrationSection from "@/components/CrmIntegrationSection";
+import DataInfrastructureSection from "@/components/DataInfrastructureSection";
 import Link from "next/link";
 
 export default function Home() {
@@ -729,13 +725,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CRM + Bright Data: 6 Sektionen */}
-      <CrmBenefitsCards />
-      <CrmFlowDiagram />
-      <CompatibilityTable />
-      <ProblemSolutionCards />
-      <BrightDataStatsSection />
-      <DataEcosystemMap />
+      {/* CRM Integration & Daten-Infrastruktur: 2 neue zusammengefasste Sektionen */}
+      <CrmIntegrationSection />
+      <DataInfrastructureSection />
 
       {/* Angebot Section */}
       <section className="angebot-section section-dark" id="angebot">
