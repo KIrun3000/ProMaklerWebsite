@@ -61,7 +61,7 @@ export const pricingTiers: PricingTier[] = [
           "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
           "Akquise-Anschreiben Eigentümer",
           "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile „Makler Offer Stack" (/ops)",
+          "Ops-Tile \"Makler Offer Stack\" (/ops)",
         ],
       },
     ],
