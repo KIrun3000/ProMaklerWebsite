@@ -3017,8 +3017,12 @@ h2 {
    HERO AUDIT (Alternative Hero)
    ======================================== */
 .hero-audit {
+    display: block;
+    min-height: auto;
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
     padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-audit-container {
@@ -3032,12 +3036,19 @@ h2 {
     text-align: center;
 }
 
-.hero-audit-inner .hero-content {
+/* Header-Block: kein background/padding von .hero-content erben */
+.hero-audit-header {
     margin: 0 0 0.5rem;
+    background: none;
+    padding: 0;
 }
 
-.hero-audit-inner .hero-content h1 {
+.hero-audit-header h1 {
     font-size: clamp(2rem, 4vw, 3rem);
+    font-family: var(--font-display);
+    line-height: 1.2;
+    color: var(--cream);
+    margin-top: 1rem;
 }
 
 /* Rendite-Box */

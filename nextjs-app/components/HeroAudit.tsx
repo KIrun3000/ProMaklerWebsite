@@ -42,11 +42,11 @@ export default function HeroAudit() {
   };
 
   return (
-    <section className="hero hero-audit">
+    <section className="hero-audit">
       <div className="container hero-audit-container">
 
         <div className="hero-audit-inner">
-          <div className="hero-content">
+          <div className="hero-audit-header">
             <span className="hero-tag">Kostenlose Website-Analyse</span>
             <h1>
               Website-URL eingeben &amp; innerhalb von 24h einen{" "}
