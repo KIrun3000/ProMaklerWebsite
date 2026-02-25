@@ -1,9 +1,17 @@
+export interface FeatureGroup {
+  category: string;
+  items: string[];
+}
+
 export interface PricingTier {
   id: string;
   name: string;
   priceRange: string;
   description: string;
-  features: string[];
+  targetAudience: string;
+  coreFeatures: string[];
+  includedPackage: string;
+  detailedFeatures: FeatureGroup[];
   highlighted?: boolean;
   badge?: string;
 }
@@ -19,25 +27,43 @@ export const pricingTiers: PricingTier[] = [
     name: "Starter",
     priceRange: "1.900 €",
     description: "Perfekt für den Einstieg oder als Einzelmakler",
-    features: [
-      "One-Page-Website",
-      "Responsive Design (Mobile + Desktop)",
+    targetAudience: "Online gehen + Basisbrand",
+    coreFeatures: [
+      "One-Page-Website mit Responsive Design",
+      "DSGVO-konforme Einrichtung inkl. SSL",
       "Kontaktformular mit E-Mail-Benachrichtigung",
-      "SSL-Verschlüsselung",
-      "DSGVO-konforme Einrichtung",
       "1 Monat Support nach Launch",
-      "Briefpapier-Vorlage",
-      "E-Mail-Signatur-Vorlage",
-      "Visitenkarte (1 Variante)",
-      "Exposé-Vorlage",
-      "Rechnungs-Vorlage (Text & Struktur)",
-      "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-      "Social-Media-Kit (Basis)",
-      "Akquise-Anschreiben Eigentümer",
-      "Bewertungs-Onepager (Vorlage)",
-      "Angebots-Template (Nutzung)",
-      "Dokumenten-Übersicht (/documents)",
-      "Ops-Tile „Makler Offer Stack\" (/ops)",
+      "Branding-Paket & Vertriebsunterlagen inklusive",
+    ],
+    includedPackage: "Branding-Paket & Unterlagen inklusive",
+    detailedFeatures: [
+      {
+        category: "Branding-Paket",
+        items: [
+          "Briefpapier-Vorlage",
+          "E-Mail-Signatur-Vorlage",
+          "Visitenkarte (1 Variante)",
+          "Social-Media-Kit (Basis)",
+        ],
+      },
+      {
+        category: "Vertriebsunterlagen",
+        items: [
+          "Exposé-Vorlage",
+          "Rechnungs-Vorlage (Text & Struktur)",
+          "Angebots-Template (Nutzung)",
+          "Bewertungs-Onepager (Vorlage)",
+        ],
+      },
+      {
+        category: "Operations",
+        items: [
+          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
+          "Akquise-Anschreiben Eigentümer",
+          "Dokumenten-Übersicht (/documents)",
+          "Ops-Tile „Makler Offer Stack" (/ops)",
+        ],
+      },
     ],
   },
   {
@@ -45,26 +71,55 @@ export const pricingTiers: PricingTier[] = [
     name: "Professional",
     priceRange: "2.900 €",
     description: "Für etablierte Makler mit Wachstumsambitionen",
-    features: [
+    targetAudience: "Wachsen + CRM + Marketing",
+    coreFeatures: [
       "Multi-Page Website (5-7 Seiten)",
       "CRM-Integration (onOffice, FlowFact, Pipedrive)",
-      "Immobilien-Expose-Galerie",
-      "SEO-Grundoptimierung",
-      "Google Analytics Einrichtung",
-      "Kontaktformular mit CRM-Anbindung",
-      "3 Monate Support nach Launch",
-      "Briefpapier-Vorlage",
-      "E-Mail-Signatur-Vorlage",
-      "Visitenkarten (2 Varianten)",
-      "Exposé-Vorlage inkl. 2 Layout-Varianten",
-      "Rechnungs-Vorlage (Text & Struktur)",
-      "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-      "Social-Media-Kit (vollständig)",
-      "Akquise-Anschreiben + 2 Betreff-Varianten",
-      "Bewertungs-Onepager (Vorlage)",
-      "Angebots-Template (Anpassung)",
-      "Dokumenten-Übersicht (/documents)",
-      "Ops-Tile „Makler Offer Stack\" (/ops)",
+      "Immobilien-Galerie mit Exposé-System",
+      "SEO-Optimierung + Google Analytics",
+      "Vollständiges Branding- & Marketing-Paket",
+    ],
+    includedPackage: "Premium Branding & Marketing-Kit inklusive",
+    detailedFeatures: [
+      {
+        category: "Website-Features",
+        items: [
+          "Multi-Page Website (5-7 Seiten)",
+          "CRM-Integration (onOffice, FlowFact, Pipedrive)",
+          "Immobilien-Expose-Galerie",
+          "Kontaktformular mit CRM-Anbindung",
+          "SEO-Grundoptimierung",
+          "Google Analytics Einrichtung",
+          "3 Monate Support nach Launch",
+        ],
+      },
+      {
+        category: "Branding-Paket Pro",
+        items: [
+          "Briefpapier-Vorlage",
+          "E-Mail-Signatur-Vorlage",
+          "Visitenkarten (2 Varianten)",
+          "Exposé-Vorlage inkl. 2 Layout-Varianten",
+          "Rechnungs-Vorlage (Text & Struktur)",
+        ],
+      },
+      {
+        category: "Marketing & Vertrieb",
+        items: [
+          "Social-Media-Kit (vollständig)",
+          "Akquise-Anschreiben + 2 Betreff-Varianten",
+          "Bewertungs-Onepager (Vorlage)",
+          "Angebots-Template (Anpassung)",
+        ],
+      },
+      {
+        category: "Operations",
+        items: [
+          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
+          "Dokumenten-Übersicht (/documents)",
+          "Ops-Tile „Makler Offer Stack" (/ops)",
+        ],
+      },
     ],
     highlighted: true,
     badge: "Beliebteste Wahl",
@@ -74,26 +129,56 @@ export const pricingTiers: PricingTier[] = [
     name: "Premium",
     priceRange: "5.400 €",
     description: "Maßgeschneiderte Lösungen für große Büros",
-    features: [
+    targetAudience: "Individuelles Projekt + Enterprise",
+    coreFeatures: [
       "Individuelle Seitenanzahl nach Bedarf",
-      "API-Integrationen (ImmoScout24, Immowelt, etc.)",
+      "API-Integrationen (ImmoScout24, Immowelt)",
       "Investoren-/Off-Market-Bereich mit Login",
-      "Blog-/News-System",
-      "Mehrsprachigkeit (DE/EN)",
-      "Laufende SEO-Betreuung",
-      "6 Monate Priority-Support",
-      "Briefpapier-Vorlage",
-      "E-Mail-Signatur-Vorlage",
-      "Visitenkarten (3+ Varianten inkl. Team-Set)",
-      "Exposé-Vorlage + 2 Layout-Varianten",
-      "Rechnungs-Vorlage (Text & Struktur)",
-      "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-      "Social-Media-Kit voll + Team-Playbook",
-      "Akquise-Anschreiben (5 Varianten/Segmente)",
-      "Bewertungs-Onepager + 2 Varianten",
-      "Angebots-Template (Anpassung + Varianten)",
-      "Dokumenten-Übersicht (/documents)",
-      "Ops-Tile „Makler Offer Stack\" (/ops)",
+      "Blog-System + Mehrsprachigkeit (DE/EN)",
+      "Laufende SEO-Betreuung + 6 Monate Priority-Support",
+    ],
+    includedPackage: "Enterprise Branding & Marketing-Suite inklusive",
+    detailedFeatures: [
+      {
+        category: "Enterprise Website",
+        items: [
+          "Individuelle Seitenanzahl nach Bedarf",
+          "API-Integrationen (ImmoScout24, Immowelt, etc.)",
+          "Investoren-/Off-Market-Bereich mit Login",
+          "Blog-/News-System",
+          "Mehrsprachigkeit (DE/EN)",
+          "Laufende SEO-Betreuung",
+          "6 Monate Priority-Support",
+        ],
+      },
+      {
+        category: "Branding-Paket Enterprise",
+        items: [
+          "Briefpapier-Vorlage",
+          "E-Mail-Signatur-Vorlage",
+          "Visitenkarten (3+ Varianten inkl. Team-Set)",
+          "Exposé-Vorlage + 2 Layout-Varianten",
+          "Rechnungs-Vorlage (Text & Struktur)",
+        ],
+      },
+      {
+        category: "Marketing-Suite",
+        items: [
+          "Social-Media-Kit voll + Team-Playbook",
+          "Akquise-Anschreiben (5 Varianten/Segmente)",
+          "Bewertungs-Onepager + 2 Varianten",
+          "Angebots-Template (Anpassung + Varianten)",
+        ],
+      },
+      {
+        category: "Operations & Support",
+        items: [
+          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
+          "Dokumenten-Übersicht (/documents)",
+          "Ops-Tile „Makler Offer Stack" (/ops)",
+          "6 Monate Priority-Support",
+        ],
+      },
     ],
   },
 ];

@@ -2695,6 +2695,14 @@ h2 {
 .pricing-description {
     font-size: 0.9rem;
     color: rgba(248, 246, 241, 0.7);
+    margin-bottom: 0.75rem;
+}
+
+.pricing-target-audience {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(248, 246, 241, 0.1);
@@ -2702,7 +2710,7 @@ h2 {
 
 .pricing-features {
     list-style: none;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .pricing-feature {
@@ -2718,6 +2726,110 @@ h2 {
     flex-shrink: 0;
     color: var(--gold);
     margin-top: 2px;
+}
+
+.pricing-included-package {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold-light);
+    background: rgba(201, 169, 98, 0.1);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(201, 169, 98, 0.2);
+}
+
+.pricing-included-package svg {
+    flex-shrink: 0;
+    color: var(--gold);
+}
+
+.pricing-details-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: transparent;
+    border: 1px solid rgba(248, 246, 241, 0.2);
+    color: rgba(248, 246, 241, 0.7);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-out-expo);
+    margin-bottom: 1rem;
+}
+
+.pricing-details-toggle:hover {
+    background: rgba(248, 246, 241, 0.05);
+    border-color: var(--gold);
+    color: var(--cream);
+}
+
+.pricing-detailed-features {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(248, 246, 241, 0.03);
+    border: 1px solid rgba(248, 246, 241, 0.1);
+    animation: slideDown 0.3s var(--ease-out-expo);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-group {
+    margin-bottom: 1.5rem;
+}
+
+.feature-group:last-child {
+    margin-bottom: 0;
+}
+
+.feature-group-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.feature-group-items {
+    list-style: none;
+    margin-left: 0;
+}
+
+.feature-group-items li {
+    font-size: 0.85rem;
+    color: rgba(248, 246, 241, 0.7);
+    margin-bottom: 0.5rem;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.feature-group-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.6;
 }
 
 .pricing-cta {

@@ -1,5 +1,8 @@
+"use client";
+
 import { pricingTiers, pricingFAQs } from "@/data/pricing";
 import Link from "next/link";
+import { useState } from "react";
 
 interface PricingSectionProps {
   showFAQ?: boolean;
@@ -10,6 +13,12 @@ export default function PricingSection({
   showFAQ = true,
   compact = false,
 }: PricingSectionProps) {
+  const [expandedTier, setExpandedTier] = useState<string | null>(null);
+
+  const toggleDetails = (tierId: string) => {
+    setExpandedTier(expandedTier === tierId ? null : tierId);
+  };
+
   return (
     <section className="pricing-section" id="preise">
       <div className="container">
@@ -32,9 +41,10 @@ export default function PricingSection({
               <h3 className="pricing-name">{tier.name}</h3>
               <div className="pricing-price">{tier.priceRange}</div>
               <p className="pricing-description">{tier.description}</p>
+              <p className="pricing-target-audience">{tier.targetAudience}</p>
 
               <ul className="pricing-features">
-                {tier.features.map((feature, index) => (
+                {tier.coreFeatures.map((feature, index) => (
                   <li key={index} className="pricing-feature">
                     <svg
                       width="16"
@@ -50,6 +60,57 @@ export default function PricingSection({
                   </li>
                 ))}
               </ul>
+
+              <div className="pricing-included-package">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+                {tier.includedPackage}
+              </div>
+
+              <button
+                className="pricing-details-toggle"
+                onClick={() => toggleDetails(tier.id)}
+              >
+                {expandedTier === tier.id ? "Details ausblenden" : "Alle Leistungen anzeigen"}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  style={{
+                    transform: expandedTier === tier.id ? "rotate(180deg)" : "rotate(0deg)",
+                    transition: "transform 0.3s ease",
+                  }}
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+
+              {expandedTier === tier.id && (
+                <div className="pricing-detailed-features">
+                  {tier.detailedFeatures.map((group, groupIndex) => (
+                    <div key={groupIndex} className="feature-group">
+                      <h4 className="feature-group-title">{group.category}</h4>
+                      <ul className="feature-group-items">
+                        {group.items.map((item, itemIndex) => (
+                          <li key={itemIndex}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               <Link href="/#kontakt" className="pricing-cta">
                 {tier.highlighted ? "Jetzt anfragen" : "Mehr erfahren"}
