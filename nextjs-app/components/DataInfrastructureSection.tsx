@@ -1,6 +1,6 @@
 "use client";
 
-import { Server, Database, BarChart3 } from 'lucide-react';
+import { Server, Database, BarChart3, TrendingUp, Target, MapPin, Briefcase } from 'lucide-react';
 
 export default function DataInfrastructureSection() {
   return (
@@ -270,7 +270,7 @@ export default function DataInfrastructureSection() {
           align-items: center;
           justify-content: center;
           background: rgba(201, 169, 98, 0.15);
-          font-size: 16px;
+          color: var(--gold);
         }
 
         .data-code-example {
@@ -464,28 +464,36 @@ export default function DataInfrastructureSection() {
               </p>
               <div className="data-use-cases">
                 <div className="data-use-case">
-                  <div className="data-use-case-icon">📈</div>
+                  <div className="data-use-case-icon">
+                    <TrendingUp size={16} />
+                  </div>
                   <div>
                     <strong>Marktberichte</strong><br />
                     Aktuelle Zahlen statt Bauchgefühl
                   </div>
                 </div>
                 <div className="data-use-case">
-                  <div className="data-use-case-icon">🎯</div>
+                  <div className="data-use-case-icon">
+                    <Target size={16} />
+                  </div>
                   <div>
                     <strong>Preis-Spannen</strong><br />
                     Stadtteil-genau, live aktualisiert
                   </div>
                 </div>
                 <div className="data-use-case">
-                  <div className="data-use-case-icon">🗺️</div>
+                  <div className="data-use-case-icon">
+                    <MapPin size={16} />
+                  </div>
                   <div>
                     <strong>Heatmaps</strong><br />
                     Angebot/Nachfrage visualisiert
                   </div>
                 </div>
                 <div className="data-use-case">
-                  <div className="data-use-case-icon">💼</div>
+                  <div className="data-use-case-icon">
+                    <Briefcase size={16} />
+                  </div>
                   <div>
                     <strong>Akquise-Tool</strong><br />
                     Bessere Argumentation im Gespräch
