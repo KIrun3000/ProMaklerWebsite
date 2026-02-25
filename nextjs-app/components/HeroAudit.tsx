@@ -44,17 +44,18 @@ export default function HeroAudit() {
   return (
     <section className="hero hero-audit">
       <div className="container hero-audit-container">
-        <div className="hero-audit-grid">
-          <div className="hero-audit-form-col">
-            <div className="hero-content">
-              <span className="hero-tag">Kostenlose Website-Analyse</span>
-              <h1>
-                Website-URL eingeben &amp; innerhalb von 24h einen{" "}
-                <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
-                erhalten
-              </h1>
 
-              <div className="hero-value-prop">
+        <div className="hero-audit-inner">
+          <div className="hero-content">
+            <span className="hero-tag">Kostenlose Website-Analyse</span>
+            <h1>
+              Website-URL eingeben &amp; innerhalb von 24h einen{" "}
+              <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
+              erhalten
+            </h1>
+          </div>
+
+          <div className="hero-value-prop">
             <div className="value-prop-icon">
               <svg
                 width="32"
@@ -211,46 +212,49 @@ export default function HeroAudit() {
               <span>Individueller Entwurf für Ihr Business</span>
             </div>
           </div>
+        </div>
+
+        {/* 3 Schritte – horizontale Reihe über volle Breite */}
+        <div className="hero-audit-steps-row">
+          <div className="audit-step" style={{ animationDelay: "0.1s" }}>
+            <div className="audit-step-num">01</div>
+            <div className="audit-step-content">
+              <strong>URL eingeben</strong>
+              <span>Ihre Website-Adresse in das Formular eintragen</span>
             </div>
           </div>
 
-          <div className="hero-audit-visual-col">
-            <div className="hero-audit-process">
-              <div className="audit-process-glow" aria-hidden />
-              <div className="audit-step" style={{ animationDelay: "0.1s" }}>
-                <div className="audit-step-num">01</div>
-                <div className="audit-step-content">
-                  <strong>URL eingeben</strong>
-                  <span>Ihre Website-Adresse in das Formular eintragen</span>
-                </div>
-              </div>
-              <div className="audit-step-connector" aria-hidden>
-                <div className="audit-step-connector-line">
-                  <div className="audit-connector-dot" />
-                </div>
-              </div>
-              <div className="audit-step" style={{ animationDelay: "0.25s" }}>
-                <div className="audit-step-num">02</div>
-                <div className="audit-step-content">
-                  <strong>KI-Analyse</strong>
-                  <span>Technik, Design &amp; Conversion – geprüft in 24h</span>
-                </div>
-              </div>
-              <div className="audit-step-connector" aria-hidden>
-                <div className="audit-step-connector-line">
-                  <div className="audit-connector-dot" style={{ animationDelay: "0.6s" }} />
-                </div>
-              </div>
-              <div className="audit-step" style={{ animationDelay: "0.4s" }}>
-                <div className="audit-step-num">03</div>
-                <div className="audit-step-content">
-                  <strong>Entwurf erhalten</strong>
-                  <span>Ihr persönlicher Relaunch-Entwurf kommt per E-Mail</span>
-                </div>
-              </div>
+          <div className="audit-step-arrow" aria-hidden>
+            <svg viewBox="0 0 32 16" fill="none">
+              <line x1="2" y1="8" x2="26" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M22 3l6 5-6 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </div>
+
+          <div className="audit-step" style={{ animationDelay: "0.25s" }}>
+            <div className="audit-step-num">02</div>
+            <div className="audit-step-content">
+              <strong>KI-Analyse</strong>
+              <span>Technik, Design &amp; Conversion – geprüft in 24h</span>
+            </div>
+          </div>
+
+          <div className="audit-step-arrow" aria-hidden>
+            <svg viewBox="0 0 32 16" fill="none">
+              <line x1="2" y1="8" x2="26" y2="8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M22 3l6 5-6 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            </svg>
+          </div>
+
+          <div className="audit-step" style={{ animationDelay: "0.4s" }}>
+            <div className="audit-step-num">03</div>
+            <div className="audit-step-content">
+              <strong>Entwurf erhalten</strong>
+              <span>Ihr persönlicher Relaunch-Entwurf kommt per E-Mail</span>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );
