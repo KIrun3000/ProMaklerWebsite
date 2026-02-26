@@ -328,6 +328,7 @@ export default function DataInfrastructureSection() {
           line-height: 1.7;
           color: rgba(248, 246, 241, 0.7);
           overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
         }
 
         .data-code-block .key {
@@ -364,6 +365,11 @@ export default function DataInfrastructureSection() {
 
           .data-infrastructure-card {
             padding: 2rem 1.5rem;
+          }
+
+          .data-infrastructure-card:hover {
+            transform: none;
+            box-shadow: none;
           }
 
           .data-use-cases {

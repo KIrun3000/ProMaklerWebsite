@@ -342,9 +342,24 @@ export default function CrmIntegrationSection() {
             padding: 2rem 1.5rem;
           }
 
+          .crm-flow-card:hover {
+            transform: none;
+            box-shadow: none;
+          }
+
+          .crm-matrix-table {
+            font-size: 0.75rem;
+          }
+
           .crm-matrix-table thead th,
           .crm-matrix-table tbody td {
-            padding: 0.75rem 1rem;
+            padding: 0.5rem 0.6rem;
+          }
+
+          .crm-compatibility-matrix {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            padding: 1.5rem 1rem;
           }
         }
 

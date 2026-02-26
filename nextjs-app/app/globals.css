@@ -2189,6 +2189,12 @@ h2 {
     }
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+}
+
 /* ========================================
    NEW COMPONENTS - PRIORITÄT 1 FEATURES
    ======================================== */
@@ -3352,7 +3358,7 @@ h2 {
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .hero-audit-steps-row {
         grid-template-columns: 1fr;
         gap: 0;
@@ -3362,9 +3368,7 @@ h2 {
         transform: rotate(90deg);
         padding: 0.5rem 0;
     }
-}
 
-@media (max-width: 768px) {
     .hero-audit {
         padding: 6rem 0 4rem;
     }
