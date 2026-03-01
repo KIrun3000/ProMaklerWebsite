@@ -958,9 +958,6 @@ export default function AgrarPage() {
       {/* Pricing Section */}
       <PricingSection showFAQ={false} compact={true} />
 
-      {/* Team Section */}
-      <TeamSection compact={true} />
-
       {/* Prozess Section */}
       <section className="process-section section-dark" id="prozess">
         <div className="container">

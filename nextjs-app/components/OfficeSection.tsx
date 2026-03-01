@@ -31,10 +31,9 @@ export default function OfficeSection() {
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
               </div>
-              {/* Ersetzen durch public/images/office.jpg wenn vorhanden */}
               <img
-                src="/images/office.jpg"
-                alt="Büro ProMakler Berlin"
+                src="/images/office-berlin-mitte.png"
+                alt="Büro ProMakler Berlin Mitte"
                 className="office-img"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";

@@ -1341,9 +1341,6 @@ export default function Home() {
       {/* Pricing Section Teaser */}
       <PricingSection showFAQ={false} compact={true} />
 
-      {/* Team Section Teaser */}
-      <TeamSection compact={true} />
-
       {/* Process Section */}
       <section className="process-section section-dark" id="prozess">
         <div className="container">
