@@ -7,6 +7,7 @@ import ContactForm from "@/components/ContactForm";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import OfficeSection from "@/components/OfficeSection";
 import BrandedDocsSection from "@/components/BrandedDocsSection";
+import HeroAudit from "@/components/HeroAudit";
 import { caseStudiesAgrar } from "@/data/caseStudiesAgrar";
 import Link from "next/link";
 
@@ -411,81 +412,8 @@ export default function AgrarPage() {
       {/* Trust Badges */}
       <TrustBadges />
 
-      {/* Hero Audit – Flächenanalyse CTA (2-Spalten wie Homepage) */}
-      <section className="hero hero-audit">
-        <div className="container hero-audit-container">
-          <div className="hero-audit-grid">
-            <div className="hero-audit-form-col">
-              <div className="hero-content">
-                <span className="hero-tag">Kostenlose Website-Analyse für Agrarmakler</span>
-                <h2>
-                  Website-URL eingeben &amp; innerhalb von 24h einen{" "}
-                  <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
-                  erhalten
-                </h2>
-                <div className="hero-value-prop">
-                  <div className="value-prop-icon">
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--gold)"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                  </div>
-                  <div className="value-prop-text">
-                    <strong>Die Ertragswert-Rechnung:</strong> Wenn Ihre neue
-                    Website nur <em>einen</em> zusätzlichen Agrar-Auftrag
-                    generiert, ist Ihre digitale Vermarktungsfläche bereits mit{" "}
-                    <strong>Faktor 10</strong> rentiert.
-                  </div>
-                </div>
-                <div className="hero-trust" style={{ marginTop: "2rem" }}>
-                  <div className="trust-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>Analyse in 24 Stunden</span>
-                  </div>
-                  <div className="trust-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    <span>100% kostenlos &amp; unverbindlich</span>
-                  </div>
-                  <a href="#kontakt" className="btn-primary" style={{ marginLeft: "auto" }}>
-                    <span>Jetzt Entwurf anfordern</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="hero-audit-visual-col">
-              <div className="hero-audit-visual">
-                <div className="hero-audit-stat">
-                  <span className="hero-audit-stat-value">24h</span>
-                  <span className="hero-audit-stat-label">Antwortzeit</span>
-                </div>
-                <div className="hero-audit-stat">
-                  <span className="hero-audit-stat-value">100%</span>
-                  <span className="hero-audit-stat-label">kostenlos</span>
-                </div>
-                <div className="hero-audit-stat">
-                  <span className="hero-audit-stat-value">1</span>
-                  <span className="hero-audit-stat-label">Entwurf für Sie</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Audit – URL + Email Form */}
+      <HeroAudit />
 
       {/* Problem Section */}
       <section className="problem-section section-light" id="problem">
@@ -1101,7 +1029,7 @@ export default function AgrarPage() {
             </p>
 
             <div className="cta-buttons">
-              <a href="mailto:kontakt@promakler.de" className="btn-primary">
+              <a href="mailto:hi@makler-websites.immo" className="btn-primary">
                 <span>Kostenlose Flächenanalyse anfordern</span>
                 <svg
                   width="20"

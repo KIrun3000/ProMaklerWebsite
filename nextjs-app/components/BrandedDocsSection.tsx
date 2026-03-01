@@ -2,19 +2,19 @@ import Link from "next/link";
 
 const DOCS = [
   {
-    label: "Briefpapier & Kopf",
+    label: "Briefpapier & Visitenkarte",
     description: "Einheitliches Design für alle Korrespondenz",
-    image: "/images/documents/agrar-a-branded-docs-square.png",
+    image: "/images/documents/doc-preview-briefpapier.png",
   },
   {
     label: "Angebotsmappe",
     description: "Professionelle Angebotsunterlagen im Markenlook",
-    image: "/images/documents/agrar-a-branded-light-v2-square.png",
+    image: "/images/documents/doc-preview-angebot.png",
   },
   {
-    label: "Dokumente A4",
+    label: "Exposé A4",
     description: "Exposé, Verträge – alles aus einem Guss",
-    image: "/images/documents/agrar-a-branded-light-v3-a4.png",
+    image: "/images/documents/doc-preview-expose.png",
   },
 ];
 
