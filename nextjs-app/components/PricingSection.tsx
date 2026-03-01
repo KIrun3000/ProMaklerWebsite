@@ -46,10 +46,12 @@ export default function PricingSection({
                 </div>
               )}
               <p className="pricing-description">{tier.description}</p>
-              <p className="pricing-target-audience">{tier.targetAudience}</p>
+              {(tier as any).targetAudience && (
+                <p className="pricing-target-audience">{(tier as any).targetAudience}</p>
+              )}
 
               <ul className="pricing-features">
-                {tier.coreFeatures.map((feature, index) => (
+                {((tier as any).coreFeatures ?? tier.features).map((feature: string, index: number) => (
                   <li key={index} className="pricing-feature">
                     <svg
                       width="16"
@@ -66,20 +68,22 @@ export default function PricingSection({
                 ))}
               </ul>
 
-              <div className="pricing-included-package">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-                {tier.includedPackage}
-              </div>
+              {(tier as any).includedPackage && (
+                <div className="pricing-included-package">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                  {(tier as any).includedPackage}
+                </div>
+              )}
 
               <button
                 className="pricing-details-toggle"
@@ -102,13 +106,13 @@ export default function PricingSection({
                 </svg>
               </button>
 
-              {expandedTier === tier.id && (
+              {expandedTier === tier.id && (tier as any).detailedFeatures && (
                 <div className="pricing-detailed-features">
-                  {tier.detailedFeatures.map((group, groupIndex) => (
+                  {(tier as any).detailedFeatures.map((group: any, groupIndex: number) => (
                     <div key={groupIndex} className="feature-group">
                       <h4 className="feature-group-title">{group.category}</h4>
                       <ul className="feature-group-items">
-                        {group.items.map((item, itemIndex) => (
+                        {group.items.map((item: string, itemIndex: number) => (
                           <li key={itemIndex}>{item}</li>
                         ))}
                       </ul>
