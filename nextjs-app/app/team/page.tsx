@@ -308,7 +308,7 @@ export default function TeamPage() {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <a href="mailto:kontakt@promakler.de" className="btn-secondary">
+            <a href="mailto:hi@makler-websites.immo" className="btn-secondary">
               <span>E-Mail schreiben</span>
             </a>
           </div>

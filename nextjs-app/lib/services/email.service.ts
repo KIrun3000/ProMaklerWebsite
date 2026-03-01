@@ -27,7 +27,7 @@ export class EmailService {
 
     try {
       const result = await getResend().emails.send({
-        from: "ProMakler Digital <noreply@promakler.de>",
+        from: "ProMakler Digital <noreply@makler-websites.immo>",
         to: options.to,
         subject: options.subject,
         html: options.html,
@@ -184,7 +184,7 @@ export class EmailService {
               </p>
               <p style="margin: 10px 0 0; font-size: 12px;">
                 <a href="tel:+4917672953996" style="color: #C9A962; text-decoration: none;">+49 176 729 539 96</a> | 
-                <a href="mailto:kontakt@promakler.de" style="color: #C9A962; text-decoration: none;">kontakt@promakler.de</a>
+                <a href="mailto:hi@makler-websites.immo" style="color: #C9A962; text-decoration: none;">hi@makler-websites.immo</a>
               </p>
             </td>
           </tr>

@@ -1,7 +1,7 @@
 import ClientBehaviors from "@/components/ClientBehaviors";
 import SiteFooter from "@/components/SiteFooter";
 import TrustBadges from "@/components/TrustBadges";
-import CaseStudies from "@/components/CaseStudies";
+// import CaseStudies from "@/components/CaseStudies"; // ausgeblendet bis echte Daten vorliegen
 import PricingSection from "@/components/PricingSection";
 import TeamSection from "@/components/TeamSection";
 import HeroAudit from "@/components/HeroAudit";
@@ -1334,8 +1334,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Studies Teaser */}
+      {/* Case Studies Teaser – ausgeblendet bis echte Bilder/Daten vorliegen
       <CaseStudies limit={2} showHeader={true} showCTA={true} />
+      */}
 
       {/* Pricing Section Teaser */}
       <PricingSection showFAQ={false} compact={true} />
@@ -1410,7 +1411,7 @@ export default function Home() {
             </p>
 
             <div className="cta-buttons">
-              <a href="mailto:kontakt@promakler.de" className="btn-primary">
+              <a href="mailto:hi@makler-websites.immo" className="btn-primary">
                 <span>Kostenloses Exposé anfordern</span>
                 <svg
                   width="20"

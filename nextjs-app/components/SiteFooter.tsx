@@ -98,9 +98,6 @@ export default function SiteFooter() {
                   <Link href="/team">Über uns</Link>
                 </li>
                 <li>
-                  <Link href="/referenzen">Referenzen</Link>
-                </li>
-                <li>
                   <a href="#prozess">Prozess</a>
                 </li>
                 <li>
@@ -113,7 +110,7 @@ export default function SiteFooter() {
               <h4>Kontakt</h4>
               <ul>
                 <li>
-                  <a href="mailto:kontakt@promakler.de">kontakt@promakler.de</a>
+                  <a href="mailto:hi@makler-websites.immo">hi@makler-websites.immo</a>
                 </li>
                 <li>
                   <a href="tel:+4917672953996">+49 176 729 539 96</a>

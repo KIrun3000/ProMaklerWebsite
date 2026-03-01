@@ -185,7 +185,7 @@ export default function ContactForm() {
               <div className="form-message form-error">
                 ✗ Leider ist ein Fehler aufgetreten. Bitte versuchen Sie es
                 erneut oder kontaktieren Sie uns direkt unter{" "}
-                <a href="mailto:kontakt@promakler.de">kontakt@promakler.de</a>
+                <a href="mailto:hi@makler-websites.immo">hi@makler-websites.immo</a>
               </div>
             )}
           </form>
@@ -226,7 +226,7 @@ export default function ContactForm() {
               </div>
               <div>
                 <h4>E-Mail</h4>
-                <a href="mailto:kontakt@promakler.de">kontakt@promakler.de</a>
+                <a href="mailto:hi@makler-websites.immo">hi@makler-websites.immo</a>
               </div>
             </div>
 

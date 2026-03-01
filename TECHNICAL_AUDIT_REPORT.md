@@ -647,7 +647,7 @@ Standardmäßig aktiv bei Vercel, aber prüfe ob Client-Header `Accept-Encoding:
   "image": "https://promakler-website-git-main-kirun3000s-projects.vercel.app/logo.svg",
   "url": "https://promakler-website-git-main-kirun3000s-projects.vercel.app/",
   "telephone": "+4930123456789",
-  "email": "kontakt@promakler.de",
+  "email": "hi@makler-websites.immo",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Musterstraße 123",
@@ -1079,7 +1079,7 @@ export default function RootLayout({
               image: 'https://promakler-website-git-main-kirun3000s-projects.vercel.app/logo.svg',
               url: 'https://promakler-website-git-main-kirun3000s-projects.vercel.app/',
               telephone: '+4930123456789',
-              email: 'kontakt@promakler.de',
+              email: 'hi@makler-websites.immo',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Musterstraße 123',

@@ -184,7 +184,7 @@ async function createDocument() {
                         new Paragraph({
                           alignment: AlignmentType.RIGHT,
                           children: [
-                            new TextRun({ text: "kontakt@promakler.de", font: "DM Sans", size: 18, color: CREAM })
+                            new TextRun({ text: "hi@makler-websites.immo", font: "DM Sans", size: 18, color: CREAM })
                           ]
                         }),
                         new Paragraph({
@@ -523,7 +523,7 @@ async function createDocument() {
           spacing: { before: 400 },
           children: [
             new TextRun({ text: "Fordern Sie jetzt Ihr kostenloses Exposé an: ", font: "DM Sans", size: 22, color: NAVY }),
-            new TextRun({ text: "kontakt@promakler.de", font: "DM Sans", size: 22, color: GOLD, bold: true })
+            new TextRun({ text: "hi@makler-websites.immo", font: "DM Sans", size: 22, color: GOLD, bold: true })
           ]
         })
       ]

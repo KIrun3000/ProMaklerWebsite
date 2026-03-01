@@ -40,6 +40,11 @@ export default function PricingSection({
               {tier.badge && <span className="pricing-badge">{tier.badge}</span>}
               <h3 className="pricing-name">{tier.name}</h3>
               <div className="pricing-price">{tier.priceRange}</div>
+              {tier.monthlyPrice && (
+                <div style={{ fontSize: "0.9rem", color: "rgba(248,246,241,0.6)", marginTop: "-0.5rem", marginBottom: "0.5rem" }}>
+                  {tier.monthlyPrice}
+                </div>
+              )}
               <p className="pricing-description">{tier.description}</p>
               <p className="pricing-target-audience">{tier.targetAudience}</p>
 

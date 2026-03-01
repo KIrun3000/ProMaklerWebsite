@@ -54,21 +54,25 @@ export async function POST(request: Request) {
 
     // Interne Benachrichtigung an ProMakler-Team
     try {
+      // HTML-Sonderzeichen escapen gegen XSS
+      const esc = (s: string) =>
+        s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
       const internalNotification = `
         <h2>Neue Kontaktanfrage</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>E-Mail:</strong> ${email}</p>
-        ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ""}
-        ${company ? `<p><strong>Unternehmen:</strong> ${company}</p>` : ""}
-        ${website ? `<p><strong>Website:</strong> ${website}</p>` : ""}
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>E-Mail:</strong> ${esc(email)}</p>
+        ${phone ? `<p><strong>Telefon:</strong> ${esc(phone)}</p>` : ""}
+        ${company ? `<p><strong>Unternehmen:</strong> ${esc(company)}</p>` : ""}
+        ${website ? `<p><strong>Website:</strong> ${esc(website)}</p>` : ""}
         <p><strong>Nachricht:</strong></p>
-        <p>${message}</p>
+        <p>${esc(message)}</p>
         <hr>
         <p><small>Eingegangen am: ${new Date().toLocaleString("de-DE")}</small></p>
       `;
 
       await emailService.send({
-        to: "kontakt@promakler.de",
+        to: "hi@makler-websites.immo",
         subject: `Neue Kontaktanfrage von ${name}`,
         html: internalNotification,
       });

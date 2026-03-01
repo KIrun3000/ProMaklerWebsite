@@ -589,7 +589,7 @@ Vor der Erstellung mit Claude Skills sicherstellen:
 
 **ProMakler Digital**  
 Web: https://promakler.de  
-E-Mail: kontakt@promakler.de  
+E-Mail: hi@makler-websites.immo  
 Telefon: +49 123 456 78 (Placeholder)
 
 **Brand Guidelines Version:** 1.0  

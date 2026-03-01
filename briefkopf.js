@@ -87,7 +87,7 @@ const doc = new Document({
                       new Paragraph({
                         alignment: AlignmentType.RIGHT,
                         children: [
-                          new TextRun({ text: "kontakt@promakler.de", font: "DM Sans", size: 18, color: NAVY })
+                          new TextRun({ text: "hi@makler-websites.immo", font: "DM Sans", size: 18, color: NAVY })
                         ]
                       }),
                       new Paragraph({

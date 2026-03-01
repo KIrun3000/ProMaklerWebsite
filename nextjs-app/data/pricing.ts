@@ -2,6 +2,7 @@ export interface PricingTier {
   id: string;
   name: string;
   priceRange: string;
+  monthlyPrice?: string;
   description: string;
   features: string[];
   highlighted?: boolean;
@@ -15,83 +16,88 @@ export interface PricingFAQ {
 
 export const pricingTiers: PricingTier[] = [
   {
-    id: "start",
-    name: "Start",
-    priceRange: "1.900 €",
-    description: "Der perfekte Einstieg für moderne Einzelmakler.",
+    id: "starter",
+    name: "ProMakler Start",
+    priceRange: "1.990 €",
+    monthlyPrice: "+ 69 €/Monat",
+    description: "Für Makler, die sofort mehr Anfragen wollen – ohne Risiko.",
     features: [
-      "High-End One-Page Website",
-      "AstroWind-Technologie (Extrem schnell)",
-      "Rechtssicheres Impressum & Datenschutz",
-      "Kontaktformular + WhatsApp-Button",
-      "Mobile First Design",
-      "SEO-Basis-Setup (Google Business)",
-      "1 Monat Support inklusive",
-      "Hosting-Einrichtung (Vercel/Netlify)",
+      "Kompletter Website-Relaunch (Neubau-Standard)",
+      "Responsive Design – Mobile, Tablet, Desktop",
+      "CRM-Anbindung (onOffice, FlowFact, Propstack)",
+      "SEO-Grundoptimierung für Ihren Standort",
+      "DSGVO-konforme Einrichtung",
+      "SSL-Verschlüsselung & schnelles Hosting",
+      "Branded Dokument-Suite (6 Dokumente)",
+      "Exposé-Vorlage, Briefpapier, Visitenkarte",
+      "Rechnungsvorlage, E-Mail-Signatur, Angebots-Mappe",
+      "Abnahme & Go-Live in 48 Stunden",
+      "Laufende Betreuung & Updates inklusive",
     ],
+    highlighted: true,
+    badge: "Empfehlung",
+  },
+  {
+    id: "professional",
+    name: "ProMakler Pro",
+    priceRange: "2.490 €",
+    monthlyPrice: "+ 89 €/Monat",
+    description: "Für Makler mit höherem Volumen und Wachstumsambitionen.",
+    features: [
+      "Alles aus ProMakler Start",
+      "Mehrseitige Website (bis 7 Unterseiten)",
+      "Immobilien-Expose-Galerie (automatisch befüllt)",
+      "Bewertungs-Tool: Lead-Generierung auf Autopilot",
+      "Off-Market-Login-Bereich für Stammkunden",
+      "Blog/News-System für lokale SEO",
+      "Google Analytics & Search Console Einrichtung",
+      "Erweiterte Dokument-Suite (10+ Dokumente)",
+      "3 Monate Priority-Support",
+    ],
+    highlighted: false,
   },
   {
     id: "premium",
-    name: "Premium",
-    priceRange: "2.900 €",
-    description: "Die Komplettlösung für wachsende Immobilienbüros.",
-    features: [
-      "Multi-Page Website (bis 7 Unterseiten)",
-      "Objekt-Integration (OpenImmo/FlowFact)",
-      "Team-Seite & Karriere-Bereich",
-      "Blog / Ratgeber-Sektion",
-      "Erweitertes SEO-Setup (Local SEO)",
-      "Google Analytics & Search Console",
-      "Lead-Magnet (z.B. Wertermittlung)",
-      "3 Monate Support inklusive",
-      "Premium Design-Anpassungen",
-    ],
-    highlighted: true,
-    badge: "Bestseller",
-  },
-  {
-    id: "enterprise",
-    name: "Enterprise",
+    name: "ProMakler Premium",
     priceRange: "Auf Anfrage",
-    description: "Maßgeschneidert für Filialisten & Bauträger.",
+    description: "Für Büros mit mehreren Standorten oder speziellen Anforderungen.",
     features: [
-      "Unbegrenzte Unterseiten",
-      "Individuelle Schnittstellen-Entwicklung",
-      "Headless CMS Anbindung",
-      "Intranet / Makler-Login Bereiche",
-      "Mehrsprachigkeit (i18n)",
-      "High-Performance Server Setup",
-      "SLA & 24/7 Priority Support",
-      "Custom Design System",
-      "White-Label Lösungen",
+      "Alles aus ProMakler Pro",
+      "Mehrere Standortseiten",
+      "Individuelle API-Integrationen",
+      "Mehrsprachigkeit (DE/EN)",
+      "ImmoScout24 & Immowelt Live-Sync",
+      "Recruiting-Funnel für Makler-Akquise",
+      "Laufende SEO-Betreuung (monatlich)",
+      "Persönlicher Ansprechpartner",
     ],
   },
 ];
 
 export const pricingFAQs: PricingFAQ[] = [
   {
-    frage: "Warum sind Ihre Websites so viel schneller?",
+    frage: "Was bedeutet die monatliche Pauschale?",
     antwort:
-      "Wir nutzen AstroWind – eine moderne Technologie, die unnötigen Ballast entfernt. Das sorgt für Ladezeiten unter 1 Sekunde und besseres Google-Ranking.",
+      "Die monatliche Pauschale (ab 69 €/Monat) deckt Hosting, SSL-Zertifikat, DSGVO-Updates, technische Wartung und kleinere Anpassungen. Sie ist kein klassisches Abo – sondern Ihr digitaler Hausmeister. Keine versteckten Kosten.",
   },
   {
-    frage: "Kann ich meine Immobilien-Software anbinden?",
+    frage: "Wann zahle ich?",
     antwort:
-      "Ja, im Premium-Paket binden wir gängige Makler-Software (onOffice, FlowFact, etc.) via OpenImmo oder API an.",
+      "Sie zahlen erst, wenn Ihre neue Website live ist und Sie sie abgenommen haben. Kein Risiko, keine Vorauszahlung. Der Einmalbetrag wird nach Go-Live fällig.",
   },
   {
-    frage: "Wie lange dauert die Umsetzung?",
+    frage: "Was sind die 6 Dokumente der Branded Suite?",
     antwort:
-      "Start-Projekte sind oft in 5-10 Werktagen live. Premium-Projekte dauern je nach Umfang ca. 2-3 Wochen.",
+      "Zum Launch erhalten Sie: ein professionelles Briefpapier (DIN A4), eine Visitenkarte (Vorder- & Rückseite), eine Exposé-Vorlage, eine Rechnungsvorlage (§14 UStG-konform), eine E-Mail-Signatur und eine Angebotsmappe. Alle im Design Ihrer neuen Website.",
   },
   {
-    frage: "Gehört die Website mir?",
+    frage: "In wie vielen Tagen ist die Website fertig?",
     antwort:
-      "Zu 100%. Keine Mietmodelle, kein Vendor-Lock-in. Sie erhalten den vollen Quellcode und alle Rechte.",
+      "Sie sehen Ihre neue Website als Vorschau innerhalb von 48 Stunden. Nach Ihrer Freigabe ist sie in weiteren 24 Stunden live. Von Erstkontakt bis Go-Live: maximal 72 Stunden.",
   },
   {
-    frage: "Was passiert nach dem Launch?",
+    frage: "Kann ich später upgraden?",
     antwort:
-      "Wir lassen Sie nicht allein. Support ist im Paket enthalten. Danach bieten wir optionale Wartungspakete an, oder Sie pflegen Inhalte selbst.",
+      "Ja – unsere modulare Struktur erlaubt es, Features wie das Bewertungs-Tool, den Off-Market-Bereich oder den Blog jederzeit nachzurüsten. Sie zahlen nur, was Sie wirklich brauchen.",
   },
 ];
