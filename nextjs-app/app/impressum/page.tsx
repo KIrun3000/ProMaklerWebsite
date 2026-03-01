@@ -95,7 +95,7 @@ export default function Impressum() {
                 10178 Berlin
                 <br />
                 <a
-                  href="https://maps.google.com/?q=Rosa-Luxemburg-Straße+17,+10178+Berlin"
+                  href="https://www.google.com/maps/place/Rosa-Luxemburg-Stra%C3%9Fe+17,+10178+Berlin"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "var(--gold)", fontSize: "0.9em" }}
