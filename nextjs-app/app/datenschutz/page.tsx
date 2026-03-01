@@ -113,9 +113,12 @@ export default function Datenschutz() {
                 <br />
                 Telefon: +49 176 729 539 96
                 <br />
-                E-Mail: hi@makler-websites.immo
+                E-Mail:{" "}
+                <a href="mailto:hi@makler-websites.immo" style={{ color: "var(--gold)" }}>
+                  hi@makler-websites.immo
+                </a>
               </p>
-              <p>Vertreten durch: Luca Ingenbleek, Geschäftsführer</p>
+              <p>Vertreten durch: Luca Ingenbleek (Geschäftsführer)</p>
 
               {/* 2. Überblick */}
               <h2 style={h2Style}>

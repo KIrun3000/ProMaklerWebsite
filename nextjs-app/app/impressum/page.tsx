@@ -93,26 +93,44 @@ export default function Impressum() {
                 Rosa-Luxemburg-Straße 17
                 <br />
                 10178 Berlin
+                <br />
+                <a
+                  href="https://maps.google.com/?q=Rosa-Luxemburg-Straße+17,+10178+Berlin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--gold)", fontSize: "0.9em" }}
+                >
+                  Auf Google Maps anzeigen ↗
+                </a>
               </p>
 
-              <h2 style={h2Style}>Unternehmensform</h2>
+              <h2 style={h2Style}>Gesellschaft</h2>
               <p>
-                Einzelunternehmen
+                Gesellschaft mit beschränkter Haftung (GmbH)
+                <br />
+                Registergericht: Amtsgericht Charlottenburg (Berlin)
+                <br />
+                Registernummer: [HRB-Nummer ergänzen]
               </p>
 
               <h2 style={h2Style}>Vertreten durch</h2>
-              <p>Luca Ingenbleek</p>
+              <p>Luca Ingenbleek (Geschäftsführer)</p>
 
               <h2 style={h2Style}>Kontakt</h2>
               <p>
                 Telefon: +49 176 729 539 96
                 <br />
-                E-Mail: hi@makler-websites.immo
+                E-Mail:{" "}
+                <a href="mailto:hi@makler-websites.immo" style={{ color: "var(--gold)" }}>
+                  hi@makler-websites.immo
+                </a>
               </p>
 
               <h2 style={h2Style}>Umsatzsteuer-ID</h2>
               <p>
-                Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).
+                Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
+                <br />
+                [USt-IdNr. nach Erhalt ergänzen]
               </p>
 
               <h2 style={h2Style}>
