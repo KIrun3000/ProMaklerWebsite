@@ -72,7 +72,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <SocialProofTicker />
+        {/* <SocialProofTicker /> */}
         <ConsentBanner />
       </body>
     </html>

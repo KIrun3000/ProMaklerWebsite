@@ -109,37 +109,6 @@ export default function Impressum() {
               Impressum
             </h1>
 
-            {/* PLACEHOLDER NOTICE */}
-            <div
-              style={{
-                background: "rgba(201, 169, 98, 0.15)",
-                border: "2px dashed var(--gold)",
-                padding: "1.5rem",
-                marginBottom: "2rem",
-                textAlign: "center",
-              }}
-            >
-              <p
-                style={{
-                  color: "var(--gold)",
-                  fontWeight: 600,
-                  margin: 0,
-                }}
-              >
-                PLATZHALTER – IN VORBEREITUNG
-              </p>
-              <p
-                style={{
-                  color: "rgba(248, 246, 241, 0.7)",
-                  fontSize: "0.9rem",
-                  marginTop: "0.5rem",
-                  marginBottom: 0,
-                }}
-              >
-                Die finalen Rechtstexte werden in Kürze ergänzt.
-              </p>
-            </div>
-
             <div
               style={{
                 color: "rgba(248, 246, 241, 0.8)",

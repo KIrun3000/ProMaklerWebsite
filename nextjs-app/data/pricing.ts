@@ -1,17 +1,9 @@
-export interface FeatureGroup {
-  category: string;
-  items: string[];
-}
-
 export interface PricingTier {
   id: string;
   name: string;
   priceRange: string;
   description: string;
-  targetAudience: string;
-  coreFeatures: string[];
-  includedPackage: string;
-  detailedFeatures: FeatureGroup[];
+  features: string[];
   highlighted?: boolean;
   badge?: string;
 }
@@ -23,190 +15,83 @@ export interface PricingFAQ {
 
 export const pricingTiers: PricingTier[] = [
   {
-    id: "starter",
-    name: "Starter",
+    id: "start",
+    name: "Start",
     priceRange: "1.900 €",
-    description: "Perfekt für den Einstieg oder als Einzelmakler",
-    targetAudience: "Online gehen + Basisbrand",
-    coreFeatures: [
-      "One-Page-Website mit Responsive Design",
-      "DSGVO-konforme Einrichtung inkl. SSL",
-      "Kontaktformular mit E-Mail-Benachrichtigung",
-      "1 Monat Support nach Launch",
-      "Branding-Paket & Vertriebsunterlagen inklusive",
+    description: "Der perfekte Einstieg für moderne Einzelmakler.",
+    features: [
+      "High-End One-Page Website",
+      "AstroWind-Technologie (Extrem schnell)",
+      "Rechtssicheres Impressum & Datenschutz",
+      "Kontaktformular + WhatsApp-Button",
+      "Mobile First Design",
+      "SEO-Basis-Setup (Google Business)",
+      "1 Monat Support inklusive",
+      "Hosting-Einrichtung (Vercel/Netlify)",
     ],
-    includedPackage: "Branding-Paket & Unterlagen inklusive",
-    detailedFeatures: [
-      {
-        category: "Branding-Paket",
-        items: [
-          "Briefpapier-Vorlage",
-          "E-Mail-Signatur-Vorlage",
-          "Visitenkarte (1 Variante)",
-          "Social-Media-Kit (Basis)",
-        ],
-      },
-      {
-        category: "Vertriebsunterlagen",
-        items: [
-          "Exposé-Vorlage",
-          "Rechnungs-Vorlage (Text & Struktur)",
-          "Angebots-Template (Nutzung)",
-          "Bewertungs-Onepager (Vorlage)",
-        ],
-      },
-      {
-        category: "Operations",
-        items: [
-          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-          "Akquise-Anschreiben Eigentümer",
-          "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile \"Makler Offer Stack\" (/ops)",
-        ],
-      },
-    ],
-  },
-  {
-    id: "professional",
-    name: "Professional",
-    priceRange: "2.900 €",
-    description: "Für etablierte Makler mit Wachstumsambitionen",
-    targetAudience: "Wachsen + CRM + Marketing",
-    coreFeatures: [
-      "Multi-Page Website (5-7 Seiten)",
-      "CRM-Integration (onOffice, FlowFact, Pipedrive)",
-      "Immobilien-Galerie mit Exposé-System",
-      "SEO-Optimierung + Google Analytics",
-      "Vollständiges Branding- & Marketing-Paket",
-    ],
-    includedPackage: "Premium Branding & Marketing-Kit inklusive",
-    detailedFeatures: [
-      {
-        category: "Website-Features",
-        items: [
-          "Multi-Page Website (5-7 Seiten)",
-          "CRM-Integration (onOffice, FlowFact, Pipedrive)",
-          "Immobilien-Expose-Galerie",
-          "Kontaktformular mit CRM-Anbindung",
-          "SEO-Grundoptimierung",
-          "Google Analytics Einrichtung",
-          "3 Monate Support nach Launch",
-        ],
-      },
-      {
-        category: "Branding-Paket Pro",
-        items: [
-          "Briefpapier-Vorlage",
-          "E-Mail-Signatur-Vorlage",
-          "Visitenkarten (2 Varianten)",
-          "Exposé-Vorlage inkl. 2 Layout-Varianten",
-          "Rechnungs-Vorlage (Text & Struktur)",
-        ],
-      },
-      {
-        category: "Marketing & Vertrieb",
-        items: [
-          "Social-Media-Kit (vollständig)",
-          "Akquise-Anschreiben + 2 Betreff-Varianten",
-          "Bewertungs-Onepager (Vorlage)",
-          "Angebots-Template (Anpassung)",
-        ],
-      },
-      {
-        category: "Operations",
-        items: [
-          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-          "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile \"Makler Offer Stack\" (/ops)",
-        ],
-      },
-    ],
-    highlighted: true,
-    badge: "Beliebteste Wahl",
   },
   {
     id: "premium",
     name: "Premium",
-    priceRange: "5.400 €",
-    description: "Maßgeschneiderte Lösungen für große Büros",
-    targetAudience: "Individuelles Projekt + Enterprise",
-    coreFeatures: [
-      "Individuelle Seitenanzahl nach Bedarf",
-      "API-Integrationen (ImmoScout24, Immowelt)",
-      "Investoren-/Off-Market-Bereich mit Login",
-      "Blog-System + Mehrsprachigkeit (DE/EN)",
-      "Laufende SEO-Betreuung + 6 Monate Priority-Support",
+    priceRange: "2.900 €",
+    description: "Die Komplettlösung für wachsende Immobilienbüros.",
+    features: [
+      "Multi-Page Website (bis 7 Unterseiten)",
+      "Objekt-Integration (OpenImmo/FlowFact)",
+      "Team-Seite & Karriere-Bereich",
+      "Blog / Ratgeber-Sektion",
+      "Erweitertes SEO-Setup (Local SEO)",
+      "Google Analytics & Search Console",
+      "Lead-Magnet (z.B. Wertermittlung)",
+      "3 Monate Support inklusive",
+      "Premium Design-Anpassungen",
     ],
-    includedPackage: "Enterprise Branding & Marketing-Suite inklusive",
-    detailedFeatures: [
-      {
-        category: "Enterprise Website",
-        items: [
-          "Individuelle Seitenanzahl nach Bedarf",
-          "API-Integrationen (ImmoScout24, Immowelt, etc.)",
-          "Investoren-/Off-Market-Bereich mit Login",
-          "Blog-/News-System",
-          "Mehrsprachigkeit (DE/EN)",
-          "Laufende SEO-Betreuung",
-          "6 Monate Priority-Support",
-        ],
-      },
-      {
-        category: "Branding-Paket Enterprise",
-        items: [
-          "Briefpapier-Vorlage",
-          "E-Mail-Signatur-Vorlage",
-          "Visitenkarten (3+ Varianten inkl. Team-Set)",
-          "Exposé-Vorlage + 2 Layout-Varianten",
-          "Rechnungs-Vorlage (Text & Struktur)",
-        ],
-      },
-      {
-        category: "Marketing-Suite",
-        items: [
-          "Social-Media-Kit voll + Team-Playbook",
-          "Akquise-Anschreiben (5 Varianten/Segmente)",
-          "Bewertungs-Onepager + 2 Varianten",
-          "Angebots-Template (Anpassung + Varianten)",
-        ],
-      },
-      {
-        category: "Operations & Support",
-        items: [
-          "Portal-Ready-Checkliste (ImmoScout, Immowelt)",
-          "Dokumenten-Übersicht (/documents)",
-          "Ops-Tile \"Makler Offer Stack\" (/ops)",
-          "6 Monate Priority-Support",
-        ],
-      },
+    highlighted: true,
+    badge: "Bestseller",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    priceRange: "Auf Anfrage",
+    description: "Maßgeschneidert für Filialisten & Bauträger.",
+    features: [
+      "Unbegrenzte Unterseiten",
+      "Individuelle Schnittstellen-Entwicklung",
+      "Headless CMS Anbindung",
+      "Intranet / Makler-Login Bereiche",
+      "Mehrsprachigkeit (i18n)",
+      "High-Performance Server Setup",
+      "SLA & 24/7 Priority Support",
+      "Custom Design System",
+      "White-Label Lösungen",
     ],
   },
 ];
 
 export const pricingFAQs: PricingFAQ[] = [
   {
-    frage: "Was ist in den Preisen enthalten?",
+    frage: "Warum sind Ihre Websites so viel schneller?",
     antwort:
-      "Alle Preise beinhalten Konzeption, Design, Entwicklung, Responsive-Optimierung, eine Feedbackrunde und die technische Einrichtung. Hosting und Domain sind nicht enthalten (ca. 10-30 €/Monat).",
+      "Wir nutzen AstroWind – eine moderne Technologie, die unnötigen Ballast entfernt. Das sorgt für Ladezeiten unter 1 Sekunde und besseres Google-Ranking.",
   },
   {
-    frage: "Gibt es laufende Kosten?",
+    frage: "Kann ich meine Immobilien-Software anbinden?",
     antwort:
-      "Die Website-Erstellung ist ein Einmalpreis. Laufende Kosten entstehen nur für Hosting (ca. 10-30 €/Monat) und optionale Services wie SEO-Betreuung oder erweiterten Support.",
+      "Ja, im Premium-Paket binden wir gängige Makler-Software (onOffice, FlowFact, etc.) via OpenImmo oder API an.",
   },
   {
     frage: "Wie lange dauert die Umsetzung?",
     antwort:
-      "Starter-Projekte sind in 1-2 Wochen fertig, Professional in 2-3 Wochen und Premium-Projekte je nach Umfang in 4-6 Wochen.",
+      "Start-Projekte sind oft in 5-10 Werktagen live. Premium-Projekte dauern je nach Umfang ca. 2-3 Wochen.",
   },
   {
-    frage: "Kann ich später upgraden?",
+    frage: "Gehört die Website mir?",
     antwort:
-      "Ja! Unsere modulare Struktur erlaubt es, Features wie CRM-Integration, Blog oder Investoren-Bereich jederzeit nachzurüsten.",
+      "Zu 100%. Keine Mietmodelle, kein Vendor-Lock-in. Sie erhalten den vollen Quellcode und alle Rechte.",
   },
   {
-    frage: "Was ist, wenn ich spezielle Anforderungen habe?",
+    frage: "Was passiert nach dem Launch?",
     antwort:
-      "Kein Problem – wir erstellen gerne ein individuelles Angebot. Vereinbaren Sie einfach ein kostenloses Beratungsgespräch.",
+      "Wir lassen Sie nicht allein. Support ist im Paket enthalten. Danach bieten wir optionale Wartungspakete an, oder Sie pflegen Inhalte selbst.",
   },
 ];

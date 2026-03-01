@@ -411,57 +411,77 @@ export default function AgrarPage() {
       {/* Trust Badges */}
       <TrustBadges />
 
-      {/* Hero Audit – Flächenanalyse CTA */}
+      {/* Hero Audit – Flächenanalyse CTA (2-Spalten wie Homepage) */}
       <section className="hero hero-audit">
-        <div className="container">
-          <div className="hero-content">
-            <span className="hero-tag">Kostenlose Website-Analyse für Agrarmakler</span>
-            <h2>
-              Website-URL eingeben &amp; innerhalb von 24h einen{" "}
-              <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
-              erhalten
-            </h2>
-            <div className="hero-value-prop">
-              <div className="value-prop-icon">
-                <svg
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--gold)"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <div className="value-prop-text">
-                <strong>Die Ertragswert-Rechnung:</strong> Wenn Ihre neue
-                Website nur <em>einen</em> zusätzlichen Agrar-Auftrag
-                generiert, ist Ihre digitale Vermarktungsfläche bereits mit{" "}
-                <strong>Faktor 10</strong> rentiert.
+        <div className="container hero-audit-container">
+          <div className="hero-audit-grid">
+            <div className="hero-audit-form-col">
+              <div className="hero-content">
+                <span className="hero-tag">Kostenlose Website-Analyse für Agrarmakler</span>
+                <h2>
+                  Website-URL eingeben &amp; innerhalb von 24h einen{" "}
+                  <span className="highlight">kostenlosen Relaunch-Entwurf</span>{" "}
+                  erhalten
+                </h2>
+                <div className="hero-value-prop">
+                  <div className="value-prop-icon">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth="2"
+                    >
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
+                  <div className="value-prop-text">
+                    <strong>Die Ertragswert-Rechnung:</strong> Wenn Ihre neue
+                    Website nur <em>einen</em> zusätzlichen Agrar-Auftrag
+                    generiert, ist Ihre digitale Vermarktungsfläche bereits mit{" "}
+                    <strong>Faktor 10</strong> rentiert.
+                  </div>
+                </div>
+                <div className="hero-trust" style={{ marginTop: "2rem" }}>
+                  <div className="trust-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>Analyse in 24 Stunden</span>
+                  </div>
+                  <div className="trust-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span>100% kostenlos &amp; unverbindlich</span>
+                  </div>
+                  <a href="#kontakt" className="btn-primary" style={{ marginLeft: "auto" }}>
+                    <span>Jetzt Entwurf anfordern</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
-            <div className="hero-trust" style={{ marginTop: "2rem" }}>
-              <div className="trust-badge">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>Analyse in 24 Stunden</span>
+            <div className="hero-audit-visual-col">
+              <div className="hero-audit-visual">
+                <div className="hero-audit-stat">
+                  <span className="hero-audit-stat-value">24h</span>
+                  <span className="hero-audit-stat-label">Antwortzeit</span>
+                </div>
+                <div className="hero-audit-stat">
+                  <span className="hero-audit-stat-value">100%</span>
+                  <span className="hero-audit-stat-label">kostenlos</span>
+                </div>
+                <div className="hero-audit-stat">
+                  <span className="hero-audit-stat-value">1</span>
+                  <span className="hero-audit-stat-label">Entwurf für Sie</span>
+                </div>
               </div>
-              <div className="trust-badge">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>100% kostenlos &amp; unverbindlich</span>
-              </div>
-              <a href="#kontakt" className="btn-primary" style={{ marginLeft: "auto" }}>
-                <span>Jetzt Entwurf anfordern</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -729,8 +749,8 @@ export default function AgrarPage() {
                 {/* Dach (Dreieck → Scheunendach-Form) */}
                 <polygon points="120,15 20,50 220,50" stroke="#c9a962" strokeWidth="1" fill="none" />
 
-                <text x="120" y="97" fill="#c9a962" fontSize="8" textAnchor="middle" fontFamily="var(--font-dm-sans)">ADD-ONS</text>
-                <text x="120" y="340" fill="#c9a962" fontSize="8" textAnchor="middle" fontFamily="var(--font-dm-sans)">BASIS</text>
+                <text x="120" y="58" fill="#c9a962" fontSize="6" textAnchor="middle" fontFamily="var(--font-dm-sans)">ADD-ONS</text>
+                <text x="120" y="355" fill="#c9a962" fontSize="6" textAnchor="middle" fontFamily="var(--font-dm-sans)">BASIS</text>
               </svg>
             </div>
 
@@ -738,17 +758,17 @@ export default function AgrarPage() {
               <div className="module-base fade-in">
                 <h3>Die Basis-Website</h3>
                 <p>
-                  Das Fundament Ihres digitalen Gutshofs. Stabil, SEO-optimiert
-                  für Agrar-Keywords, und mit klarer Sprache für Ihre Zielgruppe:
-                  Landwirte, Erbengemeinschaften und Forstbetriebe.
+                  Das Fundament. Stabil, sicher, SEO-optimiert. Hier wohnen Ihre
+                  „Möbel" (Ihre Marke &amp; Inhalte), die wir bereits für Sie
+                  umgezogen haben.
                 </p>
                 <div className="base-features">
                   {[
                     "Responsive Design",
-                    "Agrar-SEO-Optimierung",
+                    "SEO-Grundoptimierung",
                     "SSL-Verschlüsselung",
                     "CRM-Anbindung",
-                    "Flächen-Expose-Galerie",
+                    "Immobilien-Export",
                     "DSGVO-konform",
                   ].map((f) => (
                     <div key={f} className="base-feature">
@@ -766,26 +786,26 @@ export default function AgrarPage() {
                 <div className="addon-cards">
                   <div className="addon-card">
                     <span className="addon-number">01</span>
-                    <h5>Das Flächenbewertungs-Tool</h5>
+                    <h5>Das Bewertungs-Tool</h5>
                     <p>
-                      Eigentümer geben Hektarzahl, Bodenqualität und Region ein
-                      – Sie erhalten qualifizierte Leads auf Autopilot.
+                      Eigentümer-Akquise auf Autopilot. Generieren Sie
+                      qualifizierte Leads durch kostenlose Immobilienbewertungen.
                     </p>
                   </div>
                   <div className="addon-card">
                     <span className="addon-number">02</span>
-                    <h5>Das Agrar-Portfolio-Login</h5>
+                    <h5>Der Recruiting-Funnel</h5>
                     <p>
-                      Diskrete Vermarktung von Landgütern, Hofstellen und
-                      Forstflächen für registrierte Käufer. Off-Market, exklusiv.
+                      Mitarbeiter-Gewinnung systematisiert. Präsentieren Sie Ihre
+                      Karriereseite wie ein A-Objekt.
                     </p>
                   </div>
                   <div className="addon-card">
                     <span className="addon-number">03</span>
-                    <h5>Der Eigentümer-Funnel</h5>
+                    <h5>Das Off-Market-Login</h5>
                     <p>
-                      Zielgruppenspezifische Landingpages für Erbengemeinschaften,
-                      Landwirte und Forstverwaltungen mit automatisiertem Follow-up.
+                      Diskret-Vermarktung für Premium-Kunden. Exklusive Objekte
+                      für registrierte Käufer.
                     </p>
                   </div>
                 </div>
@@ -793,9 +813,9 @@ export default function AgrarPage() {
 
               <div className="angebot-benefit fade-in">
                 <p>
-                  <strong>Ihr Vorteil:</strong> Sie bezahlen nur, was Sie
-                  brauchen. Keine Leerstandskosten für Tools, die für Ihren
-                  Markt nicht relevant sind.
+                  <strong>Ihr Vorteil:</strong> Maximale Flexibilität bei voller
+                  Kostenkontrolle. Keine Leerstands-Kosten für Tools, die Sie
+                  nicht nutzen.
                 </p>
               </div>
             </div>

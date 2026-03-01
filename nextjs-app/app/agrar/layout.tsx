@@ -90,7 +90,7 @@ export default function AgrарLayout({
       </head>
       <body>
         {children}
-        <SocialProofTicker />
+        {/* <SocialProofTicker /> */}
         <ConsentBanner />
       </body>
     </html>

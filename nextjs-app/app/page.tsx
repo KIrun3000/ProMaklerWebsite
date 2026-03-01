@@ -919,9 +919,9 @@ export default function Home() {
                 {/* Labels */}
                 <text
                   x="120"
-                  y="100"
+                  y="58"
                   fill="#c9a962"
-                  fontSize="8"
+                  fontSize="6"
                   textAnchor="middle"
                   fontFamily="var(--font-dm-sans)"
                 >
@@ -929,9 +929,9 @@ export default function Home() {
                 </text>
                 <text
                   x="120"
-                  y="340"
+                  y="355"
                   fill="#c9a962"
-                  fontSize="8"
+                  fontSize="6"
                   textAnchor="middle"
                   fontFamily="var(--font-dm-sans)"
                 >
