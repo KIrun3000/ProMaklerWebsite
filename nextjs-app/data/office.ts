@@ -8,7 +8,7 @@ export const OFFICE = {
   city: "10178 Berlin",
   fullAddress: "Rosa-Luxemburg-Straße 17, 10178 Berlin",
   mapsEmbedUrl:
-    "https://maps.google.com/maps?q=Rosa-Luxemburg-Stra%C3%9Fe+17%2C+10178+Berlin&t=&z=17&ie=UTF8&iwloc=&output=embed",
+    "https://www.google.com/maps?q=Rosa-Luxemburg-Stra%C3%9Fe+17%2C+10178+Berlin&t=&z=17&ie=UTF8&iwloc=&output=embed",
   mapsLinkUrl:
     "https://www.google.com/maps/search/?api=1&query=Rosa-Luxemburg-Straße+17,10178+Berlin",
   note: "Berlin – erreichbar per Mail & Telefon",

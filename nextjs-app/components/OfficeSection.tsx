@@ -1,12 +1,8 @@
 "use client";
 
 import { OFFICE } from "@/data/office";
-import { useState } from "react";
 
 export default function OfficeSection() {
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [imgError, setImgError] = useState(false);
-
   return (
     <section className="office-section section-light" id="standort">
       <div className="container">
@@ -18,48 +14,17 @@ export default function OfficeSection() {
           </p>
         </div>
 
-        <div className="office-grid">
-          <div className="office-photo">
-            <div className="office-photo-inner">
-              {(!imgLoaded || imgError) && (
-                <div className="office-placeholder">
-                  <svg
-                    width="64"
-                    height="64"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--gold)"
-                    strokeWidth="1.5"
-                    style={{ opacity: 0.4 }}
-                  >
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    <polyline points="9 22 9 12 15 12 15 22" />
-                  </svg>
-                </div>
-              )}
-              <img
-                src="/images/office-berlin-mitte.png"
-                alt="Büro ProMakler Berlin Mitte"
-                className="office-img"
-                style={{ display: imgLoaded && !imgError ? "block" : "none" }}
-                onLoad={() => setImgLoaded(true)}
-                onError={() => setImgError(true)}
-              />
-            </div>
-          </div>
-
-          <div className="office-map">
-            <iframe
-              src={OFFICE.mapsEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Karte: ProMakler Büro Berlin"
-            />
-          </div>
+        <div className="office-map-full">
+          <iframe
+            src={OFFICE.mapsEmbedUrl}
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Karte: ProMakler Büro Berlin"
+          />
         </div>
 
         <div className="office-actions">
