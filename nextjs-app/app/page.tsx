@@ -1424,7 +1424,7 @@ export default function Home() {
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
               </a>
-              <a href="tel:+4917672953996" className="btn-secondary">
+              <a href="tel:+4915129722463" className="btn-secondary">
                 <svg
                   width="18"
                   height="18"

@@ -113,7 +113,7 @@ export default function SiteFooter() {
                   <a href="mailto:hi@makler-websites.immo">hi@makler-websites.immo</a>
                 </li>
                 <li>
-                  <a href="tel:+4917672953996">+49 176 729 539 96</a>
+                  <a href="tel:+4915129722463">+49 151 2972 2463</a>
                 </li>
               </ul>
             </div>

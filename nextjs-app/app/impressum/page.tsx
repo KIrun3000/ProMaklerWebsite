@@ -118,7 +118,7 @@ export default function Impressum() {
 
               <h2 style={h2Style}>Kontakt</h2>
               <p>
-                Telefon: +49 176 729 539 96
+                Telefon: +49 151 2972 2463
                 <br />
                 E-Mail:{" "}
                 <a href="mailto:hi@makler-websites.immo" style={{ color: "var(--gold)" }}>
