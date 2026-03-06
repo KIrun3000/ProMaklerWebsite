@@ -934,8 +934,8 @@ export default function AgrarPage() {
         </div>
       </section>
 
-      {/* Agrar Case Studies */}
-      <section className="case-studies-section section-light" id="referenzen">
+      {/* Agrar Case Studies — hidden until real case studies available */}
+      <section className="case-studies-section section-light" id="referenzen" style={{ display: 'none' }}>
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Erfolgsgeschichten</span>
